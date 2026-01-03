@@ -145,80 +145,9 @@
             letter-spacing: 2px;
         }
     }
-
-    /* NAVİGASYON BUTONLARI */
-    .swass-nav-btn {
-        display: flex;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.9);
-        border: none;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 100;
-        opacity: 0.8;
-        transition: opacity 0.3s, transform 0.2s;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        pointer-events: auto;
-    }
-
-    .swass-nav-btn:hover {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.1);
-    }
-
-    .swass-nav-btn:active {
-        transform: translateY(-50%) scale(0.95);
-    }
-
-    .swass-nav-btn svg {
-        width: 18px;
-        height: 18px;
-        pointer-events: none;
-    }
-
-    .swass-left-btn {
-        left: 12px;
-    }
-
-    .swass-right-btn {
-        right: 12px;
-    }
-
-    /* Tablet ve masaüstü için daha büyük butonlar */
-    @media (min-width: 768px) {
-        .swass-nav-btn {
-            width: 48px;
-            height: 48px;
-        }
-
-        .swass-nav-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .swass-left-btn {
-            left: 16px;
-        }
-
-        .swass-right-btn {
-            right: 16px;
-        }
-    }
 </style>
 
 <div class="swass-slider-wrapper">
-    <button class="swass-nav-btn swass-left-btn" id="swassPrevBtn" aria-label="Önceki">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-        </svg>
-    </button>
-
     <div class="swass-product-carousel" id="swassCarousel">
         <a href="https://swassonline.com/kusakli-kazayagi-kase-kaban" target="_parent" class="swass-product-item">
             <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/64f1e31e-39ae-4955-a646-3abc91ac65d0/3840/tezza-7631.webp"
@@ -309,179 +238,100 @@
             </div>
         </a>
     </div>
-
-    <button class="swass-nav-btn swass-right-btn" id="swassNextBtn" aria-label="Sonraki">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-    </button>
 </div>
 
 <script>
-    (function () {
-        function initSlider() {
-            var carousel = document.getElementById('swassCarousel');
-            var nextBtn = document.getElementById('swassNextBtn');
-            var prevBtn = document.getElementById('swassPrevBtn');
-            var wrapper = document.querySelector('.swass-slider-wrapper');
+    // SWASS Slider - Auto-Play ile Elle Sürüklenebilir Versiyon
+    const swassCarousel = document.getElementById('swassCarousel');
+    const swassItems = Array.from(swassCarousel.children);
+    const swassTotalItems = swassItems.length;
 
-            if (!carousel || !nextBtn || !prevBtn) {
-                setTimeout(initSlider, 50);
-                return;
-            }
+    // Clone for infinite scroll
+    swassItems.forEach(item => swassCarousel.appendChild(item.cloneNode(true)));
+    swassItems.forEach(item => swassCarousel.insertBefore(item.cloneNode(true), swassCarousel.firstChild));
 
-            var items = Array.from(carousel.children);
-            var totalItems = items.length;
+    const getSwassItemWidth = () => swassCarousel.children[0].offsetWidth;
 
-            // Clone for infinite scroll
-            items.forEach(function (item) { carousel.appendChild(item.cloneNode(true)); });
-            items.forEach(function (item) { carousel.insertBefore(item.cloneNode(true), carousel.firstChild); });
+    const swassInit = () => {
+        swassCarousel.style.scrollBehavior = 'auto';
+        swassCarousel.scrollLeft = swassTotalItems * getSwassItemWidth();
+        setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 100);
+    };
 
-            function getItemWidth() {
-                return carousel.children[0].offsetWidth;
-            }
+    window.addEventListener('load', swassInit);
+    window.addEventListener('resize', swassInit);
 
-            function init() {
-                carousel.style.scrollBehavior = 'auto';
-                carousel.scrollLeft = totalItems * getItemWidth();
-                setTimeout(function () { carousel.style.scrollBehavior = 'smooth'; }, 100);
-            }
+    // Auto-Play - 3 saniyede bir otomatik kayma
+    let swassAutoPlayInterval;
 
-            init();
-            window.addEventListener('resize', init);
+    const swassStartAutoPlay = () => {
+        swassStopAutoPlay();
+        swassAutoPlayInterval = setInterval(() => {
+            swassCarousel.scrollBy({ left: getSwassItemWidth(), behavior: 'smooth' });
+        }, 3000);
+    };
 
-            // Navigation
-            var isScrolling = false;
-            function scroll(dir) {
-                if (isScrolling) return;
-                isScrolling = true;
-                carousel.scrollBy({ left: dir * getItemWidth(), behavior: 'smooth' });
-                setTimeout(function () { isScrolling = false; }, 500);
-            }
-
-            // Butonlara click event listener ekle
-            function handleNextClick(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                scroll(1);
-                resetAutoPlay();
-            }
-
-            function handlePrevClick(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                scroll(-1);
-                resetAutoPlay();
-            }
-
-            nextBtn.onclick = handleNextClick;
-            prevBtn.onclick = handlePrevClick;
-
-            // Ayrıca addEventListener ile de ekle (güvenlik için)
-            nextBtn.addEventListener('click', handleNextClick);
-            prevBtn.addEventListener('click', handlePrevClick);
-
-            // Auto-play özelliği (3 saniyede bir kayma)
-            var autoPlayInterval = null;
-            var autoPlayDelay = 3000; // 3 saniye
-
-            function startAutoPlay() {
-                stopAutoPlay();
-                autoPlayInterval = setInterval(function () {
-                    scroll(1);
-                }, autoPlayDelay);
-            }
-
-            function stopAutoPlay() {
-                if (autoPlayInterval) {
-                    clearInterval(autoPlayInterval);
-                    autoPlayInterval = null;
-                }
-            }
-
-            function resetAutoPlay() {
-                stopAutoPlay();
-                startAutoPlay();
-            }
-
-            // Auto-play'i başlat
-            startAutoPlay();
-
-            // Kullanıcı etkileşiminde duraklat
-            if (wrapper) {
-                wrapper.addEventListener('mouseenter', stopAutoPlay);
-                wrapper.addEventListener('mouseleave', startAutoPlay);
-                wrapper.addEventListener('touchstart', stopAutoPlay, { passive: true });
-                wrapper.addEventListener('touchend', function () {
-                    setTimeout(startAutoPlay, 1000);
-                }, { passive: true });
-            }
-
-            // Infinite scroll
-            carousel.addEventListener('scroll', function () {
-                var pos = carousel.scrollLeft;
-                var max = carousel.scrollWidth - carousel.offsetWidth;
-                var reset = totalItems * getItemWidth();
-
-                if (pos <= 5) {
-                    carousel.style.scrollBehavior = 'auto';
-                    carousel.scrollLeft = reset;
-                    setTimeout(function () { carousel.style.scrollBehavior = 'smooth'; }, 50);
-                } else if (pos >= max - 5) {
-                    carousel.style.scrollBehavior = 'auto';
-                    carousel.scrollLeft = reset;
-                    setTimeout(function () { carousel.style.scrollBehavior = 'smooth'; }, 50);
-                }
-            });
-
-            // Touch/Drag
-            var isDragging = false, startX, scrollLeft;
-
-            carousel.addEventListener('mousedown', function (e) {
-                isDragging = true;
-                startX = e.pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-                carousel.style.scrollBehavior = 'auto';
-                stopAutoPlay();
-            });
-
-            carousel.addEventListener('mouseleave', function () {
-                isDragging = false;
-                carousel.style.scrollBehavior = 'smooth';
-            });
-
-            carousel.addEventListener('mouseup', function () {
-                isDragging = false;
-                carousel.style.scrollBehavior = 'smooth';
-            });
-
-            carousel.addEventListener('mousemove', function (e) {
-                if (!isDragging) return;
-                e.preventDefault();
-                var x = e.pageX - carousel.offsetLeft;
-                carousel.scrollLeft = scrollLeft - (x - startX) * 2;
-            });
-
-            // Touch events
-            var touchStart = 0;
-            carousel.addEventListener('touchstart', function (e) {
-                touchStart = e.touches[0].pageX;
-                carousel.style.scrollBehavior = 'auto';
-                stopAutoPlay();
-            }, { passive: true });
-
-            carousel.addEventListener('touchend', function () {
-                carousel.style.scrollBehavior = 'smooth';
-            }, { passive: true });
-
-            console.log('SWASS Slider initialized with auto-play');
+    const swassStopAutoPlay = () => {
+        if (swassAutoPlayInterval) {
+            clearInterval(swassAutoPlayInterval);
         }
+    };
 
-        // Initialize when ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initSlider);
-        } else {
-            initSlider();
+    // Auto-play'i başlat
+    swassStartAutoPlay();
+
+    // Infinite scroll
+    swassCarousel.addEventListener('scroll', () => {
+        const pos = swassCarousel.scrollLeft;
+        const max = swassCarousel.scrollWidth - swassCarousel.offsetWidth;
+        const reset = swassTotalItems * getSwassItemWidth();
+
+        if (pos <= 5) {
+            swassCarousel.style.scrollBehavior = 'auto';
+            swassCarousel.scrollLeft = reset;
+            setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 50);
+        } else if (pos >= max - 5) {
+            swassCarousel.style.scrollBehavior = 'auto';
+            swassCarousel.scrollLeft = reset;
+            setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 50);
         }
-    })();
+    });
+
+    // Touch/Drag - Elle sürükleme
+    let swassIsDragging = false, swassStartX, swassScrollLeft;
+
+    swassCarousel.addEventListener('mousedown', (e) => {
+        swassIsDragging = true;
+        swassStartX = e.pageX - swassCarousel.offsetLeft;
+        swassScrollLeft = swassCarousel.scrollLeft;
+        swassCarousel.style.scrollBehavior = 'auto';
+        swassStopAutoPlay(); // Sürüklerken auto-play'i durdur
+    });
+
+    swassCarousel.addEventListener('mouseleave', () => {
+        swassIsDragging = false;
+        swassCarousel.style.scrollBehavior = 'smooth';
+    });
+
+    swassCarousel.addEventListener('mouseup', () => {
+        swassIsDragging = false;
+        swassCarousel.style.scrollBehavior = 'smooth';
+        swassStartAutoPlay(); // Sürükleme bitince auto-play'i yeniden başlat
+    });
+
+    swassCarousel.addEventListener('mousemove', (e) => {
+        if (!swassIsDragging) return;
+        e.preventDefault();
+        const x = e.pageX - swassCarousel.offsetLeft;
+        swassCarousel.scrollLeft = swassScrollLeft - (x - swassStartX) * 2;
+    });
+
+    // Touch events - Mobil sürükleme
+    swassCarousel.addEventListener('touchstart', (e) => {
+        swassStopAutoPlay(); // Touch'ta auto-play'i durdur
+    }, { passive: true });
+
+    swassCarousel.addEventListener('touchend', () => {
+        setTimeout(() => swassStartAutoPlay(), 1000); // 1 saniye sonra auto-play'i başlat
+    }, { passive: true });
 </script>
