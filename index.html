@@ -5,7 +5,6 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
     }
 
     .swass-slider-wrapper {
@@ -39,7 +38,6 @@
         display: none;
     }
 
-    /* ÜRÜN ITEM */
     .swass-product-item {
         position: relative;
         flex: 0 0 100%;
@@ -72,7 +70,6 @@
         }
     }
 
-    /* ARKA PLAN RESMİ - TAM DİKEY FORMAT */
     .swass-product-image {
         width: 100%;
         height: 100%;
@@ -86,7 +83,6 @@
         transform: scale(1.06);
     }
 
-    /* OVERLAY */
     .swass-info-overlay {
         position: absolute;
         inset: 0;
@@ -110,7 +106,6 @@
         color: white;
     }
 
-    /* TABLET AYARLAR */
     @media (max-width: 1024px) {
         .swass-slider-wrapper {
             height: 750px;
@@ -128,7 +123,6 @@
         }
     }
 
-    /* MOBİL AYARLAR */
     @media (max-width: 768px) {
         .swass-slider-wrapper {
             height: 650px;
@@ -241,97 +235,105 @@
 </div>
 
 <script>
-    // SWASS Slider - Auto-Play ile Elle Sürüklenebilir Versiyon
-    const swassCarousel = document.getElementById('swassCarousel');
-    const swassItems = Array.from(swassCarousel.children);
-    const swassTotalItems = swassItems.length;
+    (function () {
+        'use strict';
 
-    // Clone for infinite scroll
-    swassItems.forEach(item => swassCarousel.appendChild(item.cloneNode(true)));
-    swassItems.forEach(item => swassCarousel.insertBefore(item.cloneNode(true), swassCarousel.firstChild));
+        const carousel = document.getElementById('swassCarousel');
+        if (!carousel) return;
 
-    const getSwassItemWidth = () => swassCarousel.children[0].offsetWidth;
+        const items = Array.from(carousel.children);
+        const totalItems = items.length;
 
-    const swassInit = () => {
-        swassCarousel.style.scrollBehavior = 'auto';
-        swassCarousel.scrollLeft = swassTotalItems * getSwassItemWidth();
-        setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 100);
-    };
+        // Clone items for infinite scroll
+        items.forEach(item => carousel.appendChild(item.cloneNode(true)));
+        items.forEach(item => carousel.insertBefore(item.cloneNode(true), carousel.firstChild));
 
-    window.addEventListener('load', swassInit);
-    window.addEventListener('resize', swassInit);
+        const getItemWidth = () => carousel.children[0].offsetWidth;
 
-    // Auto-Play - 3 saniyede bir otomatik kayma
-    let swassAutoPlayInterval;
+        // Initialize position
+        const initPosition = () => {
+            carousel.style.scrollBehavior = 'auto';
+            carousel.scrollLeft = totalItems * getItemWidth();
+            setTimeout(() => carousel.style.scrollBehavior = 'smooth', 100);
+        };
 
-    const swassStartAutoPlay = () => {
-        swassStopAutoPlay();
-        swassAutoPlayInterval = setInterval(() => {
-            swassCarousel.scrollBy({ left: getSwassItemWidth(), behavior: 'smooth' });
-        }, 3000);
-    };
+        window.addEventListener('load', initPosition);
+        window.addEventListener('resize', initPosition);
 
-    const swassStopAutoPlay = () => {
-        if (swassAutoPlayInterval) {
-            clearInterval(swassAutoPlayInterval);
-        }
-    };
+        // Auto-scroll every 4 seconds
+        let autoScrollInterval;
 
-    // Auto-play'i başlat
-    swassStartAutoPlay();
+        const startAutoScroll = () => {
+            stopAutoScroll();
+            autoScrollInterval = setInterval(() => {
+                carousel.scrollBy({
+                    left: getItemWidth(),
+                    behavior: 'smooth'
+                });
+            }, 4000);
+        };
 
-    // Infinite scroll
-    swassCarousel.addEventListener('scroll', () => {
-        const pos = swassCarousel.scrollLeft;
-        const max = swassCarousel.scrollWidth - swassCarousel.offsetWidth;
-        const reset = swassTotalItems * getSwassItemWidth();
+        const stopAutoScroll = () => {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+            }
+        };
 
-        if (pos <= 5) {
-            swassCarousel.style.scrollBehavior = 'auto';
-            swassCarousel.scrollLeft = reset;
-            setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 50);
-        } else if (pos >= max - 5) {
-            swassCarousel.style.scrollBehavior = 'auto';
-            swassCarousel.scrollLeft = reset;
-            setTimeout(() => swassCarousel.style.scrollBehavior = 'smooth', 50);
-        }
-    });
+        startAutoScroll();
 
-    // Touch/Drag - Elle sürükleme
-    let swassIsDragging = false, swassStartX, swassScrollLeft;
+        // Infinite scroll logic
+        carousel.addEventListener('scroll', () => {
+            const pos = carousel.scrollLeft;
+            const max = carousel.scrollWidth - carousel.offsetWidth;
+            const reset = totalItems * getItemWidth();
 
-    swassCarousel.addEventListener('mousedown', (e) => {
-        swassIsDragging = true;
-        swassStartX = e.pageX - swassCarousel.offsetLeft;
-        swassScrollLeft = swassCarousel.scrollLeft;
-        swassCarousel.style.scrollBehavior = 'auto';
-        swassStopAutoPlay(); // Sürüklerken auto-play'i durdur
-    });
+            if (pos <= 5) {
+                carousel.style.scrollBehavior = 'auto';
+                carousel.scrollLeft = reset;
+                setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
+            } else if (pos >= max - 5) {
+                carousel.style.scrollBehavior = 'auto';
+                carousel.scrollLeft = reset;
+                setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
+            }
+        });
 
-    swassCarousel.addEventListener('mouseleave', () => {
-        swassIsDragging = false;
-        swassCarousel.style.scrollBehavior = 'smooth';
-    });
+        // Touch/Drag support
+        let isDragging = false, startX, scrollLeft;
 
-    swassCarousel.addEventListener('mouseup', () => {
-        swassIsDragging = false;
-        swassCarousel.style.scrollBehavior = 'smooth';
-        swassStartAutoPlay(); // Sürükleme bitince auto-play'i yeniden başlat
-    });
+        carousel.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+            carousel.style.scrollBehavior = 'auto';
+            stopAutoScroll();
+        });
 
-    swassCarousel.addEventListener('mousemove', (e) => {
-        if (!swassIsDragging) return;
-        e.preventDefault();
-        const x = e.pageX - swassCarousel.offsetLeft;
-        swassCarousel.scrollLeft = swassScrollLeft - (x - swassStartX) * 2;
-    });
+        carousel.addEventListener('mouseleave', () => {
+            isDragging = false;
+            carousel.style.scrollBehavior = 'smooth';
+        });
 
-    // Touch events - Mobil sürükleme
-    swassCarousel.addEventListener('touchstart', (e) => {
-        swassStopAutoPlay(); // Touch'ta auto-play'i durdur
-    }, { passive: true });
+        carousel.addEventListener('mouseup', () => {
+            isDragging = false;
+            carousel.style.scrollBehavior = 'smooth';
+            setTimeout(startAutoScroll, 2000);
+        });
 
-    swassCarousel.addEventListener('touchend', () => {
-        setTimeout(() => swassStartAutoPlay(), 1000); // 1 saniye sonra auto-play'i başlat
-    }, { passive: true });
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            carousel.scrollLeft = scrollLeft - (x - startX) * 2;
+        });
+
+        // Touch events
+        carousel.addEventListener('touchstart', () => {
+            stopAutoScroll();
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', () => {
+            setTimeout(startAutoScroll, 2000);
+        }, { passive: true });
+    })();
 </script>
