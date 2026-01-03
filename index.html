@@ -7,306 +7,184 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* SIFIRLAMA: Her şey ekranı tam kaplasın */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         html, body {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
+            height: 100%; /* Çok Önemli */
+            overflow: hidden; /* Taşmaları gizle */
             background: #000;
+            font-family: 'Inter', sans-serif;
         }
 
         .slider-wrapper {
-            position: relative;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            position: relative;
         }
 
         .product-carousel {
             display: flex;
             width: 100%;
-            height: 100%;
+            height: 100%; /* Kapsayıcıyı tam doldur */
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            cursor: grab;
+            scrollbar-width: none; /* Firefox scroll gizle */
+            -ms-overflow-style: none; /* IE scroll gizle */
         }
+        .product-carousel::-webkit-scrollbar { display: none; } /* Chrome scroll gizle */
 
-        .product-carousel:active {
-            cursor: grabbing;
-        }
-
-        .product-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
+        /* ITEM YAPISI */
         .product-item {
-            flex: 0 0 50%;
-            width: 50%;
-            height: 100%;
             position: relative;
-            scroll-snap-align: start;
-            text-decoration: none;
+            height: 100%; /* Yüksekliği fulle */
+            flex-shrink: 0; /* Asla büzüşme */
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
 
-        @media (min-width: 1024px) {
-            .product-item {
-                flex: 0 0 33.333%;
-                width: 33.333%;
-            }
-        }
+        /* MOBİL: Ekranda 1 Resim (Tam Genişlik) */
+        .product-item { flex: 0 0 100%; width: 100%; }
 
-        @media (min-width: 1440px) {
-            .product-item {
-                flex: 0 0 25%;
-                width: 25%;
-            }
-        }
+        /* TABLET: Ekranda 2 Resim */
+        @media (min-width: 768px) { .product-item { flex: 0 0 50%; width: 50%; } }
 
+        /* MASAÜSTÜ: Ekranda 3 Resim */
+        @media (min-width: 1024px) { .product-item { flex: 0 0 33.333%; width: 33.333%; } }
+
+        /* BÜYÜK EKRAN: Ekranda 4 Resim */
+        @media (min-width: 1600px) { .product-item { flex: 0 0 25%; width: 25%; } }
+
+        /* GÖRSEL AYARLARI */
         .product-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+            object-fit: cover; /* Resmi kutuya yay, asla boşluk bırakma */
+            object-position: top center;
+            display: block;
         }
 
-        .product-item:hover .product-image {
-            transform: scale(1.05);
-        }
-
+        /* OVERLAY (Yazı Alanı) */
         .info-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
-            color: white;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            pointer-events: none;
         }
-
         .item-name {
-            font-size: 9px;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            opacity: 0.95;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
-        @media (min-width: 768px) {
-            .item-name {
-                font-size: 11px;
-                letter-spacing: 0.2em;
-            }
-            .info-overlay {
-                padding: 24px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .info-overlay {
-                padding: 32px;
-            }
-        }
-
+        /* OK BUTONLARI (Sadece Masaüstü) */
         .nav-btn {
-            display: none;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 44px; height: 44px; background: rgba(255,255,255,0.9);
+            border-radius: 50%; border: none; cursor: pointer; z-index: 10;
+            display: none; align-items: center; justify-content: center;
         }
-
-        @media (min-width: 1024px) {
-            .nav-btn {
-                display: flex;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 48px;
-                height: 48px;
-                background: rgba(255,255,255,0.9);
-                border: none;
-                border-radius: 50%;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                z-index: 10;
-                opacity: 0;
-                transition: opacity 0.3s;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            }
-
-            .slider-wrapper:hover .nav-btn {
-                opacity: 1;
-            }
-
-            .nav-btn svg {
-                width: 20px;
-                height: 20px;
-            }
-
-            .left-btn { left: 16px; }
-            .right-btn { right: 16px; }
-        }
+        @media (min-width: 1024px) { .nav-btn { display: flex; } }
+        .left-btn { left: 20px; } .right-btn { right: 20px; }
+        .nav-btn svg { width: 20px; height: 20px; }
     </style>
 </head>
 <body>
     <div class="slider-wrapper">
-        <button class="nav-btn left-btn" id="prevBtn" aria-label="Önceki">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-            </svg>
-        </button>
-
+        <button class="nav-btn left-btn" id="prevBtn"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg></button>
+        
         <div class="product-carousel" id="carousel">
-            <a href="https://swassonline.com/eva-button-suit-siyah" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/34474134-19d4-498b-b98b-3fdf40773d11/3840/edited-image.webp" class="product-image" alt="Eva Button Suit Siyah">
-                <div class="info-overlay"><div class="item-name">Eva Button Suit Siyah</div></div>
-            </a>
-            <a href="https://swassonline.com/kare-yaka-kot-ceket-ve-pantolon-takim?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b51b7eca-dcd7-4e06-8095-9eeb5ad01986/image_2560.webp" class="product-image" alt="Kare Yaka Kot Ceket Takım">
-                <div class="info-overlay"><div class="item-name">Kare Yaka Kot Ceket Takım</div></div>
-            </a>
-            <a href="https://swassonline.com/modern-aura-siyah-palazzo?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/e4490209-ab64-44e9-9384-244f07edf816/2560/img-3531.webp" class="product-image" alt="Siyah Palazzo Pantolon">
-                <div class="info-overlay"><div class="item-name">Siyah Palazzo Pantolon</div></div>
-            </a>
-            <a href="https://swassonline.com/yarim-kol-volanli-elbise-siyah" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/4187e39b-1f68-436c-9712-7f66c9aeb893/image_3840.webp" class="product-image" alt="Yarım Kol Volanlı Elbise Siyah">
-                <div class="info-overlay"><div class="item-name">Yarım Kol Volanlı Elbise Siyah</div></div>
-            </a>
-            <a href="https://swassonline.com/tek-dugmeli-leopar-desenli-ceket?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c7535961-f35f-4af0-b727-70be057ea410/image_3840.webp" class="product-image" alt="Tek Düğmeli Leopar Desenli Ceket">
-                <div class="info-overlay"><div class="item-name">Tek Düğmeli Leopar Desenli Ceket</div></div>
-            </a>
-            <a href="https://swassonline.com/gina-sculpt-takim-siyah?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/6d617127-ec6d-4944-aba9-2880757aea3d/2560/bccaf24b-dfd0-4c97-9da2-abc101a87157.webp" class="product-image" alt="Gina Sculpt Takım Siyah">
-                <div class="info-overlay"><div class="item-name">Gina Sculpt Takım Siyah</div></div>
-            </a>
-            <a href="https://swassonline.com/eva-button-suit-mor?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b60a5047-365f-45ae-b885-941bc45efb2b/2560/0c9ff71e-cdd9-41f6-9a4f-5aaebe26e386.webp" class="product-image" alt="Eva Button Suit Mor">
-                <div class="info-overlay"><div class="item-name">Eva Button Suit Mor</div></div>
-            </a>
-            <a href="https://swassonline.com/jane-button-tailored-suit-mor?Beden=S" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c10e2a15-3074-4e5e-af72-233131ebf482/2560/0eff9468-e78a-41f7-bf0c-ae0bc45b37b0.webp" class="product-image" alt="Jane Button Tailored Suit Mor">
-                <div class="info-overlay"><div class="item-name">Jane Button Tailored Suit Mor</div></div>
-            </a>
-            <a href="https://swassonline.com/donna-elbise-siyah" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/8f59288f-7e85-4897-9bdf-295953a48c2d/2560/image-11.webp" class="product-image" alt="Donna Elbise Siyah">
-                <div class="info-overlay"><div class="item-name">Donna Elbise Siyah</div></div>
-            </a>
-            <a href="https://swassonline.com/siyah-puantiyeli-sifon-pliseli-uzun-etek-ve-kolsuz-kruvaze-yelek-takim" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c894368b-dd64-4dd1-8d50-aded0990f8b7/3840/img-7629.webp" class="product-image" alt="Siyah Puantiyeli Şifon Takım">
-                <div class="info-overlay"><div class="item-name">Siyah Puantiyeli Şifon Takım</div></div>
-            </a>
-            <a href="https://swassonline.com/binici-pantolon-kahverengi" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/87cf5f55-275a-42e8-9eaf-f3cdf2ae7bbe/image_2560.webp" class="product-image" alt="Binici Pantolon Kahverengi">
-                <div class="info-overlay"><div class="item-name">Binici Pantolon Kahverengi</div></div>
-            </a>
             <a href="https://swassonline.com/kusakli-kazayagi-kase-kaban" target="_parent" class="product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/64f1e31e-39ae-4955-a646-3abc91ac65d0/3840/tezza-7631.webp" class="product-image" alt="Kuşaklı Kazayağı Kaşe Kaban">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/64f1e31e-39ae-4955-a646-3abc91ac65d0/3840/tezza-7631.webp" class="product-image">
                 <div class="info-overlay"><div class="item-name">Kuşaklı Kazayağı Kaşe Kaban</div></div>
             </a>
+            <a href="https://swassonline.com/binici-pantolon-kahverengi" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/87cf5f55-275a-42e8-9eaf-f3cdf2ae7bbe/image_2560.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Binici Pantolon Kahverengi</div></div>
+            </a>
+            <a href="https://swassonline.com/siyah-puantiyeli-sifon-pliseli-uzun-etek-ve-kolsuz-kruvaze-yelek-takim" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c894368b-dd64-4dd1-8d50-aded0990f8b7/3840/img-7629.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Siyah Puantiyeli Şifon Takım</div></div>
+            </a>
+            <a href="https://swassonline.com/donna-elbise-siyah" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/8f59288f-7e85-4897-9bdf-295953a48c2d/2560/image-11.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Donna Elbise Siyah</div></div>
+            </a>
+            <a href="https://swassonline.com/jane-button-tailored-suit-mor?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c10e2a15-3074-4e5e-af72-233131ebf482/2560/0eff9468-e78a-41f7-bf0c-ae0bc45b37b0.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Jane Button Tailored Suit Mor</div></div>
+            </a>
+            <a href="https://swassonline.com/eva-button-suit-mor?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b60a5047-365f-45ae-b885-941bc45efb2b/2560/0c9ff71e-cdd9-41f6-9a4f-5aaebe26e386.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Eva Button Suit Mor</div></div>
+            </a>
+            <a href="https://swassonline.com/gina-sculpt-takim-siyah?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/6d617127-ec6d-4944-aba9-2880757aea3d/2560/bccaf24b-dfd0-4c97-9da2-abc101a87157.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Gina Sculpt Takım Siyah</div></div>
+            </a>
+            <a href="https://swassonline.com/tek-dugmeli-leopar-desenli-ceket?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c7535961-f35f-4af0-b727-70be057ea410/image_3840.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Tek Düğmeli Leopar Desenli Ceket</div></div>
+            </a>
+            <a href="https://swassonline.com/yarim-kol-volanli-elbise-siyah" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/4187e39b-1f68-436c-9712-7f66c9aeb893/image_3840.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Yarım Kol Volanlı Elbise Siyah</div></div>
+            </a>
+            <a href="https://swassonline.com/modern-aura-siyah-palazzo?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/e4490209-ab64-44e9-9384-244f07edf816/2560/img-3531.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Siyah Palazzo Pantolon</div></div>
+            </a>
+            <a href="https://swassonline.com/kare-yaka-kot-ceket-ve-pantolon-takim?Beden=S" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b51b7eca-dcd7-4e06-8095-9eeb5ad01986/image_2560.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Kare Yaka Kot Ceket Takım</div></div>
+            </a>
+            <a href="https://swassonline.com/eva-button-suit-siyah" target="_parent" class="product-item">
+                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/34474134-19d4-498b-b98b-3fdf40773d11/3840/edited-image.webp" class="product-image">
+                <div class="info-overlay"><div class="item-name">Eva Button Suit Siyah</div></div>
+            </a>
         </div>
-
-        <button class="nav-btn right-btn" id="nextBtn" aria-label="Sonraki">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-        </button>
+        
+        <button class="nav-btn right-btn" id="nextBtn"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
 
     <script>
-        const carousel = document.getElementById('carousel');
-        const items = Array.from(carousel.children);
-        const totalItems = items.length;
-
-        // Clone for infinite scroll
-        items.forEach(item => carousel.appendChild(item.cloneNode(true)));
-        items.forEach(item => carousel.insertBefore(item.cloneNode(true), carousel.firstChild));
-
-        const getItemWidth = () => carousel.children[0].offsetWidth;
+        const c = document.getElementById('carousel');
+        const items = Array.from(c.children);
         
-        const init = () => {
-            carousel.style.scrollBehavior = 'auto';
-            carousel.scrollLeft = totalItems * getItemWidth();
-            setTimeout(() => carousel.style.scrollBehavior = 'smooth', 100);
+        // Sonsuz döngü klonlama
+        items.forEach(i => c.appendChild(i.cloneNode(true)));
+        
+        let autoPlayInterval;
+        const width = () => c.children[0].offsetWidth;
+        
+        // Oto oynat
+        const start = () => {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                c.scrollBy({left: width(), behavior: 'smooth'});
+            }, 3000);
+        };
+        start();
+
+        // Butonlar
+        document.getElementById('nextBtn').onclick = () => { 
+            c.scrollBy({left: width(), behavior: 'smooth'}); 
+            start(); 
+        };
+        document.getElementById('prevBtn').onclick = () => { 
+            c.scrollBy({left: -width(), behavior: 'smooth'}); 
+            start(); 
         };
 
-        window.addEventListener('load', init);
-        window.addEventListener('resize', init);
-
-        // Navigation
-        let isScrolling = false;
-        const scroll = (dir) => {
-            if (isScrolling) return;
-            isScrolling = true;
-            carousel.scrollBy({ left: dir * getItemWidth(), behavior: 'smooth' });
-            setTimeout(() => isScrolling = false, 500);
-        };
-
-        document.getElementById('nextBtn').onclick = () => scroll(1);
-        document.getElementById('prevBtn').onclick = () => scroll(-1);
-
-        // Infinite scroll
-        carousel.addEventListener('scroll', () => {
-            const pos = carousel.scrollLeft;
-            const max = carousel.scrollWidth - carousel.offsetWidth;
-            const reset = totalItems * getItemWidth();
-
-            if (pos <= 5) {
-                carousel.style.scrollBehavior = 'auto';
-                carousel.scrollLeft = reset;
-                setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
-            } else if (pos >= max - 5) {
-                carousel.style.scrollBehavior = 'auto';
-                carousel.scrollLeft = reset;
-                setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
+        // Scroll Döngüsü (Başa sarması için)
+        c.addEventListener('scroll', () => {
+            if (c.scrollLeft >= (c.scrollWidth / 2)) {
+                c.scrollLeft = 0; // Başa zıpla
             }
         });
-
-        // Touch/Drag
-        let isDragging = false, startX, scrollLeft;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-            carousel.style.scrollBehavior = 'auto';
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isDragging = false;
-            carousel.style.scrollBehavior = 'smooth';
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDragging = false;
-            carousel.style.scrollBehavior = 'smooth';
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            carousel.scrollLeft = scrollLeft - (x - startX) * 2;
-        });
-
-        // Touch events
-        let touchStart = 0;
-        carousel.addEventListener('touchstart', (e) => {
-            touchStart = e.touches[0].pageX;
-            carousel.style.scrollBehavior = 'auto';
-        }, { passive: true });
-
-        carousel.addEventListener('touchend', () => {
-            carousel.style.scrollBehavior = 'smooth';
-        }, { passive: true });
+        
+        // Dokununca durdur
+        c.addEventListener('touchstart', () => clearInterval(autoPlayInterval));
+        c.addEventListener('touchend', start);
     </script>
 </body>
 </html>
