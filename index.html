@@ -1,356 +1,438 @@
-<!DOCTYPE html>
-<html lang="tr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swass Product Carousel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<div id="tr_carousel_6239" class="tr-wrapper">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* CONTAINER */
+        #tr_carousel_6239 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
+        
+        /* HEADER */
+        #tr_carousel_6239 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
+        #tr_carousel_6239 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
+        #tr_carousel_6239 .tr-rating-details { display: flex; flex-direction: column; }
+        #tr_carousel_6239 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
+        #tr_carousel_6239 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
+        #tr_carousel_6239 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+
+        /* AI CARD */
+        #tr_carousel_6239 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+        #tr_carousel_6239 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
+
+        /* CAROUSEL YAPISI */
+        #tr_carousel_6239 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
+        #tr_carousel_6239 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
+        
+        /* KART AYARLARI (3'lü Görünüm) */
+        #tr_carousel_6239 .tr-card { 
+            flex: 0 0 calc(33.333% - 14px); /* 3 Kart Sığdırma Hesabı */
+            background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
+            padding: 24px; display: flex; flex-direction: column; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box;
+            height: auto; min-height: 350px; /* Eşit yükseklik hissi */
         }
-
-        html {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Inter', sans-serif;
-            background: #000;
-        }
-
-        .swass-slider-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        .swass-product-carousel {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            cursor: grab;
-            scroll-behavior: smooth;
-        }
-
-        .swass-product-carousel:active {
-            cursor: grabbing;
-        }
-
-        .swass-product-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .swass-product-item {
-            position: relative;
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-            scroll-snap-align: start;
-            text-decoration: none;
-            color: white !important;
-            overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .swass-product-item {
-                flex: 0 0 50%;
-                width: 50%;
-                height: 100%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .swass-product-item {
-                flex: 0 0 33.333%;
-                width: 33.333%;
-                height: 100%;
-            }
-        }
-
-        @media (min-width: 1440px) {
-            .swass-product-item {
-                flex: 0 0 25%;
-                width: 25%;
-                height: 100%;
-            }
-        }
-
-        .swass-product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            display: block;
-        }
-
-        .swass-product-item:hover .swass-product-image {
-            transform: scale(1.06);
-        }
-
-        .swass-info-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0) 50%,
-                    rgba(0, 0, 0, 0.3) 70%,
-                    rgba(0, 0, 0, 0.85) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            z-index: 100;
-        }
-
-        .swass-item-name {
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            opacity: 0.9;
-            color: white;
-        }
-
-        @media (max-width: 1024px) {
-            .swass-info-overlay {
-                padding: 30px;
-            }
-
-            .swass-item-name {
-                font-size: 12px;
-                letter-spacing: 3px;
-            }
-        }
-
+        
+        /* MOBİL UYUMLULUK (Telefonda 1 kart görünsün) */
         @media (max-width: 768px) {
-            .swass-info-overlay {
-                padding: 24px;
-            }
-
-            .swass-item-name {
-                font-size: 10px;
-                letter-spacing: 2px;
-            }
+            #tr_carousel_6239 .tr-card { flex: 0 0 100%; }
         }
-    </style>
-</head>
 
-<body>
-    <div class="swass-slider-wrapper">
-        <div class="swass-product-carousel" id="swassCarousel">
-            <a href="https://swassonline.com/kusakli-kazayagi-kase-kaban" target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/64f1e31e-39ae-4955-a646-3abc91ac65d0/3840/tezza-7631.webp"
-                    class="swass-product-image" alt="Kuşaklı Kazayağı Kaşe Kaban">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Kuşaklı Kazayağı Kaşe Kaban</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/binici-pantolon-kahverengi" target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/87cf5f55-275a-42e8-9eaf-f3cdf2ae7bbe/image_2560.webp"
-                    class="swass-product-image" alt="Binici Pantolon Kahverengi">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Binici Pantolon Kahverengi</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/siyah-puantiyeli-sifon-pliseli-uzun-etek-ve-kolsuz-kruvaze-yelek-takim"
-                target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c894368b-dd64-4dd1-8d50-aded0990f8b7/3840/img-7629.webp"
-                    class="swass-product-image" alt="Siyah Puantiyeli Şifon Takım">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Siyah Puantiyeli Şifon Takım</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/donna-elbise-siyah" target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/8f59288f-7e85-4897-9bdf-295953a48c2d/2560/image-11.webp"
-                    class="swass-product-image" alt="Donna Elbise Siyah">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Donna Elbise Siyah</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/jane-button-tailored-suit-mor?Beden=S" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c10e2a15-3074-4e5e-af72-233131ebf482/2560/0eff9468-e78a-41f7-bf0c-ae0bc45b37b0.webp"
-                    class="swass-product-image" alt="Jane Button Tailored Suit Mor">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Jane Button Tailored Suit Mor</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/eva-button-suit-mor?Beden=S" target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b60a5047-365f-45ae-b885-941bc45efb2b/2560/0c9ff71e-cdd9-41f6-9a4f-5aaebe26e386.webp"
-                    class="swass-product-image" alt="Eva Button Suit Mor">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Eva Button Suit Mor</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/gina-sculpt-takim-siyah?Beden=S" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/6d617127-ec6d-4944-aba9-2880757aea3d/2560/bccaf24b-dfd0-4c97-9da2-abc101a87157.webp"
-                    class="swass-product-image" alt="Gina Sculpt Takım Siyah">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Gina Sculpt Takım Siyah</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/tek-dugmeli-leopar-desenli-ceket?Beden=S" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/c7535961-f35f-4af0-b727-70be057ea410/image_3840.webp"
-                    class="swass-product-image" alt="Tek Düğmeli Leopar Desenli Ceket">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Tek Düğmeli Leopar Desenli Ceket</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/yarim-kol-volanli-elbise-siyah" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/4187e39b-1f68-436c-9712-7f66c9aeb893/image_3840.webp"
-                    class="swass-product-image" alt="Yarım Kol Volanlı Elbise Siyah">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Yarım Kol Volanlı Elbise Siyah</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/modern-aura-siyah-palazzo?Beden=S" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/e4490209-ab64-44e9-9384-244f07edf816/2560/img-3531.webp"
-                    class="swass-product-image" alt="Siyah Palazzo Pantolon">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Siyah Palazzo Pantolon</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/kare-yaka-kot-ceket-ve-pantolon-takim?Beden=S" target="_parent"
-                class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/b51b7eca-dcd7-4e06-8095-9eeb5ad01986/image_2560.webp"
-                    class="swass-product-image" alt="Kare Yaka Kot Ceket Takım">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Kare Yaka Kot Ceket Takım</span>
-                </div>
-            </a>
-            <a href="https://swassonline.com/eva-button-suit-siyah" target="_parent" class="swass-product-item">
-                <img src="https://cdn.myikas.com/images/b00f42d7-cc5d-4338-a601-3fc361f2e2f0/34474134-19d4-498b-b98b-3fdf40773d11/3840/edited-image.webp"
-                    class="swass-product-image" alt="Eva Button Suit Siyah">
-                <div class="swass-info-overlay">
-                    <span class="swass-item-name">Eva Button Suit Siyah</span>
-                </div>
-            </a>
+        #tr_carousel_6239 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+        #tr_carousel_6239 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
+        #tr_carousel_6239 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
+        #tr_carousel_6239 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
+        #tr_carousel_6239 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+        #tr_carousel_6239 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
+        #tr_carousel_6239 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
+        
+        /* NAVİGASYON BUTONLARI */
+        #tr_carousel_6239 .tr-nav-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%); 
+            background: #000; color: #fff; border: none; 
+            width: 40px; height: 40px; border-radius: 50%; 
+            cursor: pointer; z-index: 10; display: flex; 
+            align-items: center; justify-content: center; font-size: 1.2rem;
+            opacity: 0.8; transition: opacity 0.3s;
+        }
+        #tr_carousel_6239 .tr-nav-btn:hover { opacity: 1; }
+        #tr_carousel_6239 .tr-prev { left: 0; }
+        #tr_carousel_6239 .tr-next { right: 0; }
+        
+        /* Butonları devre dışı bırakma stili */
+        #tr_carousel_6239 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+
+        /* GALERİ */
+        #tr_carousel_6239 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
+        #tr_carousel_6239 .tr-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; cursor: pointer; }
+    </style>
+
+    <div class="tr-header-card">
+        <div class="tr-rating-big">4.8</div>
+        <div class="tr-rating-details">
+            <div class="tr-stars-gold">★★★★★</div>
+            <div class="tr-rating-label">Genel Ortalama</div>
+            <div class="tr-count-text">49 Değerlendirme 25 Yorum</div>
         </div>
     </div>
 
+    <div class="tr-ai-card">
+        <div class="tr-ai-title">🤖 Değerlendirme Özeti</div>
+        <p style="margin:0; font-size:0.9rem; line-height:1.5;">Müşteriler, ürünün şık ve kaliteli tasarımını, tam beden uyumunu ve salaş olmayan fit kalıbını övgüyle karşılamışlardır. Görsellerle uyumlu renk ve desenleri, kumaş kalitesini ve hızlı iade sürecini de olumlu bir şekilde değerlendirmişlerdir. Bununla birlikte, bazı kullanıcılar ürünün bol geldiğini belirtmiş ve kumaş kalitesini dijital baskı olarak eleştirmiştir. Genel olarak ürün, şık tasarımı ve kaliteli yapısıyla beğenilmiştir.</p>
+    </div>
+
+    <div class="tr-carousel-container">
+        <button class="tr-nav-btn tr-prev" id="prev_tr_carousel_6239">&#10094;</button>
+        <div class="tr-track" id="track_tr_carousel_6239">
+
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">N** C**</span>
+                        <span class="tr-date">14 Mayıs 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
+                <div class="tr-comment-text">Çok şık tam kalıp güzel ceket 54 kilo S beden tam oldu alın tavsiye olunur.</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">S** A** P**</span>
+                        <span class="tr-date">5 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 166 cm</span><span class="tr-tag">Kilo: 84 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+                <div class="tr-comment-text">Fit kalıp olduğu için bedenimizin bir üstünü verirseniz sorun yaşamazsınız harika ben çok beğendim 🤩🤩🤩</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">Melek Y.</span>
+                        <span class="tr-date">23 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">Beden: M</span></div>
+                <div class="tr-comment-text">Muhteşem bir ceket Arzu eden herkes gönül rahatlığıyla alabilir üreticisinin ellerine sağlık</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">A** Ç**</span>
+                        <span class="tr-date">16 Ekim 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">Resimdeki gibi çok güzel çok beğendim bayıldım tavsiye ederim. tam beden kendi bedeninizi alabilirsiniz</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">**** ****</span>
+                        <span class="tr-date">19 Nisan 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">çok güzel kaliteli tavsiye ediyorum alin bence😊💫</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">S** Ö**</span>
+                        <span class="tr-date">14 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★☆</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: 2XL</span></div>
+                <div class="tr-comment-text">güzel bir ceket</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">Emine Ç.</span>
+                        <span class="tr-date">16 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 75 kg</span><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">Harika bir ürün çok şık duruyor tam kalıp Teşekkürler trendyol :)</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">s** S**</span>
+                        <span class="tr-date">17 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 80 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+                <div class="tr-comment-text">Muhteşem bir ceket</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">L** D** Ş**</span>
+                        <span class="tr-date">28 Ekim 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: S</span></div>
+                <div class="tr-comment-text">Ürün çok güzel Beden tercihini yanlış yaptığım için iyade ediyorum. doğru beden tercihini ile tekrar sipariş verdim. iyade süreci hızlıydı. Yeni siparişimde hızlı geldi. çok güzel bir ceket. teşekkürler.</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">füsun g. a.</span>
+                        <span class="tr-date">22 Eylül 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★☆</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: L</span></div>
+                <div class="tr-comment-text">Ceket guzel ama biraz buyuk oldu o yuzden m beden aldim L bedeni iade edicem</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">İ** S** Ö**</span>
+                        <span class="tr-date">16 Mayıs 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
+                <div class="tr-comment-text">Çok güzel, şık bir yemekte ve düğünlerde güzel durur.</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">**** ****</span>
+                        <span class="tr-date">25 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 85 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+                <div class="tr-comment-text">muhteşem hiç düşünmeden alın Teşekkürler SWASS ONLİNE Teşekkürler Trendyol</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">A** M**</span>
+                        <span class="tr-date">26 Aralık 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★☆</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">büyük geldi iade ettim 1 beden küçük alın</div>
+                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758995951.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758995951.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758994560.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758994560.jpeg" class="tr-thumb"></a></div>
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">U** T**</span>
+                        <span class="tr-date">20 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 66 kg</span><span class="tr-tag">Beden: L</span></div>
+                <div class="tr-comment-text">Mükemmel teşekkürler</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">İ** K**</span>
+                        <span class="tr-date">16 Ağustos 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 62 kg</span><span class="tr-tag">Beden: S</span></div>
+                <div class="tr-comment-text">Mükemmel kelimesi hafif kalır yanında</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">Z** K**</span>
+                        <span class="tr-date">30 Aralık 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 150 cm</span><span class="tr-tag">Kilo: 55 kg</span><span class="tr-tag">Beden: S</span></div>
+                <div class="tr-comment-text">Çok güzel harika begenerek kullanıyorum</div>
+                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079298695.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079298695.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079296798.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079296798.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079300588.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079300588.jpeg" class="tr-thumb"></a></div>
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">Şenay D. T.</span>
+                        <span class="tr-date">16 Eylül 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">ürün çok güzel çok memnun kaldım teşekkürler</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">K** K**</span>
+                        <span class="tr-date">29 Aralık 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
+                <div class="tr-comment-text">Şık duruyor.</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">a** h**</span>
+                        <span class="tr-date">9 Nisan 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 70 kg</span><span class="tr-tag">Beden: L</span></div>
+                <div class="tr-comment-text">çok araştırdım ama değdi kalıbı kumaşı çok güzel</div>
+                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1742466981198/img/2018925/2022913/2027898/901572898/18501553-1744216455683.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1742466981198/img/2018925/2022913/2027898/901572898/18501553-1744216455683.jpeg" class="tr-thumb"></a></div>
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">N** I**</span>
+                        <span class="tr-date">3 Ocak 2026</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 167 cm</span><span class="tr-tag">Kilo: 72 kg</span><span class="tr-tag">Beden: L</span></div>
+                <div class="tr-comment-text">ürün çok güzel üzerime dikilmiş gibi oldu . 166 boy,71 kiloyum</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">d** c**</span>
+                        <span class="tr-date">15 Aralık 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 158 cm</span><span class="tr-tag">Kilo: 58 kg</span><span class="tr-tag">Beden: XL</span></div>
+                <div class="tr-comment-text">çok güzel bir ceket</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">N** d**</span>
+                        <span class="tr-date">9 Ağustos 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★☆☆☆☆</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 178 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: M</span></div>
+                <div class="tr-comment-text">kumaş kalitesini begenmedim desen baskısı dijital baskı</div>
+                
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">E** G**</span>
+                        <span class="tr-date">25 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 156 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: L</span></div>
+                <div class="tr-comment-text">Harika bir ceket. Tam beden uyumlu. Kalıbı salaş değil. Ben çok beğendim. Severek giyiyorum.</div>
+                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019643300.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019643300.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019642548.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019642548.jpeg" class="tr-thumb"></a></div>
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">c** d**</span>
+                        <span class="tr-date">11 Kasım 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
+                <div class="tr-comment-text">muhtesemmmm</div>
+                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2029892/901572898/157551591-1762858170994.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2029892/901572898/157551591-1762858170994.jpeg" class="tr-thumb"></a></div>
+            </div>
+            <div class="tr-card">
+                <div class="tr-card-top">
+                    <div class="tr-user-info">
+                        <span class="tr-username">L** E**</span>
+                        <span class="tr-date">1 Aralık 2025</span>
+                    </div>
+                    <div class="tr-card-stars">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 59 kg</span><span class="tr-tag">Beden: M</span></div>
+                <div class="tr-comment-text">ürün gorselle aynı renk olarak dokusu da iyi biraz bol oldu iade ile uğraşmak istemiyorum ama mecbur bir beden küçüğünü alicam fiyat farkı olması can sıkıcı</div>
+                
+            </div>
+        </div>
+        <button class="tr-nav-btn tr-next" id="next_tr_carousel_6239">&#10095;</button>
+    </div>
+
     <script>
-        (function () {
-            'use strict';
+    (function() {
+        const track = document.getElementById('track_tr_carousel_6239');
+        const prevBtn = document.getElementById('prev_tr_carousel_6239');
+        const nextBtn = document.getElementById('next_tr_carousel_6239');
+        let currentIndex = 0;
 
-            const carousel = document.getElementById('swassCarousel');
-            if (!carousel) return;
+        function updateCarousel() {
+            if(!track) return;
+            const card = track.querySelector('.tr-card');
+            if(!card) return;
 
-            const items = Array.from(carousel.children);
-            const totalItems = items.length;
+            const cardWidth = card.offsetWidth;
+            const gap = 20; 
+            const moveAmount = (cardWidth + gap) * currentIndex;
+            track.style.transform = `translateX(-${moveAmount}px)`;
+            
+            prevBtn.disabled = currentIndex === 0;
+            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+            const totalCards = track.children.length;
+            nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
+        }
 
-            // Clone items for infinite scroll
-            items.forEach(item => carousel.appendChild(item.cloneNode(true)));
-            items.forEach(item => carousel.insertBefore(item.cloneNode(true), carousel.firstChild));
-
-            const getItemWidth = () => carousel.children[0].offsetWidth;
-
-            // Initialize position
-            const initPosition = () => {
-                carousel.style.scrollBehavior = 'auto';
-                carousel.scrollLeft = totalItems * getItemWidth();
-                setTimeout(() => carousel.style.scrollBehavior = 'smooth', 100);
-            };
-
-            window.addEventListener('load', initPosition);
-            window.addEventListener('resize', initPosition);
-
-            // Auto-scroll every 4 seconds
-            let autoScrollInterval;
-
-            const startAutoScroll = () => {
-                stopAutoScroll();
-                autoScrollInterval = setInterval(() => {
-                    carousel.scrollBy({
-                        left: getItemWidth(),
-                        behavior: 'smooth'
-                    });
-                }, 4000);
-            };
-
-            const stopAutoScroll = () => {
-                if (autoScrollInterval) {
-                    clearInterval(autoScrollInterval);
-                }
-            };
-
-            startAutoScroll();
-
-            // Infinite scroll logic
-            carousel.addEventListener('scroll', () => {
-                const pos = carousel.scrollLeft;
-                const max = carousel.scrollWidth - carousel.offsetWidth;
-                const reset = totalItems * getItemWidth();
-
-                if (pos <= 5) {
-                    carousel.style.scrollBehavior = 'auto';
-                    carousel.scrollLeft = reset;
-                    setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
-                } else if (pos >= max - 5) {
-                    carousel.style.scrollBehavior = 'auto';
-                    carousel.scrollLeft = reset;
-                    setTimeout(() => carousel.style.scrollBehavior = 'smooth', 50);
+        if(nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+                const totalCards = track.children.length;
+                if (currentIndex < totalCards - cardsToShow) {
+                    currentIndex++;
+                    updateCarousel();
                 }
             });
+        }
 
-            // Touch/Drag support
-            let isDragging = false, startX, scrollLeft;
-
-            carousel.addEventListener('mousedown', (e) => {
-                isDragging = true;
-                startX = e.pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-                carousel.style.scrollBehavior = 'auto';
-                stopAutoScroll();
+        if(prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
             });
+        }
 
-            carousel.addEventListener('mouseleave', () => {
-                isDragging = false;
-                carousel.style.scrollBehavior = 'smooth';
-            });
-
-            carousel.addEventListener('mouseup', () => {
-                isDragging = false;
-                carousel.style.scrollBehavior = 'smooth';
-                setTimeout(startAutoScroll, 2000);
-            });
-
-            carousel.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
-                e.preventDefault();
-                const x = e.pageX - carousel.offsetLeft;
-                carousel.scrollLeft = scrollLeft - (x - startX) * 2;
-            });
-
-            // Touch events
-            carousel.addEventListener('touchstart', () => {
-                stopAutoScroll();
-            }, { passive: true });
-
-            carousel.addEventListener('touchend', () => {
-                setTimeout(startAutoScroll, 2000);
-            }, { passive: true });
-        })();
+        window.addEventListener('resize', updateCarousel);
+        
+        // Fotoğraflar yüklenince kaymayı düzeltmek için
+        window.addEventListener('load', updateCarousel);
+        setTimeout(updateCarousel, 500); 
+    })();
     </script>
-</body>
-
-</html>
+</div>
