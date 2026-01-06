@@ -1,337 +1,314 @@
-<div id="tr_widget_69835" class="tr-wrapper">
-<style>
-/* RESET & CONTAINER */
-#tr_widget_69835 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; box-sizing: border-box; background-color: #fff; padding: 20px; border-radius: 8px; width: 100%; position: relative; }
-#tr_widget_69835 * { box-sizing: border-box; }
 
-/* --- HEADER --- */
-#tr_widget_69835 .tr-header-card { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-#tr_widget_69835 .tr-rating-big { font-size: 3rem; font-weight: 800; margin-right: 15px; color: #111; line-height: 1; }
-#tr_widget_69835 .tr-stars-gold { color: #F27A1A; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 5px; }
-#tr_widget_69835 .tr-count-text { font-size: 0.85rem; color: #666; font-weight: 500; }
+<div id="tr_widget_45573" class="tr-wrapper">
+    <style>
+        #tr_widget_45573 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; box-sizing: border-box; background-color: #fff; padding: 20px; border-radius: 8px; width: 100%; position: relative; overflow: hidden; }
+        #tr_widget_45573 * { box-sizing: border-box; }
 
-/* --- FILTRELEME ALANI (Krem Rengi) --- */
-#tr_widget_69835 .tr-filters-container {
-background-color: #FFF9F3; /* Krem Rengi */
-border-radius: 12px;
-padding: 20px;
-margin-bottom: 25px;
-}
-#tr_widget_69835 .tr-filter-section { margin-bottom: 15px; }
-#tr_widget_69835 .tr-filter-section:last-child { margin-bottom: 0; }
-#tr_widget_69835 .tr-filter-title { 
-display: block; font-size: 0.9rem; font-weight: 700; color: #666; margin-bottom: 10px; 
-}
-#tr_widget_69835 .tr-filter-row { display: flex; flex-wrap: wrap; gap: 10px; }
+        /* HEADER */
+        #tr_widget_45573 .tr-header-card { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        #tr_widget_45573 .tr-rating-big { font-size: 3rem; font-weight: 800; margin-right: 15px; color: #111; line-height: 1; }
+        #tr_widget_45573 .tr-stars-gold { color: #F27A1A; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 5px; }
+        #tr_widget_45573 .tr-count-text { font-size: 0.85rem; color: #666; font-weight: 500; }
 
-#tr_widget_69835 .tr-filter-btn {
-background: #fff; border: 1px solid #e6e6e6; border-radius: 8px;
-padding: 8px 16px; font-size: 0.85rem; font-weight: 600; color: #333;
-cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
-}
-#tr_widget_69835 .tr-filter-btn:hover { border-color: #F27A1A; color: #F27A1A; }
-#tr_widget_69835 .tr-filter-btn.active { 
-background-color: #333; color: #fff; border-color: #333; 
-}
-#tr_widget_69835 .tr-filter-count { color: #999; font-weight: 400; font-size: 0.8rem; }
-#tr_widget_69835 .tr-filter-btn.active .tr-filter-count { color: #ccc; }
+        /* FILTERS */
+        #tr_widget_45573 .tr-filters-container { background-color: #FFF9F3; border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        #tr_widget_45573 .tr-filter-title { display: block; font-size: 0.9rem; font-weight: 700; color: #666; margin-bottom: 10px; }
+        #tr_widget_45573 .tr-filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+        #tr_widget_45573 .tr-filter-row:last-child { margin-bottom: 0; }
+        
+        #tr_widget_45573 .tr-filter-btn {
+            background: #fff; border: 1px solid #e6e6e6; border-radius: 8px;
+            padding: 8px 16px; font-size: 0.85rem; font-weight: 600; color: #333;
+            cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
+        }
+        #tr_widget_45573 .tr-filter-btn:hover { border-color: #F27A1A; color: #F27A1A; }
+        #tr_widget_45573 .tr-filter-btn.active { background-color: #333; color: #fff; border-color: #333; }
+        #tr_widget_45573 .tr-filter-count { color: #999; font-weight: 400; font-size: 0.8rem; }
+        #tr_widget_45573 .tr-filter-btn.active .tr-filter-count { color: #ccc; }
+        
+        /* AI CARD */
+        #tr_widget_45573 .tr-ai-card { background: #f0f8ff; border-left: 4px solid #0056b3; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
+        #tr_widget_45573 .tr-ai-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; color: #0056b3; }
 
-/* --- AI CARD --- */
-#tr_widget_69835 .tr-ai-card { background: #f0f8ff; border-left: 4px solid #0056b3; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
-#tr_widget_69835 .tr-ai-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; color: #0056b3; }
+        /* CAROUSEL */
+        #tr_widget_45573 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 5px; }
+        #tr_widget_45573 .tr-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); gap: 20px; }
+        
+        /* CARD */
+        #tr_widget_45573 .tr-card { 
+            flex: 0 0 calc(33.333% - 14px); 
+            background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px;
+            display: flex; flex-direction: column; height: auto; min-height: 320px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        #tr_widget_45573 .tr-card.hidden { display: none; } 
 
-/* --- CAROUSEL --- */
-#tr_widget_69835 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 5px; }
-#tr_widget_69835 .tr-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); gap: 20px; }
+        @media (max-width: 768px) { #tr_widget_45573 .tr-card { flex: 0 0 100%; } }
 
-/* CARD */
-#tr_widget_69835 .tr-card { 
-flex: 0 0 calc(33.333% - 14px); 
-background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px;
-display: flex; flex-direction: column; height: auto; min-height: 320px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-#tr_widget_69835 .tr-card.hidden { display: none; } /* Filtreleme için */
+        #tr_widget_45573 .tr-card-top { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        #tr_widget_45573 .tr-username { font-weight: 700; font-size: 0.9rem; }
+        #tr_widget_45573 .tr-date { font-size: 0.75rem; color: #999; display: block; }
+        #tr_widget_45573 .tr-stars-small { color: #F27A1A; font-size: 0.9rem; }
+        #tr_widget_45573 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+        #tr_widget_45573 .tr-tag { background: #f4f4f4; color: #555; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; }
+        #tr_widget_45573 .tr-comment { font-size: 0.9rem; line-height: 1.5; color: #444; flex-grow: 1; margin-bottom: 15px; overflow: hidden; }
+        
+        /* Nav Buttons */
+        #tr_widget_45573 .tr-nav-btn { 
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 40px; height: 40px; border-radius: 50%; background: #fff; 
+            border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 18px; color: #333; cursor: pointer; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+        }
+        #tr_widget_45573 .tr-nav-btn:hover { background: #333; color: #fff; border-color: #333; }
+        #tr_widget_45573 .tr-nav-btn:disabled { opacity: 0.3; cursor: default; background: #fff; color: #ccc; }
+        #tr_widget_45573 .tr-prev { left: 0; }
+        #tr_widget_45573 .tr-next { right: 0; }
 
-@media (max-width: 768px) { #tr_widget_69835 .tr-card { flex: 0 0 100%; } }
+        /* Gallery */
+        #tr_widget_45573 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; }
+        #tr_widget_45573 .tr-thumb { 
+            width: 60px; height: 60px; object-fit: cover; border-radius: 6px; 
+            border: 1px solid #eee; cursor: zoom-in; opacity: 0.9;
+        }
+        #tr_widget_45573 .tr-thumb:hover { opacity: 1; border-color: #333; }
 
-#tr_widget_69835 .tr-card-top { display: flex; justify-content: space-between; margin-bottom: 12px; }
-#tr_widget_69835 .tr-username { font-weight: 700; font-size: 0.9rem; }
-#tr_widget_69835 .tr-date { font-size: 0.75rem; color: #999; display: block; }
-#tr_widget_69835 .tr-stars-small { color: #F27A1A; font-size: 0.9rem; }
-#tr_widget_69835 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
-#tr_widget_69835 .tr-tag { background: #f4f4f4; color: #555; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; }
-#tr_widget_69835 .tr-comment { font-size: 0.9rem; line-height: 1.5; color: #444; flex-grow: 1; margin-bottom: 15px; overflow: hidden; }
+        /* LIGHTBOX */
+        #tr_widget_45573 .tr-lightbox {
+            display: none; position: fixed; z-index: 2147483647; left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center;
+        }
+        #tr_widget_45573 .tr-lb-img { 
+            max-width: 95vw; max-height: 90vh; border-radius: 4px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+        #tr_widget_45573 .tr-lb-close {
+            position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 100;
+        }
+        #tr_widget_45573 .tr-lb-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: rgba(255,255,255,0.7); font-size: 50px; cursor: pointer; padding: 20px;
+            user-select: none; z-index: 99; transition: color 0.2s;
+        }
+        #tr_widget_45573 .tr-lb-nav:hover { color: #fff; background: rgba(0,0,0,0.2); border-radius: 5px; }
+        #tr_widget_45573 .tr-lb-prev { left: 10px; }
+        #tr_widget_45573 .tr-lb-next { right: 10px; }
+    </style>
 
-/* Nav Buttons */
-#tr_widget_69835 .tr-nav-btn { 
-position: absolute; top: 50%; transform: translateY(-50%);
-width: 40px; height: 40px; border-radius: 50%; background: #fff; 
-border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-font-size: 18px; color: #333; cursor: pointer; z-index: 10;
-display: flex; align-items: center; justify-content: center;
-transition: all 0.2s;
-}
-#tr_widget_69835 .tr-nav-btn:hover { background: #333; color: #fff; border-color: #333; }
-#tr_widget_69835 .tr-nav-btn:disabled { opacity: 0.3; cursor: default; background: #fff; color: #ccc; }
-#tr_widget_69835 .tr-prev { left: 0; }
-#tr_widget_69835 .tr-next { right: 0; }
+    <div class="tr-header-card">
+        <div class="tr-rating-big">3</div>
+        <div>
+            <div class="tr-stars-gold">★★★☆☆</div>
+            <div class="tr-count-text">2 Değerlendirme 2 Yorum</div>
+        </div>
+    </div>
 
-/* Thumbnails */
-#tr_widget_69835 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; }
-#tr_widget_69835 .tr-thumb { 
-width: 60px; height: 60px; object-fit: cover; border-radius: 6px; 
-border: 1px solid #eee; cursor: zoom-in; opacity: 0.9;
-}
-#tr_widget_69835 .tr-thumb:hover { opacity: 1; border-color: #333; }
+    <div class="tr-filters-container">
+        <div class="tr-filter-section">
+            <span class="tr-filter-title">Konuya Göre Filtrele</span>
+            <div class="tr-filter-row">
+                <button class="tr-filter-btn active" data-filter="all">Tümü <span class="tr-filter-count">(1)</span></button>
+                <button class="tr-filter-btn" data-filter="photo">📸 Fotoğraflı <span class="tr-filter-count">(1)</span></button>
+            </div>
+        </div>
+        <div class="tr-filter-section">
+            <span class="tr-filter-title">Puana Göre Filtrele</span>
+            <div class="tr-filter-row">
+                <button class="tr-filter-btn" data-star="5">★★★★★ <span class="tr-filter-count">(1)</span></button>
+                <button class="tr-filter-btn" data-star="4">★★★★☆ <span class="tr-filter-count">(0)</span></button>
+                <button class="tr-filter-btn" data-star="3">★★★☆☆ <span class="tr-filter-count">(0)</span></button>
+            </div>
+        </div>
+    </div>
 
-/* --- LIGHTBOX (FIXED) --- */
-#tr_widget_69835 .tr-lightbox {
-display: none; position: fixed; z-index: 2147483647; left: 0; top: 0; width: 100%; height: 100%; 
-background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center;
-}
-#tr_widget_69835 .tr-lb-img { 
-max-width: 95vw; max-height: 90vh; /* GÖRSEL BÜYÜTÜLDÜ */
-border-radius: 4px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-#tr_widget_69835 .tr-lb-close {
-position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 100;
-}
-#tr_widget_69835 .tr-lb-nav {
-position: absolute; top: 50%; transform: translateY(-50%);
-color: rgba(255,255,255,0.7); font-size: 50px; cursor: pointer; padding: 20px;
-user-select: none; z-index: 99; transition: color 0.2s;
-}
-#tr_widget_69835 .tr-lb-nav:hover { color: #fff; background: rgba(0,0,0,0.2); border-radius: 5px; }
-#tr_widget_69835 .tr-lb-prev { left: 10px; }
-#tr_widget_69835 .tr-lb-next { right: 10px; }
-</style>
+    <div class="tr-carousel-container">
+        <button class="tr-nav-btn tr-prev" id="prev_tr_widget_45573">&#10094;</button>
+        <div class="tr-track" id="track_tr_widget_45573">
 
-<div class="tr-header-card">
-<div class="tr-rating-big">3</div>
-<div>
-<div class="tr-stars-gold">★★★☆☆</div>
-<div class="tr-count-text">2 Değerlendirme 2 Yorum</div>
-</div>
-</div>
+            <div class="tr-card" data-has-photo="true" data-star="5">
+                <div class="tr-card-top">
+                    <div><div class="tr-username">H** T**</div><div class="tr-date">27 Kasım 2024</div></div>
+                    <div class="tr-stars-small">★★★★★</div>
+                </div>
+                <div class="tr-tags"><span class="tr-tag">Boy: 150 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">size: L</span></div>
+                <div class="tr-comment">Güzel ürün arkadaşlar biraz tüy döküyor ama az</div>
+                <div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756843808113/img/2017928/2028895/2044847/870303619/14604973-1732731959889.jpeg" class="tr-thumb tr-lb-trigger"></div>
+            </div>
+        </div>
+        <button class="tr-nav-btn tr-next" id="next_tr_widget_45573">&#10095;</button>
+    </div>
 
-<div class="tr-filters-container">
-<div class="tr-filter-section">
-<span class="tr-filter-title">Konuya Göre Filtrele</span>
-<div class="tr-filter-row">
-<button class="tr-filter-btn active" data-filter="all">Tümü <span class="tr-filter-count">(2)</span></button>
-<button class="tr-filter-btn" data-filter="photo">📸 Fotoğraflı <span class="tr-filter-count">(1)</span></button>
-</div>
-</div>
-<div class="tr-filter-section">
-<span class="tr-filter-title">Puana Göre Filtrele</span>
-<div class="tr-filter-row">
-<button class="tr-filter-btn" data-star="5">★★★★★ <span class="tr-filter-count">(1)</span></button>
-<button class="tr-filter-btn" data-star="4">★★★★☆ <span class="tr-filter-count">(0)</span></button>
-<button class="tr-filter-btn" data-star="3">★★★☆☆ <span class="tr-filter-count">(0)</span></button>
-<button class="tr-filter-btn" data-star="2">★★☆☆☆ <span class="tr-filter-count">(0)</span></button>
-<button class="tr-filter-btn" data-star="1">★☆☆☆☆ <span class="tr-filter-count">(1)</span></button>
-</div>
-</div>
-</div>
+    <div id="lb_tr_widget_45573" class="tr-lightbox">
+        <span class="tr-lb-close" id="lb_close_tr_widget_45573">&times;</span>
+        <div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_widget_45573">&#10094;</div>
+        <img class="tr-lb-img" id="lb_img_tr_widget_45573" src=">
+        <div class="tr-lb-nav tr-lb-next" id="lb_next_tr_widget_45573">&#10095;</div>
+    </div>
 
-<div class="tr-carousel-container">
-<button class="tr-nav-btn tr-prev" id="prev_tr_widget_69835">&#10094;</button>
-<div class="tr-track" id="track_tr_widget_69835">
+    <script>
+    (function() {
+        const root = document.getElementById('tr_widget_45573');
+        const track = document.getElementById('track_tr_widget_45573');
+        const prevBtn = document.getElementById('prev_tr_widget_45573');
+        const nextBtn = document.getElementById('next_tr_widget_45573');
+        
+        // --- AUTO HEIGHT İÇİN MESAJ GÖNDERME ---
+        function sendHeight() {
+            const height = root.scrollHeight; // Tüm wrapper yüksekliği
+            // Parent pencereye mesaj gönder
+            if (window.parent) {
+                window.parent.postMessage({ type: 'yorum-height', height: height }, '*');
+            }
+        }
 
-<div class="tr-card" data-has-photo="false" data-star="1">
-<div class="tr-card-top">
-<div><div class="tr-username">n** K**</div><div class="tr-date">22 Kasım 2024</div></div>
-<div class="tr-stars-small">★☆☆☆☆</div>
-</div>
-<div class="tr-tags"><span class="tr-tag">size: M</span></div>
-<div class="tr-comment">m sipariş verdim gelen ürün 36 beden iade</div>
+        // Yükseklik değişimini tetikleyen her olayda çağıracağız
+        window.addEventListener('load', () => { setTimeout(sendHeight, 100); });
+        window.addEventListener('resize', sendHeight);
 
-</div>
-<div class="tr-card" data-has-photo="true" data-star="5">
-<div class="tr-card-top">
-<div><div class="tr-username">H** T**</div><div class="tr-date">27 Kasım 2024</div></div>
-<div class="tr-stars-small">★★★★★</div>
-</div>
-<div class="tr-tags"><span class="tr-tag">Boy: 150 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">size: L</span></div>
-<div class="tr-comment">Güzel ürün arkadaşlar biraz tüy döküyor ama az</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756843808113/img/2017928/2028895/2044847/870303619/14604973-1732731959889.jpeg" class="tr-thumb tr-lb-trigger"></div>
-</div>
-</div>
-<button class="tr-nav-btn tr-next" id="next_tr_widget_69835">&#10095;</button>
-</div>
+        // --- FILTRELEME ---
+        let activeFilter = 'all';
+        let activeStar = null; 
 
-<div id="lb_tr_widget_69835" class="tr-lightbox">
-<span class="tr-lb-close" id="lb_close_tr_widget_69835">&times;</span>
-<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_widget_69835">&#10094;</div>
-<img class="tr-lb-img" id="lb_img_tr_widget_69835" src=">
-<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_widget_69835">&#10095;</div>
-</div>
+        function applyFilters() {
+            const cards = track.querySelectorAll('.tr-card');
+            let visibleCount = 0;
 
-<script>
-(function() {
-const root = document.getElementById('tr_widget_69835');
-const track = document.getElementById('track_tr_widget_69835');
-const prevBtn = document.getElementById('prev_tr_widget_69835');
-const nextBtn = document.getElementById('next_tr_widget_69835');
+            cards.forEach(card => {
+                const hasPhoto = card.getAttribute('data-has-photo') === 'true';
+                const star = parseInt(card.getAttribute('data-star'));
+                let show = true;
+                
+                if (activeFilter === 'photo' && !hasPhoto) show = false;
+                if (activeStar !== null && star !== activeStar) show = false;
 
-// --- FILTRELEME MANTIĞI ---
-let activeFilter = 'all';
-let activeStar = null; // null means 'all stars'
+                if (show) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            currentIndex = 0;
+            updateCarousel();
+            setTimeout(sendHeight, 300); // Filtre değişince boyu yeniden bildir
+        }
 
-function applyFilters() {
-const cards = track.querySelectorAll('.tr-card');
-let visibleCount = 0;
+        const filterBtns = root.querySelectorAll('.tr-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn.hasAttribute('data-filter')) {
+                    root.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilter = btn.getAttribute('data-filter');
+                } else if(btn.hasAttribute('data-star')) {
+                    const starVal = parseInt(btn.getAttribute('data-star'));
+                    if (activeStar === starVal) {
+                        activeStar = null; 
+                        btn.classList.remove('active');
+                    } else {
+                        root.querySelectorAll('[data-star]').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        activeStar = starVal;
+                    }
+                }
+                applyFilters();
+            });
+        });
 
-cards.forEach(card => {
-const hasPhoto = card.getAttribute('data-has-photo') === 'true';
-const star = parseInt(card.getAttribute('data-star'));
+        // --- CAROUSEL ---
+        let currentIndex = 0;
+        function updateCarousel() {
+            const visibleCards = Array.from(track.querySelectorAll('.tr-card:not(.hidden)'));
+            
+            if(visibleCards.length === 0) {
+                track.style.transform = 'translateX(0)';
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                return;
+            } else {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+            }
 
-let show = true;
+            const cardWidth = visibleCards[0].offsetWidth;
+            const gap = 20; 
+            const moveAmount = (cardWidth + gap) * currentIndex;
+            track.style.transform = `translateX(-${moveAmount}px)`;
+            
+            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex >= visibleCards.length - cardsToShow;
+            
+            sendHeight(); // Kaydırma sonrası boy kontrolü
+        }
 
-// Konu Filtresi
-if (activeFilter === 'photo' && !hasPhoto) show = false;
+        nextBtn.addEventListener('click', () => {
+            const visibleCards = track.querySelectorAll('.tr-card:not(.hidden)');
+            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+            if (currentIndex < visibleCards.length - cardsToShow) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
 
-// Puan Filtresi
-if (activeStar !== null && star !== activeStar) show = false;
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
 
-if (show) {
-card.classList.remove('hidden');
-visibleCount++;
-} else {
-card.classList.add('hidden');
-}
-});
+        window.addEventListener('resize', updateCarousel);
+        setTimeout(updateCarousel, 500); 
 
-// Carousel'i başa sar ve güncelle
-currentIndex = 0;
-updateCarousel();
-}
+        // --- LIGHTBOX ---
+        const lightbox = document.getElementById('lb_tr_widget_45573');
+        const lbImg = document.getElementById('lb_img_tr_widget_45573');
+        const lbClose = document.getElementById('lb_close_tr_widget_45573');
+        const lbPrev = document.getElementById('lb_prev_tr_widget_45573');
+        const lbNext = document.getElementById('lb_next_tr_widget_45573');
+        
+        let lbImages = [];
+        let lbIndex = 0;
 
-// Buton Eventleri
-const filterBtns = root.querySelectorAll('.tr-filter-btn');
-filterBtns.forEach(btn => {
-btn.addEventListener('click', () => {
-// Active class yönetimi
-if(btn.hasAttribute('data-filter')) {
-// Konu butonu
-root.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-activeFilter = btn.getAttribute('data-filter');
-} else if(btn.hasAttribute('data-star')) {
-// Yıldız butonu - Toggle mantığı (aynısına basınca kapat)
-const starVal = parseInt(btn.getAttribute('data-star'));
-if (activeStar === starVal) {
-activeStar = null; // Filtreyi kaldır
-btn.classList.remove('active');
-} else {
-root.querySelectorAll('[data-star]').forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-activeStar = starVal;
-}
-}
-applyFilters();
-});
-});
+        const allThumbs = root.querySelectorAll('.tr-lb-trigger');
+        allThumbs.forEach((img, idx) => {
+            img.addEventListener('click', () => {
+                lbImages = [];
+                let clickedSrc = img.src;
+                root.querySelectorAll('.tr-lb-trigger').forEach(t => lbImages.push(t.src));
+                lbIndex = lbImages.indexOf(clickedSrc);
+                openLightbox();
+            });
+        });
 
-// --- CAROUSEL MANTIĞI ---
-let currentIndex = 0;
-function updateCarousel() {
-const visibleCards = Array.from(track.querySelectorAll('.tr-card:not(.hidden)'));
+        function openLightbox() {
+            lightbox.style.display = 'flex';
+            updateLbImage();
+        }
 
-if(visibleCards.length === 0) {
-track.style.transform = 'translateX(0)';
-prevBtn.style.display = 'none';
-nextBtn.style.display = 'none';
-return;
-} else {
-prevBtn.style.display = 'flex';
-nextBtn.style.display = 'flex';
-}
+        function updateLbImage() {
+            lbImg.src = lbImages[lbIndex];
+        }
 
-const cardWidth = visibleCards[0].offsetWidth;
-const gap = 20; 
-const moveAmount = (cardWidth + gap) * currentIndex;
-track.style.transform = `translateX(-${moveAmount}px)`;
+        if(lbNext) lbNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lbIndex = (lbIndex + 1) % lbImages.length;
+            updateLbImage();
+        });
 
-const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+        if(lbPrev) lbPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+            updateLbImage();
+        });
 
-prevBtn.disabled = currentIndex === 0;
-nextBtn.disabled = currentIndex >= visibleCards.length - cardsToShow;
-}
+        function closeLb() { lightbox.style.display = 'none'; }
+        if(lbClose) lbClose.addEventListener('click', closeLb);
+        if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLb(); });
 
-nextBtn.addEventListener('click', () => {
-const visibleCards = track.querySelectorAll('.tr-card:not(.hidden)');
-const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-if (currentIndex < visibleCards.length - cardsToShow) {
-currentIndex++;
-updateCarousel();
-}
-});
-
-prevBtn.addEventListener('click', () => {
-if (currentIndex > 0) {
-currentIndex--;
-updateCarousel();
-}
-});
-
-window.addEventListener('resize', updateCarousel);
-setTimeout(updateCarousel, 500); // Resimler yüklenince
-
-// --- LIGHTBOX MANTIĞI (FIXED) ---
-const lightbox = document.getElementById('lb_tr_widget_69835');
-const lbImg = document.getElementById('lb_img_tr_widget_69835');
-const lbClose = document.getElementById('lb_close_tr_widget_69835');
-const lbPrev = document.getElementById('lb_prev_tr_widget_69835');
-const lbNext = document.getElementById('lb_next_tr_widget_69835');
-
-let lbImages = [];
-let lbIndex = 0;
-
-// Tüm resimleri topla
-const allThumbs = root.querySelectorAll('.tr-lb-trigger');
-allThumbs.forEach((img, idx) => {
-img.addEventListener('click', () => {
-// Sadece görünür kartların resimlerini mi almalı? Hayır, hepsini alabiliriz veya 
-// daha gelişmiş olması için sadece o anki filtredeki resimleri toplayabiliriz.
-// Basitlik için tüm resimleri topluyoruz.
-lbImages = [];
-let clickedSrc = img.src;
-
-// Sırayı korumak için tekrar DOM'u tarıyoruz
-root.querySelectorAll('.tr-lb-trigger').forEach(t => lbImages.push(t.src));
-
-lbIndex = lbImages.indexOf(clickedSrc);
-openLightbox();
-});
-});
-
-function openLightbox() {
-lightbox.style.display = 'flex';
-updateLbImage();
-}
-
-function updateLbImage() {
-lbImg.src = lbImages[lbIndex];
-}
-
-if(lbNext) lbNext.addEventListener('click', (e) => {
-e.stopPropagation();
-lbIndex = (lbIndex + 1) % lbImages.length;
-updateLbImage();
-});
-
-if(lbPrev) lbPrev.addEventListener('click', (e) => {
-e.stopPropagation();
-lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
-updateLbImage();
-});
-
-function closeLb() { lightbox.style.display = 'none'; }
-if(lbClose) lbClose.addEventListener('click', closeLb);
-if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLb(); });
-
-})();
-</script>
+    })();
+    </script>
 </div>
