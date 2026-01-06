@@ -1,281 +1,236 @@
+<div id="tr_carousel_81989" class="tr-wrapper">
+<style>
+/* CONTAINER */
+#tr_carousel_81989 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
 
-<div id="tr_carousel_71870" class="tr-wrapper">
-    <style>
-        /* CONTAINER */
-        #tr_carousel_71870 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
-        
-        /* HEADER */
-        #tr_carousel_71870 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
-        #tr_carousel_71870 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
-        #tr_carousel_71870 .tr-rating-details { display: flex; flex-direction: column; }
-        #tr_carousel_71870 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
-        #tr_carousel_71870 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
-        #tr_carousel_71870 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+/* HEADER & AI CARD STYLES (Aynı kaldı) */
+#tr_carousel_81989 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
+#tr_carousel_81989 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
+#tr_carousel_81989 .tr-rating-details { display: flex; flex-direction: column; }
+#tr_carousel_81989 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
+#tr_carousel_81989 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
+#tr_carousel_81989 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+#tr_carousel_81989 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+#tr_carousel_81989 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
 
-        /* AI CARD */
-        #tr_carousel_71870 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-        #tr_carousel_71870 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
+/* CAROUSEL & CARD STYLES (Aynı kaldı) */
+#tr_carousel_81989 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
+#tr_carousel_81989 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
+#tr_carousel_81989 .tr-card { 
+flex: 0 0 calc(33.333% - 14px); background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
+padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box; height: auto; min-height: 350px; 
+}
+@media (max-width: 768px) { #tr_carousel_81989 .tr-card { flex: 0 0 100%; } }
+#tr_carousel_81989 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+#tr_carousel_81989 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
+#tr_carousel_81989 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
+#tr_carousel_81989 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
+#tr_carousel_81989 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+#tr_carousel_81989 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
+#tr_carousel_81989 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
 
-        /* CAROUSEL YAPISI */
-        #tr_carousel_71870 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
-        #tr_carousel_71870 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
-        
-        /* KART AYARLARI (3'lü Görünüm) */
-        #tr_carousel_71870 .tr-card { 
-            flex: 0 0 calc(33.333% - 14px); /* 3 Kart Sığdırma Hesabı */
-            background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
-            padding: 24px; display: flex; flex-direction: column; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box;
-            height: auto; min-height: 350px; /* Eşit yükseklik hissi */
-        }
-        
-        /* MOBİL UYUMLULUK (Telefonda 1 kart görünsün) */
-        @media (max-width: 768px) {
-            #tr_carousel_71870 .tr-card { flex: 0 0 100%; }
-        }
+#tr_carousel_81989 .tr-nav-btn { 
+position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; 
+width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; 
+align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;
+}
+#tr_carousel_81989 .tr-nav-btn:hover { opacity: 1; }
+#tr_carousel_81989 .tr-prev { left: 0; }
+#tr_carousel_81989 .tr-next { right: 0; }
+#tr_carousel_81989 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
 
-        #tr_carousel_71870 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-        #tr_carousel_71870 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
-        #tr_carousel_71870 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
-        #tr_carousel_71870 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
-        #tr_carousel_71870 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-        #tr_carousel_71870 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
-        #tr_carousel_71870 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
-        
-        /* NAVİGASYON BUTONLARI */
-        #tr_carousel_71870 .tr-nav-btn { 
-            position: absolute; top: 50%; transform: translateY(-50%); 
-            background: #000; color: #fff; border: none; 
-            width: 40px; height: 40px; border-radius: 50%; 
-            cursor: pointer; z-index: 10; display: flex; 
-            align-items: center; justify-content: center; font-size: 1.2rem;
-            opacity: 0.8; transition: opacity 0.3s;
-        }
-        #tr_carousel_71870 .tr-nav-btn:hover { opacity: 1; }
-        #tr_carousel_71870 .tr-prev { left: 0; }
-        #tr_carousel_71870 .tr-next { right: 0; }
-        
-        /* Butonları devre dışı bırakma stili */
-        #tr_carousel_71870 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+/* GALERİ THUMBNAILS */
+#tr_carousel_81989 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
+#tr_carousel_81989 .tr-thumb { 
+width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; 
+cursor: zoom-in; transition: transform 0.2s;
+}
+#tr_carousel_81989 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
 
-        /* GALERİ */
-        #tr_carousel_71870 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
-        #tr_carousel_71870 .tr-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; cursor: pointer; }
-        #tr_carousel_43344 .tr-thumb:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        
-        /* LIGHTBOX MODAL */
-        #tr_carousel_43344 .tr-lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; }
-        #tr_carousel_43344 .tr-lightbox.active { display: flex; animation: fadeIn 0.3s ease; }
-        #tr_carousel_43344 .tr-lightbox-content { position: relative; max-width: 90%; max-height: 90%; }
-        #tr_carousel_43344 .tr-lightbox-img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
-        #tr_carousel_43344 .tr-lightbox-close { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.9); color: #000; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10001; }
-        #tr_carousel_43344 .tr-lightbox-close:hover { background: #fff; transform: rotate(90deg); }
-        #tr_carousel_43344 .tr-lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); color: #000; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10001; }
-        #tr_carousel_43344 .tr-lightbox-nav:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
-        #tr_carousel_43344 .tr-lightbox-prev { left: 20px; }
-        #tr_carousel_43344 .tr-lightbox-next { right: 20px; }
-        #tr_carousel_43344 .tr-lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.9); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+/* --- YENİ: GELİŞMİŞ LIGHTBOX STİLLERİ --- */
+#tr_carousel_81989 .tr-lightbox-overlay {
+display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; 
+background-color: rgba(0,0,0,0.9); /* Biraz daha koyu arka plan */
+justify-content: center; align-items: center; flex-direction: column;
+user-select: none;
+}
+#tr_carousel_81989 .tr-lightbox-img {
+max-width: 90%; max-height: 85vh; border-radius: 4px; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+transition: opacity 0.3s ease;
+}
+#tr_carousel_81989 .tr-close-btn {
+position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300;
+cursor: pointer; z-index: 100002; transition: color 0.2s;
+}
+#tr_carousel_81989 .tr-close-btn:hover { color: #F27A1A; }
 
-    <div class="tr-header-card">
-        <div class="tr-rating-big">5</div>
-        <div class="tr-rating-details">
-            <div class="tr-stars-gold">★★★★★</div>
-            <div class="tr-rating-label">Genel Ortalama</div>
-            <div class="tr-count-text">3 Değerlendirme 2 Yorum</div>
-        </div>
-    </div>
+/* Lightbox İçi Navigasyon Okları */
+#tr_carousel_81989 .tr-lb-nav {
+position: absolute; top: 50%; transform: translateY(-50%);
+color: #fff; font-size: 50px; cursor: pointer; z-index: 100001;
+padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
+}
+#tr_carousel_81989 .tr-lb-nav:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+#tr_carousel_81989 .tr-lb-prev { left: 20px; }
+#tr_carousel_81989 .tr-lb-next { right: 20px; }
 
-    <div class="tr-carousel-container">
-        <button class="tr-nav-btn tr-prev" id="prev_tr_carousel_71870">&#10094;</button>
-        <div class="tr-track" id="track_tr_carousel_71870">
+/* Mobilde okları biraz küçült */
+@media (max-width: 768px) { #tr_carousel_81989 .tr-lb-nav { font-size: 35px; padding: 5px; } }
+</style>
 
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">G** K**</span>
-                        <span class="tr-date">24 Şubat 2024</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">Harika bir ceket . Renk biraz daha koyu. Beden normal. Cepler kullanışlı. Derisi yumuşak.</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">E** B**</span>
-                        <span class="tr-date">6 Nisan 2024</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">çok güzel fakat kalıbı dar.. üzülerek iade ettim.</div>
-                
-            </div>
-        </div>
-        <button class="tr-nav-btn tr-next" id="next_tr_carousel_71870">&#10095;</button>
-    </div>
+<div class="tr-header-card">
+<div class="tr-rating-big">5</div>
+<div class="tr-rating-details">
+<div class="tr-stars-gold">★★★★★</div>
+<div class="tr-rating-label">Genel Ortalama</div>
+<div class="tr-count-text"></div>
+</div>
+</div>
 
-    <script>
-    (function() {
-        const track = document.getElementById('track_tr_carousel_71870');
-        const prevBtn = document.getElementById('prev_tr_carousel_71870');
-        const nextBtn = document.getElementById('next_tr_carousel_71870');
-        let currentIndex = 0;
+<div class="tr-carousel-container">
+<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_81989">&#10094;</button>
+<div class="tr-track" id="track_tr_carousel_81989">
 
-        function updateCarousel() {
-            if(!track) return;
-            const card = track.querySelector('.tr-card');
-            if(!card) return;
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">G** K**</span>
+<span class="tr-date">24 Şubat 2024</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">Harika bir ceket . Renk biraz daha koyu. Beden normal. Cepler kullanışlı. Derisi yumuşak.</div>
 
-            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-            const cardWidth = card.offsetWidth;
-            const gap = 20; 
-            const moveAmount = (cardWidth + gap) * currentIndex * cardsToShow;
-            track.style.transform = `translateX(-${moveAmount}px)`;
-            
-            prevBtn.disabled = currentIndex === 0;
-            const totalCards = track.children.length;
-            const maxIndex = Math.ceil((totalCards - cardsToShow) / cardsToShow);
-            nextBtn.disabled = currentIndex >= maxIndex;
-        }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">E** B**</span>
+<span class="tr-date">6 Nisan 2024</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">çok güzel fakat kalıbı dar.. üzülerek iade ettim.</div>
 
-        if(nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-                const totalCards = track.children.length;
-                if (currentIndex < totalCards - cardsToShow) {
-                    currentIndex++;
-                    updateCarousel();
-                }
-            });
-        }
+</div>
+</div>
+<button class="tr-nav-btn tr-next" id="next_tr_carousel_81989">&#10095;</button>
+</div>
 
-        if(prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            });
-        }
+<div id="lightbox_tr_carousel_81989" class="tr-lightbox-overlay">
+<span class="tr-close-btn" id="close_tr_carousel_81989">&times;</span>
+<span class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_81989">&#10094;</span>
+<img class="tr-lightbox-img" id="img_tr_carousel_81989" src=">
+<span class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_81989">&#10095;</span>
+</div>
 
-        window.addEventListener('resize', updateCarousel);
-        
-        // Fotoğraflar yüklenince kaymayı düzeltmek için
-        window.addEventListener('load', updateCarousel);
-        setTimeout(updateCarousel, 500);
-            // LIGHTBOX FONKSİYONELLİĞİ
-            const lightbox = document.getElementById('lightbox_tr_carousel_43344');
-            const lightboxImg = document.getElementById('lightbox_img_43344');
-            const lightboxClose = document.getElementById('lightbox_close_43344');
-            const lightboxPrev = document.getElementById('lightbox_prev_43344');
-            const lightboxNext = document.getElementById('lightbox_next_43344');
-            const lightboxCounter = document.getElementById('lightbox_counter_43344');
-            
-            let allImages = [];
-            let currentImageIndex = 0;
+<script>
+(function() {
+// --- CAROUSEL LOGIC (Eski kodun aynısı) ---
+const track = document.getElementById('track_tr_carousel_81989');
+const prevBtn = document.getElementById('prev_tr_carousel_81989');
+const nextBtn = document.getElementById('next_tr_carousel_81989');
+let currentIndex = 0;
+function updateCarousel() {
+if(!track) return; const card = track.querySelector('.tr-card'); if(!card) return;
+const cardWidth = card.offsetWidth; const gap = 20; 
+const moveAmount = (cardWidth + gap) * currentIndex;
+track.style.transform = `translateX(-${moveAmount}px)`;
+prevBtn.disabled = currentIndex === 0;
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+const totalCards = track.children.length;
+nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
+}
+if(nextBtn) nextBtn.addEventListener('click', () => {
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+if (currentIndex < track.children.length - cardsToShow) { currentIndex++; updateCarousel(); }
+});
+if(prevBtn) prevBtn.addEventListener('click', () => {
+if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+});
+window.addEventListener('resize', updateCarousel);
+window.addEventListener('load', updateCarousel);
+setTimeout(updateCarousel, 500);
 
-            // Tüm galeri resimlerini topla
-            function collectImages() {
-                const thumbs = document.querySelectorAll('#tr_carousel_43344 .tr-thumb');
-                allImages = Array.from(thumbs).map(thumb => thumb.src);
-            }
+// --- YENİ: GELİŞMİŞ LIGHTBOX GALERİ LOGIC ---
+const lightbox = document.getElementById('lightbox_tr_carousel_81989');
+const lightboxImg = document.getElementById('img_tr_carousel_81989');
+const closeBtn = document.getElementById('close_tr_carousel_81989');
+const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_81989');
+const lbNextBtn = document.getElementById('lb_next_tr_carousel_81989');
 
-            // Lightbox'ı aç
-            function openLightbox(imageIndex) {
-                currentImageIndex = imageIndex;
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Arka plan scroll'u engelle
-            }
+// Tüm küçük resimleri (thumbnail) seç
+const triggers = document.querySelectorAll('#tr_carousel_81989 .tr-lightbox-trigger');
 
-            // Lightbox'ı kapat
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = ''; // Scroll'u geri aç
-            }
+// Tüm resimlerin kaynaklarını (src) bir listeye at
+let lightboxImages = [];
+triggers.forEach(img => lightboxImages.push(img.src));
 
-            // Lightbox resmini güncelle
-            function updateLightboxImage() {
-                if (allImages.length === 0) return;
-                lightboxImg.src = allImages[currentImageIndex];
-                lightboxCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
-            }
+let currentLightboxIndex = 0;
 
-            // Sonraki resim
-            function nextImage() {
-                if (currentImageIndex < allImages.length - 1) {
-                    currentImageIndex++;
-                    updateLightboxImage();
-                }
-            }
+// Resmi güncelleme fonksiyonu
+function updateLightboxImage() {
+// Fade efekti için önce opaklığı düşür
+lightboxImg.style.opacity = '0.5';
+setTimeout(() => {
+lightboxImg.src = lightboxImages[currentLightboxIndex];
+lightboxImg.style.opacity = '1';
+}, 150);
 
-            // Önceki resim
-            function prevImage() {
-                if (currentImageIndex > 0) {
-                    currentImageIndex--;
-                    updateLightboxImage();
-                }
-            }
+// Eğer sadece 1 resim varsa okları gizle
+if(lightboxImages.length <= 1) {
+lbPrevBtn.style.display = 'none'; lbNextBtn.style.display = 'none';
+} else {
+lbPrevBtn.style.display = 'block'; lbNextBtn.style.display = 'block';
+}
+}
 
-            // Event listener'lar
-            collectImages();
-            
-            // Her thumbnail'a tıklama event'i ekle
-            document.querySelectorAll('#tr_carousel_43344 .tr-thumb').forEach((thumb, index) => {
-                thumb.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openLightbox(index);
-                });
-                
-                // Eski <a> tag'lerini devre dışı bırak
-                const parentLink = thumb.closest('a');
-                if (parentLink) {
-                    parentLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                    });
-                }
-            });
+// Thumbnaillere tıklama olayını ekle (İndeks takibi ile)
+triggers.forEach((img, index) => {
+img.addEventListener('click', () => {
+lightbox.style.display = 'flex';
+currentLightboxIndex = index; // Tıklanan resmin sırasını al
+updateLightboxImage();
+});
+});
 
-            // Lightbox kontrolleri
-            if (lightboxClose) {
-                lightboxClose.addEventListener('click', closeLightbox);
-            }
+// Sağ Ok (İleri)
+if(lbNextBtn) {
+lbNextBtn.addEventListener('click', (e) => {
+e.stopPropagation(); // Overlay'in kapanmasını engelle
+currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length; // Döngüsel artış
+updateLightboxImage();
+});
+}
 
-            if (lightboxPrev) {
-                lightboxPrev.addEventListener('click', prevImage);
-            }
+// Sol Ok (Geri)
+if(lbPrevBtn) {
+lbPrevBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+// Döngüsel azalış (Negatif değerden kaçınmak için + length eklenir)
+currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+updateLightboxImage();
+});
+}
 
-            if (lightboxNext) {
-                lightboxNext.addEventListener('click', nextImage);
-            }
+// Kapatma Fonksiyonları
+function closeLightbox() { lightbox.style.display = 'none'; }
+if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+if(lightbox) lightbox.addEventListener('click', (e) => {
+if(e.target === lightbox) closeLightbox(); // Sadece siyah alana tıklanınca kapat
+});
 
-            // Arka plana tıklayınca kapat
-            if (lightbox) {
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) {
-                        closeLightbox();
-                    }
-                });
-            }
+// Klavye Kontrolü (Opsiyonel: Sağ/Sol tuşları ile gezinme)
+document.addEventListener('keydown', (e) => {
+if(lightbox.style.display === 'flex') {
+if(e.key === 'ArrowRight') lbNextBtn.click();
+if(e.key === 'ArrowLeft') lbPrevBtn.click();
+if(e.key === 'Escape') closeLightbox();
+}
+});
 
-            // Klavye kontrolleri (ESC, Arrow keys)
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowLeft') {
-                    prevImage();
-                } else if (e.key === 'ArrowRight') {
-                    nextImage();
-                }
-            });
-        
-    </script>
+})();
+</script>
 </div>

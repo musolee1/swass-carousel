@@ -1,562 +1,518 @@
+<div id="tr_carousel_74370" class="tr-wrapper">
+<style>
+/* CONTAINER */
+#tr_carousel_74370 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
 
-<div id="tr_carousel_6239" class="tr-wrapper">
-    <style>
-        /* CONTAINER */
-        #tr_carousel_6239 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
-        
-        /* HEADER */
-        #tr_carousel_6239 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
-        #tr_carousel_6239 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
-        #tr_carousel_6239 .tr-rating-details { display: flex; flex-direction: column; }
-        #tr_carousel_6239 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
-        #tr_carousel_6239 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
-        #tr_carousel_6239 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+/* HEADER & AI CARD STYLES (Aynı kaldı) */
+#tr_carousel_74370 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
+#tr_carousel_74370 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
+#tr_carousel_74370 .tr-rating-details { display: flex; flex-direction: column; }
+#tr_carousel_74370 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
+#tr_carousel_74370 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
+#tr_carousel_74370 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+#tr_carousel_74370 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+#tr_carousel_74370 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
 
-        /* AI CARD */
-        #tr_carousel_6239 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-        #tr_carousel_6239 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
+/* CAROUSEL & CARD STYLES (Aynı kaldı) */
+#tr_carousel_74370 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
+#tr_carousel_74370 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
+#tr_carousel_74370 .tr-card { 
+flex: 0 0 calc(33.333% - 14px); background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
+padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box; height: auto; min-height: 350px; 
+}
+@media (max-width: 768px) { #tr_carousel_74370 .tr-card { flex: 0 0 100%; } }
+#tr_carousel_74370 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+#tr_carousel_74370 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
+#tr_carousel_74370 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
+#tr_carousel_74370 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
+#tr_carousel_74370 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+#tr_carousel_74370 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
+#tr_carousel_74370 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
 
-        /* CAROUSEL YAPISI */
-        #tr_carousel_6239 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
-        #tr_carousel_6239 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
-        
-        /* KART AYARLARI (3'lü Görünüm) */
-        #tr_carousel_6239 .tr-card { 
-            flex: 0 0 calc(33.333% - 14px); /* 3 Kart Sığdırma Hesabı */
-            background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
-            padding: 24px; display: flex; flex-direction: column; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box;
-            height: auto; min-height: 350px; /* Eşit yükseklik hissi */
-        }
-        
-        /* MOBİL UYUMLULUK (Telefonda 1 kart görünsün) */
-        @media (max-width: 768px) {
-            #tr_carousel_6239 .tr-card { flex: 0 0 100%; }
-        }
+#tr_carousel_74370 .tr-nav-btn { 
+position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; 
+width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; 
+align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;
+}
+#tr_carousel_74370 .tr-nav-btn:hover { opacity: 1; }
+#tr_carousel_74370 .tr-prev { left: 0; }
+#tr_carousel_74370 .tr-next { right: 0; }
+#tr_carousel_74370 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
 
-        #tr_carousel_6239 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-        #tr_carousel_6239 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
-        #tr_carousel_6239 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
-        #tr_carousel_6239 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
-        #tr_carousel_6239 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-        #tr_carousel_6239 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
-        #tr_carousel_6239 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
-        
-        /* NAVİGASYON BUTONLARI */
-        #tr_carousel_6239 .tr-nav-btn { 
-            position: absolute; top: 50%; transform: translateY(-50%); 
-            background: #000; color: #fff; border: none; 
-            width: 40px; height: 40px; border-radius: 50%; 
-            cursor: pointer; z-index: 10; display: flex; 
-            align-items: center; justify-content: center; font-size: 1.2rem;
-            opacity: 0.8; transition: opacity 0.3s;
-        }
-        #tr_carousel_6239 .tr-nav-btn:hover { opacity: 1; }
-        #tr_carousel_6239 .tr-prev { left: 0; }
-        #tr_carousel_6239 .tr-next { right: 0; }
-        
-        /* Butonları devre dışı bırakma stili */
-        #tr_carousel_6239 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+/* GALERİ THUMBNAILS */
+#tr_carousel_74370 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
+#tr_carousel_74370 .tr-thumb { 
+width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; 
+cursor: zoom-in; transition: transform 0.2s;
+}
+#tr_carousel_74370 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
 
-        /* GALERİ */
-        #tr_carousel_6239 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
-        #tr_carousel_6239 .tr-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; cursor: pointer; }
-        #tr_carousel_43344 .tr-thumb:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        
-        /* LIGHTBOX MODAL */
-        #tr_carousel_43344 .tr-lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; }
-        #tr_carousel_43344 .tr-lightbox.active { display: flex; animation: fadeIn 0.3s ease; }
-        #tr_carousel_43344 .tr-lightbox-content { position: relative; max-width: 90%; max-height: 90%; }
-        #tr_carousel_43344 .tr-lightbox-img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 50px rgba(0,0,0,0.5); }
-        #tr_carousel_43344 .tr-lightbox-close { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.9); color: #000; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10001; }
-        #tr_carousel_43344 .tr-lightbox-close:hover { background: #fff; transform: rotate(90deg); }
-        #tr_carousel_43344 .tr-lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); color: #000; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10001; }
-        #tr_carousel_43344 .tr-lightbox-nav:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
-        #tr_carousel_43344 .tr-lightbox-prev { left: 20px; }
-        #tr_carousel_43344 .tr-lightbox-next { right: 20px; }
-        #tr_carousel_43344 .tr-lightbox-counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.9); color: #000; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
+/* --- YENİ: GELİŞMİŞ LIGHTBOX STİLLERİ --- */
+#tr_carousel_74370 .tr-lightbox-overlay {
+display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; 
+background-color: rgba(0,0,0,0.9); /* Biraz daha koyu arka plan */
+justify-content: center; align-items: center; flex-direction: column;
+user-select: none;
+}
+#tr_carousel_74370 .tr-lightbox-img {
+max-width: 90%; max-height: 85vh; border-radius: 4px; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+transition: opacity 0.3s ease;
+}
+#tr_carousel_74370 .tr-close-btn {
+position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300;
+cursor: pointer; z-index: 100002; transition: color 0.2s;
+}
+#tr_carousel_74370 .tr-close-btn:hover { color: #F27A1A; }
 
-    <div class="tr-header-card">
-        <div class="tr-rating-big">4.8</div>
-        <div class="tr-rating-details">
-            <div class="tr-stars-gold">★★★★★</div>
-            <div class="tr-rating-label">Genel Ortalama</div>
-            <div class="tr-count-text">49 Değerlendirme 25 Yorum</div>
-        </div>
-    </div>
+/* Lightbox İçi Navigasyon Okları */
+#tr_carousel_74370 .tr-lb-nav {
+position: absolute; top: 50%; transform: translateY(-50%);
+color: #fff; font-size: 50px; cursor: pointer; z-index: 100001;
+padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
+}
+#tr_carousel_74370 .tr-lb-nav:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+#tr_carousel_74370 .tr-lb-prev { left: 20px; }
+#tr_carousel_74370 .tr-lb-next { right: 20px; }
 
-    <div class="tr-ai-card">
-        <div class="tr-ai-title">🤖 Değerlendirme Özeti</div>
-        <p style="margin:0; font-size:0.9rem; line-height:1.5;">Müşteriler, ürünün şık ve kaliteli tasarımını, tam beden uyumunu ve salaş olmayan fit kalıbını övgüyle karşılamışlardır. Görsellerle uyumlu renk ve desenleri, kumaş kalitesini ve hızlı iade sürecini de olumlu bir şekilde değerlendirmişlerdir. Bununla birlikte, bazı kullanıcılar ürünün bol geldiğini belirtmiş ve kumaş kalitesini dijital baskı olarak eleştirmiştir. Genel olarak ürün, şık tasarımı ve kaliteli yapısıyla beğenilmiştir.</p>
-    </div>
+/* Mobilde okları biraz küçült */
+@media (max-width: 768px) { #tr_carousel_74370 .tr-lb-nav { font-size: 35px; padding: 5px; } }
+</style>
 
-    <div class="tr-carousel-container">
-        <button class="tr-nav-btn tr-prev" id="prev_tr_carousel_6239">&#10094;</button>
-        <div class="tr-track" id="track_tr_carousel_6239">
+<div class="tr-header-card">
+<div class="tr-rating-big">4.8</div>
+<div class="tr-rating-details">
+<div class="tr-stars-gold">★★★★★</div>
+<div class="tr-rating-label">Genel Ortalama</div>
+<div class="tr-count-text"></div>
+</div>
+</div>
 
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">N** C**</span>
-                        <span class="tr-date">14 Mayıs 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
-                <div class="tr-comment-text">Çok şık tam kalıp güzel ceket 54 kilo S beden tam oldu alın tavsiye olunur.</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">S** A** P**</span>
-                        <span class="tr-date">5 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 166 cm</span><span class="tr-tag">Kilo: 84 kg</span><span class="tr-tag">Beden: 2XL</span></div>
-                <div class="tr-comment-text">Fit kalıp olduğu için bedenimizin bir üstünü verirseniz sorun yaşamazsınız harika ben çok beğendim 🤩🤩🤩</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">Melek Y.</span>
-                        <span class="tr-date">23 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">Beden: M</span></div>
-                <div class="tr-comment-text">Muhteşem bir ceket Arzu eden herkes gönül rahatlığıyla alabilir üreticisinin ellerine sağlık</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">A** Ç**</span>
-                        <span class="tr-date">16 Ekim 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">Resimdeki gibi çok güzel çok beğendim bayıldım tavsiye ederim. tam beden kendi bedeninizi alabilirsiniz</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">**** ****</span>
-                        <span class="tr-date">19 Nisan 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">çok güzel kaliteli tavsiye ediyorum alin bence😊💫</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">S** Ö**</span>
-                        <span class="tr-date">14 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★☆</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: 2XL</span></div>
-                <div class="tr-comment-text">güzel bir ceket</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">Emine Ç.</span>
-                        <span class="tr-date">16 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 75 kg</span><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">Harika bir ürün çok şık duruyor tam kalıp Teşekkürler trendyol :)</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">s** S**</span>
-                        <span class="tr-date">17 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 80 kg</span><span class="tr-tag">Beden: 2XL</span></div>
-                <div class="tr-comment-text">Muhteşem bir ceket</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">L** D** Ş**</span>
-                        <span class="tr-date">28 Ekim 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: S</span></div>
-                <div class="tr-comment-text">Ürün çok güzel Beden tercihini yanlış yaptığım için iyade ediyorum. doğru beden tercihini ile tekrar sipariş verdim. iyade süreci hızlıydı. Yeni siparişimde hızlı geldi. çok güzel bir ceket. teşekkürler.</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">füsun g. a.</span>
-                        <span class="tr-date">22 Eylül 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★☆</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: L</span></div>
-                <div class="tr-comment-text">Ceket guzel ama biraz buyuk oldu o yuzden m beden aldim L bedeni iade edicem</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">İ** S** Ö**</span>
-                        <span class="tr-date">16 Mayıs 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
-                <div class="tr-comment-text">Çok güzel, şık bir yemekte ve düğünlerde güzel durur.</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">**** ****</span>
-                        <span class="tr-date">25 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 85 kg</span><span class="tr-tag">Beden: 2XL</span></div>
-                <div class="tr-comment-text">muhteşem hiç düşünmeden alın Teşekkürler SWASS ONLİNE Teşekkürler Trendyol</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">A** M**</span>
-                        <span class="tr-date">26 Aralık 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★☆</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">büyük geldi iade ettim 1 beden küçük alın</div>
-                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758995951.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758995951.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758994560.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758994560.jpeg" class="tr-thumb"></a></div>
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">U** T**</span>
-                        <span class="tr-date">20 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 66 kg</span><span class="tr-tag">Beden: L</span></div>
-                <div class="tr-comment-text">Mükemmel teşekkürler</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">İ** K**</span>
-                        <span class="tr-date">16 Ağustos 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 62 kg</span><span class="tr-tag">Beden: S</span></div>
-                <div class="tr-comment-text">Mükemmel kelimesi hafif kalır yanında</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">Z** K**</span>
-                        <span class="tr-date">30 Aralık 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 150 cm</span><span class="tr-tag">Kilo: 55 kg</span><span class="tr-tag">Beden: S</span></div>
-                <div class="tr-comment-text">Çok güzel harika begenerek kullanıyorum</div>
-                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079298695.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079298695.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079296798.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079296798.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079300588.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079300588.jpeg" class="tr-thumb"></a></div>
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">Şenay D. T.</span>
-                        <span class="tr-date">16 Eylül 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">ürün çok güzel çok memnun kaldım teşekkürler</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">K** K**</span>
-                        <span class="tr-date">29 Aralık 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
-                <div class="tr-comment-text">Şık duruyor.</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">a** h**</span>
-                        <span class="tr-date">9 Nisan 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 70 kg</span><span class="tr-tag">Beden: L</span></div>
-                <div class="tr-comment-text">çok araştırdım ama değdi kalıbı kumaşı çok güzel</div>
-                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1742466981198/img/2018925/2022913/2027898/901572898/18501553-1744216455683.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1742466981198/img/2018925/2022913/2027898/901572898/18501553-1744216455683.jpeg" class="tr-thumb"></a></div>
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">N** I**</span>
-                        <span class="tr-date">3 Ocak 2026</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 167 cm</span><span class="tr-tag">Kilo: 72 kg</span><span class="tr-tag">Beden: L</span></div>
-                <div class="tr-comment-text">ürün çok güzel üzerime dikilmiş gibi oldu . 166 boy,71 kiloyum</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">d** c**</span>
-                        <span class="tr-date">15 Aralık 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 158 cm</span><span class="tr-tag">Kilo: 58 kg</span><span class="tr-tag">Beden: XL</span></div>
-                <div class="tr-comment-text">çok güzel bir ceket</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">N** d**</span>
-                        <span class="tr-date">9 Ağustos 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★☆☆☆☆</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 178 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: M</span></div>
-                <div class="tr-comment-text">kumaş kalitesini begenmedim desen baskısı dijital baskı</div>
-                
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">E** G**</span>
-                        <span class="tr-date">25 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 156 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: L</span></div>
-                <div class="tr-comment-text">Harika bir ceket. Tam beden uyumlu. Kalıbı salaş değil. Ben çok beğendim. Severek giyiyorum.</div>
-                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019643300.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019643300.jpeg" class="tr-thumb"></a><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019642548.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019642548.jpeg" class="tr-thumb"></a></div>
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">c** d**</span>
-                        <span class="tr-date">11 Kasım 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
-                <div class="tr-comment-text">muhtesemmmm</div>
-                <div class="tr-gallery"><a href="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2029892/901572898/157551591-1762858170994.jpeg" target="_blank"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2029892/901572898/157551591-1762858170994.jpeg" class="tr-thumb"></a></div>
-            </div>
-            <div class="tr-card">
-                <div class="tr-card-top">
-                    <div class="tr-user-info">
-                        <span class="tr-username">L** E**</span>
-                        <span class="tr-date">1 Aralık 2025</span>
-                    </div>
-                    <div class="tr-card-stars">★★★★★</div>
-                </div>
-                <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 59 kg</span><span class="tr-tag">Beden: M</span></div>
-                <div class="tr-comment-text">ürün gorselle aynı renk olarak dokusu da iyi biraz bol oldu iade ile uğraşmak istemiyorum ama mecbur bir beden küçüğünü alicam fiyat farkı olması can sıkıcı</div>
-                
-            </div>
-        </div>
-        <button class="tr-nav-btn tr-next" id="next_tr_carousel_6239">&#10095;</button>
-    </div>
+<div class="tr-ai-card">
+<div class="tr-ai-title">🤖 Değerlendirme Özeti</div>
+<p style="margin:0; font-size:0.9rem; line-height:1.5;">Müşteriler, ürünün şık ve kaliteli tasarımını, tam beden uyumunu ve salaş olmayan fit kalıbını övgüyle karşılamışlardır. Görsellerle uyumlu renk ve desenleri, kumaş kalitesini ve hızlı iade sürecini de olumlu bir şekilde değerlendirmişlerdir. Bununla birlikte, bazı kullanıcılar ürünün bol geldiğini belirtmiş ve kumaş kalitesini dijital baskı olarak eleştirmiştir. Genel olarak ürün, şık tasarımı ve kaliteli yapısıyla beğenilmiştir.</p>
+</div>
 
-    <script>
-    (function() {
-        const track = document.getElementById('track_tr_carousel_6239');
-        const prevBtn = document.getElementById('prev_tr_carousel_6239');
-        const nextBtn = document.getElementById('next_tr_carousel_6239');
-        let currentIndex = 0;
+<div class="tr-carousel-container">
+<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_74370">&#10094;</button>
+<div class="tr-track" id="track_tr_carousel_74370">
 
-        function updateCarousel() {
-            if(!track) return;
-            const card = track.querySelector('.tr-card');
-            if(!card) return;
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">N** C**</span>
+<span class="tr-date">14 Mayıs 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
+<div class="tr-comment-text">Çok şık tam kalıp güzel ceket 54 kilo S beden tam oldu alın tavsiye olunur.</div>
 
-            const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-            const cardWidth = card.offsetWidth;
-            const gap = 20; 
-            const moveAmount = (cardWidth + gap) * currentIndex * cardsToShow;
-            track.style.transform = `translateX(-${moveAmount}px)`;
-            
-            prevBtn.disabled = currentIndex === 0;
-            const totalCards = track.children.length;
-            const maxIndex = Math.ceil((totalCards - cardsToShow) / cardsToShow);
-            nextBtn.disabled = currentIndex >= maxIndex;
-        }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">S** A** P**</span>
+<span class="tr-date">5 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 166 cm</span><span class="tr-tag">Kilo: 84 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+<div class="tr-comment-text">Fit kalıp olduğu için bedenimizin bir üstünü verirseniz sorun yaşamazsınız harika ben çok beğendim 🤩🤩🤩</div>
 
-        if(nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-                const totalCards = track.children.length;
-                if (currentIndex < totalCards - cardsToShow) {
-                    currentIndex++;
-                    updateCarousel();
-                }
-            });
-        }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">Melek Y.</span>
+<span class="tr-date">23 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">Beden: M</span></div>
+<div class="tr-comment-text">Muhteşem bir ceket Arzu eden herkes gönül rahatlığıyla alabilir üreticisinin ellerine sağlık</div>
 
-        if(prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
-                }
-            });
-        }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">A** Ç**</span>
+<span class="tr-date">16 Ekim 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">Resimdeki gibi çok güzel çok beğendim bayıldım tavsiye ederim. tam beden kendi bedeninizi alabilirsiniz</div>
 
-        window.addEventListener('resize', updateCarousel);
-        
-        // Fotoğraflar yüklenince kaymayı düzeltmek için
-        window.addEventListener('load', updateCarousel);
-        setTimeout(updateCarousel, 500);
-            // LIGHTBOX FONKSİYONELLİĞİ
-            const lightbox = document.getElementById('lightbox_tr_carousel_43344');
-            const lightboxImg = document.getElementById('lightbox_img_43344');
-            const lightboxClose = document.getElementById('lightbox_close_43344');
-            const lightboxPrev = document.getElementById('lightbox_prev_43344');
-            const lightboxNext = document.getElementById('lightbox_next_43344');
-            const lightboxCounter = document.getElementById('lightbox_counter_43344');
-            
-            let allImages = [];
-            let currentImageIndex = 0;
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">**** ****</span>
+<span class="tr-date">19 Nisan 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">çok güzel kaliteli tavsiye ediyorum alin bence😊💫</div>
 
-            // Tüm galeri resimlerini topla
-            function collectImages() {
-                const thumbs = document.querySelectorAll('#tr_carousel_43344 .tr-thumb');
-                allImages = Array.from(thumbs).map(thumb => thumb.src);
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">S** Ö**</span>
+<span class="tr-date">14 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★☆</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: 2XL</span></div>
+<div class="tr-comment-text">güzel bir ceket</div>
 
-            // Lightbox'ı aç
-            function openLightbox(imageIndex) {
-                currentImageIndex = imageIndex;
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Arka plan scroll'u engelle
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">Emine Ç.</span>
+<span class="tr-date">16 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 75 kg</span><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">Harika bir ürün çok şık duruyor tam kalıp Teşekkürler trendyol :)</div>
 
-            // Lightbox'ı kapat
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = ''; // Scroll'u geri aç
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">s** S**</span>
+<span class="tr-date">17 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 168 cm</span><span class="tr-tag">Kilo: 80 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+<div class="tr-comment-text">Muhteşem bir ceket</div>
 
-            // Lightbox resmini güncelle
-            function updateLightboxImage() {
-                if (allImages.length === 0) return;
-                lightboxImg.src = allImages[currentImageIndex];
-                lightboxCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">L** D** Ş**</span>
+<span class="tr-date">28 Ekim 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: S</span></div>
+<div class="tr-comment-text">Ürün çok güzel Beden tercihini yanlış yaptığım için iyade ediyorum. doğru beden tercihini ile tekrar sipariş verdim. iyade süreci hızlıydı. Yeni siparişimde hız
+Devamını Oku</div>
 
-            // Sonraki resim
-            function nextImage() {
-                if (currentImageIndex < allImages.length - 1) {
-                    currentImageIndex++;
-                    updateLightboxImage();
-                }
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">füsun g. a.</span>
+<span class="tr-date">22 Eylül 2025</span>
+</div>
+<div class="tr-card-stars">★★★★☆</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 175 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: L</span></div>
+<div class="tr-comment-text">Ceket guzel ama biraz buyuk oldu o yuzden m beden aldim L bedeni iade edicem</div>
 
-            // Önceki resim
-            function prevImage() {
-                if (currentImageIndex > 0) {
-                    currentImageIndex--;
-                    updateLightboxImage();
-                }
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">İ** S** Ö**</span>
+<span class="tr-date">16 Mayıs 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: S</span></div>
+<div class="tr-comment-text">Çok güzel, şık bir yemekte ve düğünlerde güzel durur.</div>
 
-            // Event listener'lar
-            collectImages();
-            
-            // Her thumbnail'a tıklama event'i ekle
-            document.querySelectorAll('#tr_carousel_43344 .tr-thumb').forEach((thumb, index) => {
-                thumb.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openLightbox(index);
-                });
-                
-                // Eski <a> tag'lerini devre dışı bırak
-                const parentLink = thumb.closest('a');
-                if (parentLink) {
-                    parentLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                    });
-                }
-            });
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">**** ****</span>
+<span class="tr-date">25 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 85 kg</span><span class="tr-tag">Beden: 2XL</span></div>
+<div class="tr-comment-text">muhteşem hiç düşünmeden alın Teşekkürler SWASS ONLİNE Teşekkürler Trendyol</div>
 
-            // Lightbox kontrolleri
-            if (lightboxClose) {
-                lightboxClose.addEventListener('click', closeLightbox);
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">A** M**</span>
+<span class="tr-date">26 Aralık 2025</span>
+</div>
+<div class="tr-card-stars">★★★★☆</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">büyük geldi iade ettim 1 beden küçük alın</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758995951.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2044847/901572898/22210351-1766758994560.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">U** T**</span>
+<span class="tr-date">20 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 66 kg</span><span class="tr-tag">Beden: L</span></div>
+<div class="tr-comment-text">Mükemmel teşekkürler</div>
 
-            if (lightboxPrev) {
-                lightboxPrev.addEventListener('click', prevImage);
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">İ** K**</span>
+<span class="tr-date">16 Ağustos 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 162 cm</span><span class="tr-tag">Kilo: 62 kg</span><span class="tr-tag">Beden: S</span></div>
+<div class="tr-comment-text">Mükemmel kelimesi hafif kalır yanında</div>
 
-            if (lightboxNext) {
-                lightboxNext.addEventListener('click', nextImage);
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">Z** K**</span>
+<span class="tr-date">30 Aralık 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 150 cm</span><span class="tr-tag">Kilo: 55 kg</span><span class="tr-tag">Beden: S</span></div>
+<div class="tr-comment-text">Çok güzel harika begenerek kullanıyorum</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079298695.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079296798.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2048835/901572898/82331870-1767079300588.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">Şenay D. T.</span>
+<span class="tr-date">16 Eylül 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 78 kg</span><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">ürün çok güzel çok memnun kaldım teşekkürler</div>
 
-            // Arka plana tıklayınca kapat
-            if (lightbox) {
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) {
-                        closeLightbox();
-                    }
-                });
-            }
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">K** K**</span>
+<span class="tr-date">29 Aralık 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
+<div class="tr-comment-text">Şık duruyor.</div>
 
-            // Klavye kontrolleri (ESC, Arrow keys)
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-                
-                if (e.key === 'Escape') {
-                    closeLightbox();
-                } else if (e.key === 'ArrowLeft') {
-                    prevImage();
-                } else if (e.key === 'ArrowRight') {
-                    nextImage();
-                }
-            });
-        
-    </script>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">a** h**</span>
+<span class="tr-date">9 Nisan 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 70 kg</span><span class="tr-tag">Beden: L</span></div>
+<div class="tr-comment-text">çok araştırdım ama değdi kalıbı kumaşı çok güzel</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1742466981198/img/2018925/2022913/2027898/901572898/18501553-1744216455683.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">N** I**</span>
+<span class="tr-date">3 Ocak 2026</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 167 cm</span><span class="tr-tag">Kilo: 72 kg</span><span class="tr-tag">Beden: L</span></div>
+<div class="tr-comment-text">ürün çok güzel üzerime dikilmiş gibi oldu . 166 boy,71 kiloyum</div>
+
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">d** c**</span>
+<span class="tr-date">15 Aralık 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 158 cm</span><span class="tr-tag">Kilo: 58 kg</span><span class="tr-tag">Beden: XL</span></div>
+<div class="tr-comment-text">çok güzel bir ceket</div>
+
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">N** d**</span>
+<span class="tr-date">9 Ağustos 2025</span>
+</div>
+<div class="tr-card-stars">★☆☆☆☆</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 178 cm</span><span class="tr-tag">Kilo: 68 kg</span><span class="tr-tag">Beden: M</span></div>
+<div class="tr-comment-text">kumaş kalitesini begenmedim desen baskısı dijital baskı</div>
+
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">E** G**</span>
+<span class="tr-date">25 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 156 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: L</span></div>
+<div class="tr-comment-text">Harika bir ceket. Tam beden uyumlu. Kalıbı salaş değil. Ben çok beğendim. Severek giyiyorum.</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019643300.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/901572898/22431965-1764019642548.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">c** d**</span>
+<span class="tr-date">11 Kasım 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
+<div class="tr-comment-text">muhtesemmmm</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2029892/901572898/157551591-1762858170994.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+</div>
+<div class="tr-card">
+<div class="tr-card-top">
+<div class="tr-user-info">
+<span class="tr-username">L** E**</span>
+<span class="tr-date">1 Aralık 2025</span>
+</div>
+<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 59 kg</span><span class="tr-tag">Beden: M</span></div>
+<div class="tr-comment-text">ürün gorselle aynı renk olarak dokusu da iyi biraz bol oldu iade ile uğraşmak istemiyorum ama mecbur bir beden küçüğünü alicam fiyat farkı olması can sıkıcı</div>
+
+</div>
+</div>
+<button class="tr-nav-btn tr-next" id="next_tr_carousel_74370">&#10095;</button>
+</div>
+
+<div id="lightbox_tr_carousel_74370" class="tr-lightbox-overlay">
+<span class="tr-close-btn" id="close_tr_carousel_74370">&times;</span>
+<span class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_74370">&#10094;</span>
+<img class="tr-lightbox-img" id="img_tr_carousel_74370" src=">
+<span class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_74370">&#10095;</span>
+</div>
+
+<script>
+(function() {
+// --- CAROUSEL LOGIC (Eski kodun aynısı) ---
+const track = document.getElementById('track_tr_carousel_74370');
+const prevBtn = document.getElementById('prev_tr_carousel_74370');
+const nextBtn = document.getElementById('next_tr_carousel_74370');
+let currentIndex = 0;
+function updateCarousel() {
+if(!track) return; const card = track.querySelector('.tr-card'); if(!card) return;
+const cardWidth = card.offsetWidth; const gap = 20; 
+const moveAmount = (cardWidth + gap) * currentIndex;
+track.style.transform = `translateX(-${moveAmount}px)`;
+prevBtn.disabled = currentIndex === 0;
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+const totalCards = track.children.length;
+nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
+}
+if(nextBtn) nextBtn.addEventListener('click', () => {
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+if (currentIndex < track.children.length - cardsToShow) { currentIndex++; updateCarousel(); }
+});
+if(prevBtn) prevBtn.addEventListener('click', () => {
+if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+});
+window.addEventListener('resize', updateCarousel);
+window.addEventListener('load', updateCarousel);
+setTimeout(updateCarousel, 500);
+
+// --- YENİ: GELİŞMİŞ LIGHTBOX GALERİ LOGIC ---
+const lightbox = document.getElementById('lightbox_tr_carousel_74370');
+const lightboxImg = document.getElementById('img_tr_carousel_74370');
+const closeBtn = document.getElementById('close_tr_carousel_74370');
+const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_74370');
+const lbNextBtn = document.getElementById('lb_next_tr_carousel_74370');
+
+// Tüm küçük resimleri (thumbnail) seç
+const triggers = document.querySelectorAll('#tr_carousel_74370 .tr-lightbox-trigger');
+
+// Tüm resimlerin kaynaklarını (src) bir listeye at
+let lightboxImages = [];
+triggers.forEach(img => lightboxImages.push(img.src));
+
+let currentLightboxIndex = 0;
+
+// Resmi güncelleme fonksiyonu
+function updateLightboxImage() {
+// Fade efekti için önce opaklığı düşür
+lightboxImg.style.opacity = '0.5';
+setTimeout(() => {
+lightboxImg.src = lightboxImages[currentLightboxIndex];
+lightboxImg.style.opacity = '1';
+}, 150);
+
+// Eğer sadece 1 resim varsa okları gizle
+if(lightboxImages.length <= 1) {
+lbPrevBtn.style.display = 'none'; lbNextBtn.style.display = 'none';
+} else {
+lbPrevBtn.style.display = 'block'; lbNextBtn.style.display = 'block';
+}
+}
+
+// Thumbnaillere tıklama olayını ekle (İndeks takibi ile)
+triggers.forEach((img, index) => {
+img.addEventListener('click', () => {
+lightbox.style.display = 'flex';
+currentLightboxIndex = index; // Tıklanan resmin sırasını al
+updateLightboxImage();
+});
+});
+
+// Sağ Ok (İleri)
+if(lbNextBtn) {
+lbNextBtn.addEventListener('click', (e) => {
+e.stopPropagation(); // Overlay'in kapanmasını engelle
+currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length; // Döngüsel artış
+updateLightboxImage();
+});
+}
+
+// Sol Ok (Geri)
+if(lbPrevBtn) {
+lbPrevBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+// Döngüsel azalış (Negatif değerden kaçınmak için + length eklenir)
+currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+updateLightboxImage();
+});
+}
+
+// Kapatma Fonksiyonları
+function closeLightbox() { lightbox.style.display = 'none'; }
+if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
+if(lightbox) lightbox.addEventListener('click', (e) => {
+if(e.target === lightbox) closeLightbox(); // Sadece siyah alana tıklanınca kapat
+});
+
+// Klavye Kontrolü (Opsiyonel: Sağ/Sol tuşları ile gezinme)
+document.addEventListener('keydown', (e) => {
+if(lightbox.style.display === 'flex') {
+if(e.key === 'ArrowRight') lbNextBtn.click();
+if(e.key === 'ArrowLeft') lbPrevBtn.click();
+if(e.key === 'Escape') closeLightbox();
+}
+});
+
+})();
+</script>
 </div>
