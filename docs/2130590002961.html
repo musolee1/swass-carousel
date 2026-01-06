@@ -1,223 +1,327 @@
-<div id="tr_carousel_78710" class="tr-wrapper">
+<div id="tr_widget_22427" class="tr-wrapper">
 <style>
-/* CONTAINER */
-#tr_carousel_78710 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
+/* RESET & CONTAINER */
+#tr_widget_22427 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; box-sizing: border-box; background-color: #fff; padding: 20px; border-radius: 8px; width: 100%; position: relative; }
+#tr_widget_22427 * { box-sizing: border-box; }
 
-/* HEADER */
-#tr_carousel_78710 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
-#tr_carousel_78710 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
-#tr_carousel_78710 .tr-rating-details { display: flex; flex-direction: column; }
-#tr_carousel_78710 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
-#tr_carousel_78710 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
-#tr_carousel_78710 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+/* --- HEADER --- */
+#tr_widget_22427 .tr-header-card { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+#tr_widget_22427 .tr-rating-big { font-size: 3rem; font-weight: 800; margin-right: 15px; color: #111; line-height: 1; }
+#tr_widget_22427 .tr-stars-gold { color: #F27A1A; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 5px; }
+#tr_widget_22427 .tr-count-text { font-size: 0.85rem; color: #666; font-weight: 500; }
 
-/* AI CARD */
-#tr_carousel_78710 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-#tr_carousel_78710 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
-
-/* CAROUSEL */
-#tr_carousel_78710 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
-#tr_carousel_78710 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
-
-#tr_carousel_78710 .tr-card { 
-flex: 0 0 calc(33.333% - 14px); background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
-padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box; height: auto; min-height: 350px; 
+/* --- FILTRELEME ALANI (Krem Rengi) --- */
+#tr_widget_22427 .tr-filters-container {
+background-color: #FFF9F3; /* Krem Rengi */
+border-radius: 12px;
+padding: 20px;
+margin-bottom: 25px;
 }
-@media (max-width: 768px) { #tr_carousel_78710 .tr-card { flex: 0 0 100%; } }
-
-#tr_carousel_78710 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-#tr_carousel_78710 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
-#tr_carousel_78710 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
-#tr_carousel_78710 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
-#tr_carousel_78710 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-#tr_carousel_78710 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
-#tr_carousel_78710 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
-
-/* Carousel Buttons */
-#tr_carousel_78710 .tr-nav-btn { 
-position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; 
-width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; 
-align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;
+#tr_widget_22427 .tr-filter-section { margin-bottom: 15px; }
+#tr_widget_22427 .tr-filter-section:last-child { margin-bottom: 0; }
+#tr_widget_22427 .tr-filter-title { 
+display: block; font-size: 0.9rem; font-weight: 700; color: #666; margin-bottom: 10px; 
 }
-#tr_carousel_78710 .tr-nav-btn:hover { opacity: 1; }
-#tr_carousel_78710 .tr-prev { left: 0; }
-#tr_carousel_78710 .tr-next { right: 0; }
-#tr_carousel_78710 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+#tr_widget_22427 .tr-filter-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
-/* Thumbnails */
-#tr_carousel_78710 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
-#tr_carousel_78710 .tr-thumb { 
-width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; 
-cursor: zoom-in; transition: transform 0.2s;
+#tr_widget_22427 .tr-filter-btn {
+background: #fff; border: 1px solid #e6e6e6; border-radius: 8px;
+padding: 8px 16px; font-size: 0.85rem; font-weight: 600; color: #333;
+cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
 }
-#tr_carousel_78710 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
+#tr_widget_22427 .tr-filter-btn:hover { border-color: #F27A1A; color: #F27A1A; }
+#tr_widget_22427 .tr-filter-btn.active { 
+background-color: #333; color: #fff; border-color: #333; 
+}
+#tr_widget_22427 .tr-filter-count { color: #999; font-weight: 400; font-size: 0.8rem; }
+#tr_widget_22427 .tr-filter-btn.active .tr-filter-count { color: #ccc; }
 
-/* --- LIGHTBOX (NAVİGASYON DÜZELTİLDİ) --- */
-#tr_carousel_78710 .tr-lightbox-overlay {
-display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; 
-background-color: rgba(0,0,0,0.9);
-justify-content: center; align-items: center; flex-direction: column;
-user-select: none;
-}
-#tr_carousel_78710 .tr-lightbox-img {
-max-width: 90%; max-height: 85vh; border-radius: 4px; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-transition: opacity 0.3s ease; position: relative; z-index: 100000;
-}
-#tr_carousel_78710 .tr-close-btn {
-position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300;
-cursor: pointer; z-index: 100002; transition: color 0.2s;
-}
-#tr_carousel_78710 .tr-close-btn:hover { color: #F27A1A; }
+/* --- AI CARD --- */
+#tr_widget_22427 .tr-ai-card { background: #f0f8ff; border-left: 4px solid #0056b3; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
+#tr_widget_22427 .tr-ai-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; color: #0056b3; }
 
-/* Lightbox Okları (Daha belirgin hale getirildi) */
-#tr_carousel_78710 .tr-lb-nav {
+/* --- CAROUSEL --- */
+#tr_widget_22427 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 5px; }
+#tr_widget_22427 .tr-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); gap: 20px; }
+
+/* CARD */
+#tr_widget_22427 .tr-card { 
+flex: 0 0 calc(33.333% - 14px); 
+background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px;
+display: flex; flex-direction: column; height: auto; min-height: 320px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+#tr_widget_22427 .tr-card.hidden { display: none; } /* Filtreleme için */
+
+@media (max-width: 768px) { #tr_widget_22427 .tr-card { flex: 0 0 100%; } }
+
+#tr_widget_22427 .tr-card-top { display: flex; justify-content: space-between; margin-bottom: 12px; }
+#tr_widget_22427 .tr-username { font-weight: 700; font-size: 0.9rem; }
+#tr_widget_22427 .tr-date { font-size: 0.75rem; color: #999; display: block; }
+#tr_widget_22427 .tr-stars-small { color: #F27A1A; font-size: 0.9rem; }
+#tr_widget_22427 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+#tr_widget_22427 .tr-tag { background: #f4f4f4; color: #555; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; }
+#tr_widget_22427 .tr-comment { font-size: 0.9rem; line-height: 1.5; color: #444; flex-grow: 1; margin-bottom: 15px; overflow: hidden; }
+
+/* Nav Buttons */
+#tr_widget_22427 .tr-nav-btn { 
 position: absolute; top: 50%; transform: translateY(-50%);
-color: #fff; font-size: 30px; cursor: pointer; z-index: 100002; /* En üstte */
-width: 50px; height: 50px; background: rgba(255,255,255,0.15); /* Hafif arka plan */
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
+width: 40px; height: 40px; border-radius: 50%; background: #fff; 
+border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+font-size: 18px; color: #333; cursor: pointer; z-index: 10;
+display: flex; align-items: center; justify-content: center;
 transition: all 0.2s;
 }
-#tr_carousel_78710 .tr-lb-nav:hover { background: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); }
+#tr_widget_22427 .tr-nav-btn:hover { background: #333; color: #fff; border-color: #333; }
+#tr_widget_22427 .tr-nav-btn:disabled { opacity: 0.3; cursor: default; background: #fff; color: #ccc; }
+#tr_widget_22427 .tr-prev { left: 0; }
+#tr_widget_22427 .tr-next { right: 0; }
 
-#tr_carousel_78710 .tr-lb-prev { left: 30px; }
-#tr_carousel_78710 .tr-lb-next { right: 30px; }
-
-@media (max-width: 768px) { 
-#tr_carousel_78710 .tr-lb-nav { width: 40px; height: 40px; font-size: 24px; }
-#tr_carousel_78710 .tr-lb-prev { left: 10px; }
-#tr_carousel_78710 .tr-lb-next { right: 10px; }
+/* Thumbnails */
+#tr_widget_22427 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; }
+#tr_widget_22427 .tr-thumb { 
+width: 60px; height: 60px; object-fit: cover; border-radius: 6px; 
+border: 1px solid #eee; cursor: zoom-in; opacity: 0.9;
 }
+#tr_widget_22427 .tr-thumb:hover { opacity: 1; border-color: #333; }
+
+/* --- LIGHTBOX (FIXED) --- */
+#tr_widget_22427 .tr-lightbox {
+display: none; position: fixed; z-index: 2147483647; left: 0; top: 0; width: 100%; height: 100%; 
+background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center;
+}
+#tr_widget_22427 .tr-lb-img { 
+max-width: 95vw; max-height: 90vh; /* GÖRSEL BÜYÜTÜLDÜ */
+border-radius: 4px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+#tr_widget_22427 .tr-lb-close {
+position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 100;
+}
+#tr_widget_22427 .tr-lb-nav {
+position: absolute; top: 50%; transform: translateY(-50%);
+color: rgba(255,255,255,0.7); font-size: 50px; cursor: pointer; padding: 20px;
+user-select: none; z-index: 99; transition: color 0.2s;
+}
+#tr_widget_22427 .tr-lb-nav:hover { color: #fff; background: rgba(0,0,0,0.2); border-radius: 5px; }
+#tr_widget_22427 .tr-lb-prev { left: 10px; }
+#tr_widget_22427 .tr-lb-next { right: 10px; }
 </style>
 
 <div class="tr-header-card">
 <div class="tr-rating-big">5</div>
-<div class="tr-rating-details">
+<div>
 <div class="tr-stars-gold">★★★★★</div>
-<div class="tr-rating-label">Genel Ortalama</div>
 <div class="tr-count-text">1 Değerlendirme 1 Yorum</div>
 </div>
 </div>
 
-<div class="tr-carousel-container">
-<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_78710">&#10094;</button>
-<div class="tr-track" id="track_tr_carousel_78710">
-
-<div class="tr-card">
-<div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">D** G**</span>
-<span class="tr-date">19 Ekim 2025</span>
+<div class="tr-filters-container">
+<div class="tr-filter-section">
+<span class="tr-filter-title">Konuya Göre Filtrele</span>
+<div class="tr-filter-row">
+<button class="tr-filter-btn active" data-filter="all">Tümü <span class="tr-filter-count">(1)</span></button>
+<button class="tr-filter-btn" data-filter="photo">📸 Fotoğraflı <span class="tr-filter-count">(1)</span></button>
 </div>
-<div class="tr-card-stars">★★★★★</div>
+</div>
+<div class="tr-filter-section">
+<span class="tr-filter-title">Puana Göre Filtrele</span>
+<div class="tr-filter-row">
+<button class="tr-filter-btn" data-star="5">★★★★★ <span class="tr-filter-count">(1)</span></button>
+<button class="tr-filter-btn" data-star="4">★★★★☆ <span class="tr-filter-count">(0)</span></button>
+<button class="tr-filter-btn" data-star="3">★★★☆☆ <span class="tr-filter-count">(0)</span></button>
+<button class="tr-filter-btn" data-star="2">★★☆☆☆ <span class="tr-filter-count">(0)</span></button>
+<button class="tr-filter-btn" data-star="1">★☆☆☆☆ <span class="tr-filter-count">(0)</span></button>
+</div>
+</div>
+</div>
+
+<div class="tr-carousel-container">
+<button class="tr-nav-btn tr-prev" id="prev_tr_widget_22427">&#10094;</button>
+<div class="tr-track" id="track_tr_widget_22427">
+
+<div class="tr-card" data-has-photo="true" data-star="5">
+<div class="tr-card-top">
+<div><div class="tr-username">D** G**</div><div class="tr-date">19 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">Kumaşı harika bir beden büyük alınabilir arka kısmı açık rahat bir elbise</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2037868/934118649/14112480-1760824855535.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2037868/934118649/14112480-1760824855919.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Kumaşı harika bir beden büyük alınabilir arka kısmı açık rahat bir elbise</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2037868/934118649/14112480-1760824855535.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2037868/934118649/14112480-1760824855919.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
 </div>
-<button class="tr-nav-btn tr-next" id="next_tr_carousel_78710">&#10095;</button>
+<button class="tr-nav-btn tr-next" id="next_tr_widget_22427">&#10095;</button>
 </div>
 
-<div id="lightbox_tr_carousel_78710" class="tr-lightbox-overlay">
-<span class="tr-close-btn" id="close_tr_carousel_78710">&times;</span>
-<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_78710">&#10094;</div>
-<img class="tr-lightbox-img" id="img_tr_carousel_78710" src=">
-<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_78710">&#10095;</div>
+<div id="lb_tr_widget_22427" class="tr-lightbox">
+<span class="tr-lb-close" id="lb_close_tr_widget_22427">&times;</span>
+<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_widget_22427">&#10094;</div>
+<img class="tr-lb-img" id="lb_img_tr_widget_22427" src=">
+<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_widget_22427">&#10095;</div>
 </div>
 
 <script>
 (function() {
-// CAROUSEL
-const track = document.getElementById('track_tr_carousel_78710');
-const prevBtn = document.getElementById('prev_tr_carousel_78710');
-const nextBtn = document.getElementById('next_tr_carousel_78710');
+const root = document.getElementById('tr_widget_22427');
+const track = document.getElementById('track_tr_widget_22427');
+const prevBtn = document.getElementById('prev_tr_widget_22427');
+const nextBtn = document.getElementById('next_tr_widget_22427');
+
+// --- FILTRELEME MANTIĞI ---
+let activeFilter = 'all';
+let activeStar = null; // null means 'all stars'
+
+function applyFilters() {
+const cards = track.querySelectorAll('.tr-card');
+let visibleCount = 0;
+
+cards.forEach(card => {
+const hasPhoto = card.getAttribute('data-has-photo') === 'true';
+const star = parseInt(card.getAttribute('data-star'));
+
+let show = true;
+
+// Konu Filtresi
+if (activeFilter === 'photo' && !hasPhoto) show = false;
+
+// Puan Filtresi
+if (activeStar !== null && star !== activeStar) show = false;
+
+if (show) {
+card.classList.remove('hidden');
+visibleCount++;
+} else {
+card.classList.add('hidden');
+}
+});
+
+// Carousel'i başa sar ve güncelle
+currentIndex = 0;
+updateCarousel();
+}
+
+// Buton Eventleri
+const filterBtns = root.querySelectorAll('.tr-filter-btn');
+filterBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+// Active class yönetimi
+if(btn.hasAttribute('data-filter')) {
+// Konu butonu
+root.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+activeFilter = btn.getAttribute('data-filter');
+} else if(btn.hasAttribute('data-star')) {
+// Yıldız butonu - Toggle mantığı (aynısına basınca kapat)
+const starVal = parseInt(btn.getAttribute('data-star'));
+if (activeStar === starVal) {
+activeStar = null; // Filtreyi kaldır
+btn.classList.remove('active');
+} else {
+root.querySelectorAll('[data-star]').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+activeStar = starVal;
+}
+}
+applyFilters();
+});
+});
+
+// --- CAROUSEL MANTIĞI ---
 let currentIndex = 0;
 function updateCarousel() {
-if(!track) return; const card = track.querySelector('.tr-card'); if(!card) return;
-const cardWidth = card.offsetWidth; const gap = 20; 
+const visibleCards = Array.from(track.querySelectorAll('.tr-card:not(.hidden)'));
+
+if(visibleCards.length === 0) {
+track.style.transform = 'translateX(0)';
+prevBtn.style.display = 'none';
+nextBtn.style.display = 'none';
+return;
+} else {
+prevBtn.style.display = 'flex';
+nextBtn.style.display = 'flex';
+}
+
+const cardWidth = visibleCards[0].offsetWidth;
+const gap = 20; 
 const moveAmount = (cardWidth + gap) * currentIndex;
 track.style.transform = `translateX(-${moveAmount}px)`;
+
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+
 prevBtn.disabled = currentIndex === 0;
-const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-const totalCards = track.children.length;
-nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
+nextBtn.disabled = currentIndex >= visibleCards.length - cardsToShow;
 }
-if(nextBtn) nextBtn.addEventListener('click', () => {
+
+nextBtn.addEventListener('click', () => {
+const visibleCards = track.querySelectorAll('.tr-card:not(.hidden)');
 const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-if (currentIndex < track.children.length - cardsToShow) { currentIndex++; updateCarousel(); }
+if (currentIndex < visibleCards.length - cardsToShow) {
+currentIndex++;
+updateCarousel();
+}
 });
-if(prevBtn) prevBtn.addEventListener('click', () => {
-if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+
+prevBtn.addEventListener('click', () => {
+if (currentIndex > 0) {
+currentIndex--;
+updateCarousel();
+}
 });
+
 window.addEventListener('resize', updateCarousel);
-window.addEventListener('load', updateCarousel);
-setTimeout(updateCarousel, 500);
+setTimeout(updateCarousel, 500); // Resimler yüklenince
 
-// --- LIGHTBOX JS ---
-const lightbox = document.getElementById('lightbox_tr_carousel_78710');
-const lightboxImg = document.getElementById('img_tr_carousel_78710');
-const closeBtn = document.getElementById('close_tr_carousel_78710');
-const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_78710');
-const lbNextBtn = document.getElementById('lb_next_tr_carousel_78710');
+// --- LIGHTBOX MANTIĞI (FIXED) ---
+const lightbox = document.getElementById('lb_tr_widget_22427');
+const lbImg = document.getElementById('lb_img_tr_widget_22427');
+const lbClose = document.getElementById('lb_close_tr_widget_22427');
+const lbPrev = document.getElementById('lb_prev_tr_widget_22427');
+const lbNext = document.getElementById('lb_next_tr_widget_22427');
 
-// Resim listesi ve indeks
-const triggers = document.querySelectorAll('#tr_carousel_78710 .tr-lightbox-trigger');
-let lightboxImages = [];
-triggers.forEach(img => lightboxImages.push(img.src));
-let currentLightboxIndex = 0;
+let lbImages = [];
+let lbIndex = 0;
 
-function updateLightboxImage() {
-lightboxImg.style.opacity = '0.5';
-setTimeout(() => {
-lightboxImg.src = lightboxImages[currentLightboxIndex];
-lightboxImg.style.opacity = '1';
-}, 150);
-
-// Tek resim varsa okları gizle
-if(lightboxImages.length <= 1) {
-lbPrevBtn.style.display = 'none'; lbNextBtn.style.display = 'none';
-} else {
-lbPrevBtn.style.display = 'flex'; lbNextBtn.style.display = 'flex';
-}
-}
-
-triggers.forEach((img, index) => {
+// Tüm resimleri topla
+const allThumbs = root.querySelectorAll('.tr-lb-trigger');
+allThumbs.forEach((img, idx) => {
 img.addEventListener('click', () => {
+// Sadece görünür kartların resimlerini mi almalı? Hayır, hepsini alabiliriz veya 
+// daha gelişmiş olması için sadece o anki filtredeki resimleri toplayabiliriz.
+// Basitlik için tüm resimleri topluyoruz.
+lbImages = [];
+let clickedSrc = img.src;
+
+// Sırayı korumak için tekrar DOM'u tarıyoruz
+root.querySelectorAll('.tr-lb-trigger').forEach(t => lbImages.push(t.src));
+
+lbIndex = lbImages.indexOf(clickedSrc);
+openLightbox();
+});
+});
+
+function openLightbox() {
 lightbox.style.display = 'flex';
-currentLightboxIndex = index;
-updateLightboxImage();
-});
-});
+updateLbImage();
+}
 
-if(lbNextBtn) {
-lbNextBtn.addEventListener('click', (e) => {
+function updateLbImage() {
+lbImg.src = lbImages[lbIndex];
+}
+
+if(lbNext) lbNext.addEventListener('click', (e) => {
 e.stopPropagation();
-currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
-updateLightboxImage();
+lbIndex = (lbIndex + 1) % lbImages.length;
+updateLbImage();
 });
-}
 
-if(lbPrevBtn) {
-lbPrevBtn.addEventListener('click', (e) => {
+if(lbPrev) lbPrev.addEventListener('click', (e) => {
 e.stopPropagation();
-currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
-updateLightboxImage();
-});
-}
-
-function closeLightbox() { lightbox.style.display = 'none'; }
-if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
-if(lightbox) lightbox.addEventListener('click', (e) => {
-if(e.target === lightbox) closeLightbox();
+lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+updateLbImage();
 });
 
-document.addEventListener('keydown', (e) => {
-if(lightbox.style.display === 'flex') {
-if(e.key === 'ArrowRight') lbNextBtn.click();
-if(e.key === 'ArrowLeft') lbPrevBtn.click();
-if(e.key === 'Escape') closeLightbox();
-}
-});
+function closeLb() { lightbox.style.display = 'none'; }
+if(lbClose) lbClose.addEventListener('click', closeLb);
+if(lightbox) lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLb(); });
 
 })();
 </script>

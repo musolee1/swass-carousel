@@ -1,503 +1,471 @@
-<div id="tr_carousel_78302" class="tr-wrapper">
+<div id="tr_widget_23021" class="tr-wrapper">
 <style>
-/* CONTAINER */
-#tr_carousel_78302 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
+/* RESET & CONTAINER */
+#tr_widget_23021 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; box-sizing: border-box; background-color: #fff; padding: 20px; border-radius: 8px; width: 100%; position: relative; }
+#tr_widget_23021 * { box-sizing: border-box; }
 
-/* HEADER */
-#tr_carousel_78302 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
-#tr_carousel_78302 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
-#tr_carousel_78302 .tr-rating-details { display: flex; flex-direction: column; }
-#tr_carousel_78302 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
-#tr_carousel_78302 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
-#tr_carousel_78302 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
+/* --- HEADER --- */
+#tr_widget_23021 .tr-header-card { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+#tr_widget_23021 .tr-rating-big { font-size: 3rem; font-weight: 800; margin-right: 15px; color: #111; line-height: 1; }
+#tr_widget_23021 .tr-stars-gold { color: #F27A1A; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 5px; }
+#tr_widget_23021 .tr-count-text { font-size: 0.85rem; color: #666; font-weight: 500; }
 
-/* AI CARD */
-#tr_carousel_78302 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-#tr_carousel_78302 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
-
-/* CAROUSEL */
-#tr_carousel_78302 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
-#tr_carousel_78302 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
-
-#tr_carousel_78302 .tr-card { 
-flex: 0 0 calc(33.333% - 14px); background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
-padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box; height: auto; min-height: 350px; 
+/* --- FILTRELEME ALANI (Krem Rengi) --- */
+#tr_widget_23021 .tr-filters-container {
+background-color: #FFF9F3; /* Krem Rengi */
+border-radius: 12px;
+padding: 20px;
+margin-bottom: 25px;
 }
-@media (max-width: 768px) { #tr_carousel_78302 .tr-card { flex: 0 0 100%; } }
-
-#tr_carousel_78302 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-#tr_carousel_78302 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
-#tr_carousel_78302 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
-#tr_carousel_78302 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
-#tr_carousel_78302 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-#tr_carousel_78302 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
-#tr_carousel_78302 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
-
-/* Carousel Buttons */
-#tr_carousel_78302 .tr-nav-btn { 
-position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; 
-width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; 
-align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;
+#tr_widget_23021 .tr-filter-section { margin-bottom: 15px; }
+#tr_widget_23021 .tr-filter-section:last-child { margin-bottom: 0; }
+#tr_widget_23021 .tr-filter-title { 
+display: block; font-size: 0.9rem; font-weight: 700; color: #666; margin-bottom: 10px; 
 }
-#tr_carousel_78302 .tr-nav-btn:hover { opacity: 1; }
-#tr_carousel_78302 .tr-prev { left: 0; }
-#tr_carousel_78302 .tr-next { right: 0; }
-#tr_carousel_78302 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+#tr_widget_23021 .tr-filter-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
-/* Thumbnails */
-#tr_carousel_78302 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
-#tr_carousel_78302 .tr-thumb { 
-width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; 
-cursor: zoom-in; transition: transform 0.2s;
+#tr_widget_23021 .tr-filter-btn {
+background: #fff; border: 1px solid #e6e6e6; border-radius: 8px;
+padding: 8px 16px; font-size: 0.85rem; font-weight: 600; color: #333;
+cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
 }
-#tr_carousel_78302 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
+#tr_widget_23021 .tr-filter-btn:hover { border-color: #F27A1A; color: #F27A1A; }
+#tr_widget_23021 .tr-filter-btn.active { 
+background-color: #333; color: #fff; border-color: #333; 
+}
+#tr_widget_23021 .tr-filter-count { color: #999; font-weight: 400; font-size: 0.8rem; }
+#tr_widget_23021 .tr-filter-btn.active .tr-filter-count { color: #ccc; }
 
-/* --- LIGHTBOX (NAVİGASYON DÜZELTİLDİ) --- */
-#tr_carousel_78302 .tr-lightbox-overlay {
-display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; 
-background-color: rgba(0,0,0,0.9);
-justify-content: center; align-items: center; flex-direction: column;
-user-select: none;
-}
-#tr_carousel_78302 .tr-lightbox-img {
-max-width: 90%; max-height: 85vh; border-radius: 4px; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-transition: opacity 0.3s ease; position: relative; z-index: 100000;
-}
-#tr_carousel_78302 .tr-close-btn {
-position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300;
-cursor: pointer; z-index: 100002; transition: color 0.2s;
-}
-#tr_carousel_78302 .tr-close-btn:hover { color: #F27A1A; }
+/* --- AI CARD --- */
+#tr_widget_23021 .tr-ai-card { background: #f0f8ff; border-left: 4px solid #0056b3; border-radius: 6px; padding: 15px; margin-bottom: 25px; }
+#tr_widget_23021 .tr-ai-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; color: #0056b3; }
 
-/* Lightbox Okları (Daha belirgin hale getirildi) */
-#tr_carousel_78302 .tr-lb-nav {
+/* --- CAROUSEL --- */
+#tr_widget_23021 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 5px; }
+#tr_widget_23021 .tr-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); gap: 20px; }
+
+/* CARD */
+#tr_widget_23021 .tr-card { 
+flex: 0 0 calc(33.333% - 14px); 
+background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px;
+display: flex; flex-direction: column; height: auto; min-height: 320px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+#tr_widget_23021 .tr-card.hidden { display: none; } /* Filtreleme için */
+
+@media (max-width: 768px) { #tr_widget_23021 .tr-card { flex: 0 0 100%; } }
+
+#tr_widget_23021 .tr-card-top { display: flex; justify-content: space-between; margin-bottom: 12px; }
+#tr_widget_23021 .tr-username { font-weight: 700; font-size: 0.9rem; }
+#tr_widget_23021 .tr-date { font-size: 0.75rem; color: #999; display: block; }
+#tr_widget_23021 .tr-stars-small { color: #F27A1A; font-size: 0.9rem; }
+#tr_widget_23021 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+#tr_widget_23021 .tr-tag { background: #f4f4f4; color: #555; font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; }
+#tr_widget_23021 .tr-comment { font-size: 0.9rem; line-height: 1.5; color: #444; flex-grow: 1; margin-bottom: 15px; overflow: hidden; }
+
+/* Nav Buttons */
+#tr_widget_23021 .tr-nav-btn { 
 position: absolute; top: 50%; transform: translateY(-50%);
-color: #fff; font-size: 30px; cursor: pointer; z-index: 100002; /* En üstte */
-width: 50px; height: 50px; background: rgba(255,255,255,0.15); /* Hafif arka plan */
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
+width: 40px; height: 40px; border-radius: 50%; background: #fff; 
+border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+font-size: 18px; color: #333; cursor: pointer; z-index: 10;
+display: flex; align-items: center; justify-content: center;
 transition: all 0.2s;
 }
-#tr_carousel_78302 .tr-lb-nav:hover { background: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); }
+#tr_widget_23021 .tr-nav-btn:hover { background: #333; color: #fff; border-color: #333; }
+#tr_widget_23021 .tr-nav-btn:disabled { opacity: 0.3; cursor: default; background: #fff; color: #ccc; }
+#tr_widget_23021 .tr-prev { left: 0; }
+#tr_widget_23021 .tr-next { right: 0; }
 
-#tr_carousel_78302 .tr-lb-prev { left: 30px; }
-#tr_carousel_78302 .tr-lb-next { right: 30px; }
-
-@media (max-width: 768px) { 
-#tr_carousel_78302 .tr-lb-nav { width: 40px; height: 40px; font-size: 24px; }
-#tr_carousel_78302 .tr-lb-prev { left: 10px; }
-#tr_carousel_78302 .tr-lb-next { right: 10px; }
+/* Thumbnails */
+#tr_widget_23021 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; }
+#tr_widget_23021 .tr-thumb { 
+width: 60px; height: 60px; object-fit: cover; border-radius: 6px; 
+border: 1px solid #eee; cursor: zoom-in; opacity: 0.9;
 }
+#tr_widget_23021 .tr-thumb:hover { opacity: 1; border-color: #333; }
+
+/* --- LIGHTBOX (FIXED) --- */
+#tr_widget_23021 .tr-lightbox {
+display: none; position: fixed; z-index: 2147483647; left: 0; top: 0; width: 100%; height: 100%; 
+background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center;
+}
+#tr_widget_23021 .tr-lb-img { 
+max-width: 95vw; max-height: 90vh; /* GÖRSEL BÜYÜTÜLDÜ */
+border-radius: 4px; box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+#tr_widget_23021 .tr-lb-close {
+position: absolute; top: 20px; right: 25px; color: #fff; font-size: 40px; cursor: pointer; z-index: 100;
+}
+#tr_widget_23021 .tr-lb-nav {
+position: absolute; top: 50%; transform: translateY(-50%);
+color: rgba(255,255,255,0.7); font-size: 50px; cursor: pointer; padding: 20px;
+user-select: none; z-index: 99; transition: color 0.2s;
+}
+#tr_widget_23021 .tr-lb-nav:hover { color: #fff; background: rgba(0,0,0,0.2); border-radius: 5px; }
+#tr_widget_23021 .tr-lb-prev { left: 10px; }
+#tr_widget_23021 .tr-lb-next { right: 10px; }
 </style>
 
 <div class="tr-header-card">
 <div class="tr-rating-big">4.5</div>
-<div class="tr-rating-details">
+<div>
 <div class="tr-stars-gold">★★★★☆</div>
-<div class="tr-rating-label">Genel Ortalama</div>
 <div class="tr-count-text">36 Değerlendirme 25 Yorum</div>
 </div>
 </div>
-
-<div class="tr-ai-card">
-<div class="tr-ai-title">🤖 Değerlendirme Özeti</div>
-<p style="margin:0; font-size:0.9rem; line-height:1.5;">Müşteriler, ürünün kumaş kalitesini, şık duruşunu ve fiyat performansını övgüyle karşılamışlardır. Paketlemenin özenli olması, dikiş kalitesinin yüksekliği ve ürünün fotoğraflardaki gibi gelmesi de takdir edilmiştir. Ancak bazı müşteriler, beden seçiminde zorluk yaşamış ve ürünün kalıbının dar olduğu yönünde geri bildirimde bulunmuşlardır. Ayrıca, ürünün ince kumaşı nedeniyle iç göstermesi ve bazı renklerde kesim farklılıkları gibi küçük kusurlar da belirtilmiştir. Genel olarak, ürün şık veDevamını Oku</p>
+<div class="tr-ai-card"><div class="tr-ai-title">🤖 Değerlendirme Özeti</div><p style="margin:0; font-size:0.9rem;">Müşteriler, ürünün kumaş kalitesini, şık duruşunu ve fiyat performansını övgüyle karşılamışlardır. Paketlemenin özenli olması, dikiş kalitesinin yüksekliği ve ürünün fotoğraflardaki gibi gelmesi de takdir edilmiştir. Ancak bazı müşteriler, beden seçiminde zorluk yaşamış ve ürünün kalıbının dar olduğu yönünde geri bildirimde bulunmuşlardır. Ayrıca, ürünün ince kumaşı nedeniyle iç göstermesi ve bazı renklerde kesim farklılıkları gibi küçük kusurlar da belirtilmiştir. Genel olarak, ürün şık veDevamını Oku</p></div>
+<div class="tr-filters-container">
+<div class="tr-filter-section">
+<span class="tr-filter-title">Konuya Göre Filtrele</span>
+<div class="tr-filter-row">
+<button class="tr-filter-btn active" data-filter="all">Tümü <span class="tr-filter-count">(25)</span></button>
+<button class="tr-filter-btn" data-filter="photo">📸 Fotoğraflı <span class="tr-filter-count">(8)</span></button>
+</div>
+</div>
+<div class="tr-filter-section">
+<span class="tr-filter-title">Puana Göre Filtrele</span>
+<div class="tr-filter-row">
+<button class="tr-filter-btn" data-star="5">★★★★★ <span class="tr-filter-count">(18)</span></button>
+<button class="tr-filter-btn" data-star="4">★★★★☆ <span class="tr-filter-count">(3)</span></button>
+<button class="tr-filter-btn" data-star="3">★★★☆☆ <span class="tr-filter-count">(3)</span></button>
+<button class="tr-filter-btn" data-star="2">★★☆☆☆ <span class="tr-filter-count">(1)</span></button>
+<button class="tr-filter-btn" data-star="1">★☆☆☆☆ <span class="tr-filter-count">(0)</span></button>
+</div>
+</div>
 </div>
 
 <div class="tr-carousel-container">
-<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_78302">&#10094;</button>
-<div class="tr-track" id="track_tr_carousel_78302">
+<button class="tr-nav-btn tr-prev" id="prev_tr_widget_23021">&#10094;</button>
+<div class="tr-track" id="track_tr_widget_23021">
 
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Hacer B.</span>
-<span class="tr-date">17 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Hacer B.</div><div class="tr-date">17 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 163 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">60 kilo 1.63 boy m beden muhteşem oldu kalıbı duruşu kumaşını çok beğendim fiyatıda mağazalara göre gayet iyi beklentimi fazlasıyla karşıladı tavsiye ederim</div>
+<div class="tr-comment">60 kilo 1.63 boy m beden muhteşem oldu kalıbı duruşu kumaşını çok beğendim fiyatıda mağazalara göre gayet iyi beklentimi fazlasıyla karşıladı tavsiye ederim</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">A** K**</span>
-<span class="tr-date">11 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">A** K**</div><div class="tr-date">11 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 61 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">Elbise harika, müthiş ötesi bu fiyata aşırı kaliteli kalıbı tam üzerinize oturuyor hiç düşünmeden alın tüm renklerini almak istiyorum 🫶🏻</div>
+<div class="tr-comment">Elbise harika, müthiş ötesi bu fiyata aşırı kaliteli kalıbı tam üzerinize oturuyor hiç düşünmeden alın tüm renklerini almak istiyorum 🫶🏻</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">**** ****</span>
-<span class="tr-date">22 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">**** ****</div><div class="tr-date">22 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 65 kg</span><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">Yorumlarda bir beden büyük alınmalı dendiği için M giydiğim halde göğüslerim büyük diye L aldım. Keşke tam bedenimi alsaydım. onun haricin de elbise şahane. Ablama verdim ona tam oldu. İadeyle uğraşmamış oldum</div>
+<div class="tr-comment">Yorumlarda bir beden büyük alınmalı dendiği için M giydiğim halde göğüslerim büyük diye L aldım. Keşke tam bedenimi alsaydım. onun haricin de elbise şahane. Ablama verdim ona tam oldu. İadeyle uğraşmamış oldum</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="4">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">N** A**</span>
-<span class="tr-date">17 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★☆</div>
+<div><div class="tr-username">N** A**</div><div class="tr-date">17 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 163 cm</span><span class="tr-tag">Kilo: 51 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">Çok güzel çok beğendim fakat normalde 36 beden giyinmeme rağmen üst bedeni küçük geldi bu sebeple üzülerek iade edip 38 beden siparişi vermek durumundayım</div>
+<div class="tr-comment">Çok güzel çok beğendim fakat normalde 36 beden giyinmeme rağmen üst bedeni küçük geldi bu sebeple üzülerek iade edip 38 beden siparişi vermek durumundayım</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">**** ****</span>
-<span class="tr-date">1 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">**** ****</div><div class="tr-date">1 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 70 kg</span><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">Ürün çok güzel çok kaliteli.Boyum 170cm ,70 kiloyum large aldım ama göğüs ve basenim var.belden ve kalçadan büyük geldi.medium da küçük gelirdi göğüsten,daraltıcam artık</div>
+<div class="tr-comment">Ürün çok güzel çok kaliteli.Boyum 170cm ,70 kiloyum large aldım ama göğüs ve basenim var.belden ve kalçadan büyük geldi.medium da küçük gelirdi göğüsten,daraltıcam artık</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Ö** Y** D**</span>
-<span class="tr-date">3 Ocak 2026</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Ö** Y** D**</div><div class="tr-date">3 Ocak 2026</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">Çok güzel bir ürün.Ben beden kaynaklı iade edeceğim ama çok güzel.</div>
+<div class="tr-comment">Çok güzel bir ürün.Ben beden kaynaklı iade edeceğim ama çok güzel.</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">A** Ç**</span>
-<span class="tr-date">22 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">A** Ç**</div><div class="tr-date">22 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 50 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">Kumaşı , dokusu çok şık; harika duruyorkesinlikle ücretini hakediyor, paketlemesi çok özenli,</div>
+<div class="tr-comment">Kumaşı , dokusu çok şık; harika duruyorkesinlikle ücretini hakediyor, paketlemesi çok özenli,</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">S** Ç**</span>
-<span class="tr-date">4 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">S** Ç**</div><div class="tr-date">4 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: XL</span></div>
-<div class="tr-comment-text">kumaşı çok kaliteli çok rahat beklediğimizden daha güzel oldu fiyatına göre bu elbise mükemmel</div>
+<div class="tr-comment">kumaşı çok kaliteli çok rahat beklediğimizden daha güzel oldu fiyatına göre bu elbise mükemmel</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="4">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">B** N** O**</span>
-<span class="tr-date">13 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★☆</div>
+<div><div class="tr-username">B** N** O**</div><div class="tr-date">13 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 159 cm</span><span class="tr-tag">Kilo: 55 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">elbise güzel ama kalıp küçük bir beden büyük almalısınız</div>
+<div class="tr-comment">elbise güzel ama kalıp küçük bir beden büyük almalısınız</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">T** Ç**</span>
-<span class="tr-date">7 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">T** Ç**</div><div class="tr-date">7 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">Bu elbisenib kalitesi için soylenebilecek tek kelime mükemmel</div>
+<div class="tr-comment">Bu elbisenib kalitesi için soylenebilecek tek kelime mükemmel</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="3">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">E** B**</span>
-<span class="tr-date">10 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★☆☆</div>
+<div><div class="tr-username">E** B**</div><div class="tr-date">10 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★☆☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">ürün kalıbı güzel, fotoğrafta göründüğü gibi, kırışmayan bir kumaş ama ince bir kumaş bu sebeple biraz basit duruyor. ürün astarı yok ince olduğu için ışık vurduğunda iç gösteriyor. 163 boy 62 kilo için M beden tam oldu.</div>
+<div class="tr-comment">ürün kalıbı güzel, fotoğrafta göründüğü gibi, kırışmayan bir kumaş ama ince bir kumaş bu sebeple biraz basit duruyor. ürün astarı yok ince olduğu için ışık vurduğunda iç gösteriyor. 163 boy 62 kilo için M beden tam oldu.</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Z** U**</span>
-<span class="tr-date">1 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Z** U**</div><div class="tr-date">1 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 54 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">Ürün çok güzel paketlemesi harika bu fiyata gerçekten kaliteli bir ürün</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2019922/903617460/6854683-1764582536629.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Ürün çok güzel paketlemesi harika bu fiyata gerçekten kaliteli bir ürün</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2019922/903617460/6854683-1764582536629.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Ü** T**</span>
-<span class="tr-date">3 Eylül 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Ü** T**</div><div class="tr-date">3 Eylül 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 165 cm</span><span class="tr-tag">Kilo: 66 kg</span><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">Guzel begendim sadece arka tarafi birazcik on tara gore uzun ama sorun degil benim icin daha iyi</div>
+<div class="tr-comment">Guzel begendim sadece arka tarafi birazcik on tara gore uzun ama sorun degil benim icin daha iyi</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="4">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">G** G** Ö**</span>
-<span class="tr-date">14 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★☆</div>
+<div><div class="tr-username">G** G** Ö**</div><div class="tr-date">14 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 57 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">Etek kısmı biraz fazla geniş. Ama kumaş kalitesi güzel.</div>
+<div class="tr-comment">Etek kısmı biraz fazla geniş. Ama kumaş kalitesi güzel.</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Demet H. B.</span>
-<span class="tr-date">25 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Demet H. B.</div><div class="tr-date">25 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 170 cm</span><span class="tr-tag">Kilo: 62 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">Uzun zamandır aradığım o siyah elbise olabilir bu elbisee 😇 bayıldımm.Bir moda tasarımcısı olarak kalıbını ve kumaşını çok beğendim. Dikiş kaliteside çok iyi.içinde kendinizi çok iyi hissediyorsunuz.Bu arada çok güzel bir kutu ile geliyor.Bu fiyata harika bir elbise</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058291734.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058292439.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058293037.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Uzun zamandır aradığım o siyah elbise olabilir bu elbisee 😇 bayıldımm.Bir moda tasarımcısı olarak kalıbını ve kumaşını çok beğendim. Dikiş kaliteside çok iyi.içinde kendinizi çok iyi hissediyorsunuz.Bu arada çok güzel bir kutu ile geliyor.Bu fiyata harika bir elbise</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058291734.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058292439.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2043850/903617460/12387179-1764058293037.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">Z** B**</span>
-<span class="tr-date">6 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">Z** B**</div><div class="tr-date">6 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 158 cm</span><span class="tr-tag">Kilo: 50 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">158 boy 49 kilo ve üst 75C tam oldu. Beli cidden saran, nadir bulunan elbiselerden. Eteğinin boyu dizin 5 parmak üstü ya vardır ya yoktur Arkasını da dümdüz devam ettirmemişler o kısmı da gerçekten çok iyi. Koltukaltı potluk yapmadı. Fermuar kısmı hiç tekte bozulur gibi durmuyor. Rengi tam siyah Gerçekten tam da satıcının koyduğu fotoğraflardaki gibi</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770406476.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770405559.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770407433.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">158 boy 49 kilo ve üst 75C tam oldu. Beli cidden saran, nadir bulunan elbiselerden. Eteğinin boyu dizin 5 parmak üstü ya vardır ya yoktur Arkasını da dümdüz devam ettirmemişler o kısmı da gerçekten çok iyi. Koltukaltı potluk yapmadı. Fermuar kısmı hiç tekte bozulur gibi durmuyor. Rengi tam siyah Gerçekten tam da satıcının koyduğu fotoğraflardaki gibi</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770406476.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770405559.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2024907/903617460/92094930-1759770407433.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">R** Ö** L**</span>
-<span class="tr-date">16 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">R** Ö** L**</div><div class="tr-date">16 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 163 cm</span><span class="tr-tag">Kilo: 45 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">Ben biraz tadilat yaptırdım kollarını kestirdim ama dokuşu duruşu fiyat performansı 🤌🏼</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2034877/903617460/5798288-1760627018089.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Ben biraz tadilat yaptırdım kollarını kestirdim ama dokuşu duruşu fiyat performansı 🤌🏼</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2034877/903617460/5798288-1760627018089.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">N** C**</span>
-<span class="tr-date">18 Ekim 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">N** C**</div><div class="tr-date">18 Ekim 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 163 cm</span><span class="tr-tag">Kilo: 87 kg</span><span class="tr-tag">Beden: XL</span></div>
-<div class="tr-comment-text">Sarı ve mavi rengi ile kesimleri aynı değil ama mükemmel bir elbise. Önceki siparişimdeki kargo problemi bu siparişimde çözülmüş ve düzgün bir kutuyla siparişimi teslim aldım. Kargoyu da hızlı çıkıyorlar beklemiyorsunuz. Bir beden büyük alın diyenleri anlayamadım bence tam kalıp. Elbise boyu siyah renginde daha uzun.</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2036871/903617460/15196409-1760768756327.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Sarı ve mavi rengi ile kesimleri aynı değil ama mükemmel bir elbise. Önceki siparişimdeki kargo problemi bu siparişimde çözülmüş ve düzgün bir kutuyla siparişimi teslim aldım. Kargoyu da hızlı çıkıyorlar beklemiyorsunuz. Bir beden büyük alın diyenleri anlayamadım bence tam kalıp. Elbise boyu siyah renginde daha uzun.</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media-migrated_1755700289924/img/2018925/2028895/2036871/903617460/15196409-1760768756327.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">F** Ç**</span>
-<span class="tr-date">28 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">F** Ç**</div><div class="tr-date">28 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 57 kg</span><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">Fiyat performans olarak güzel kumaşını biraz kalın ve tok olmasını isterdim . Kesimi çok hoş</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2046841/903617460/14915735-1766941012847.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2046841/903617460/14915735-1766941014511.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Fiyat performans olarak güzel kumaşını biraz kalın ve tok olmasını isterdim . Kesimi çok hoş</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2046841/903617460/14915735-1766941012847.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2046841/903617460/14915735-1766941014511.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">n** k**</span>
-<span class="tr-date">18 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">n** k**</div><div class="tr-date">18 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 173 cm</span><span class="tr-tag">Kilo: 60 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">Elbise hayretten kaliteli ve çok şirin tatlış bir elbise.satıcı çok özenliymiş.hediye paketinde göndermişler çok tşk ederim.jargo gerçekten hızlıydı</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2036871/903617460/15676763-1766070386096.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2036871/903617460/15676763-1766070386810.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Elbise hayretten kaliteli ve çok şirin tatlış bir elbise.satıcı çok özenliymiş.hediye paketinde göndermişler çok tşk ederim.jargo gerçekten hızlıydı</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2036871/903617460/15676763-1766070386096.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2030889/2036871/903617460/15676763-1766070386810.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="true" data-star="3">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">U** A**</span>
-<span class="tr-date">12 Kasım 2025</span>
-</div>
-<div class="tr-card-stars">★★★☆☆</div>
+<div><div class="tr-username">U** A**</div><div class="tr-date">12 Kasım 2025</div></div>
+<div class="tr-stars-small">★★★☆☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 166 cm</span><span class="tr-tag">Kilo: 70 kg</span><span class="tr-tag">Beden: XL</span></div>
-<div class="tr-comment-text">Ürün dar kalıp ve lekeli geldi</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942383491.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942381104.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942382109.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-comment">Ürün dar kalıp ve lekeli geldi</div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942383491.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942381104.jpeg" class="tr-thumb tr-lb-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-product-review-media_1762732810909/img/2018925/2029892/2030889/903617460/7532637-1762942382109.jpeg" class="tr-thumb tr-lb-trigger"></div>
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">F** ı** t**</span>
-<span class="tr-date">18 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">F** ı** t**</div><div class="tr-date">18 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: M</span></div>
-<div class="tr-comment-text">efsane.cok güzel.👍👍</div>
+<div class="tr-comment">efsane.cok güzel.👍👍</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="5">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">**** ****</span>
-<span class="tr-date">18 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★★★</div>
+<div><div class="tr-username">**** ****</div><div class="tr-date">18 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★★★</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 163 cm</span><span class="tr-tag">Kilo: 48 kg</span><span class="tr-tag">Beden: S</span></div>
-<div class="tr-comment-text">boyu biraz uzun geldi ama kumaşı falan çok kaliteli</div>
+<div class="tr-comment">boyu biraz uzun geldi ama kumaşı falan çok kaliteli</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="3">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">**** ****</span>
-<span class="tr-date">20 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★★☆☆</div>
+<div><div class="tr-username">**** ****</div><div class="tr-date">20 Aralık 2025</div></div>
+<div class="tr-stars-small">★★★☆☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text">kumaşı kalın tok kumaşa.ama aşırı dar kalıp.ve göründüğüne göre daha mini.</div>
+<div class="tr-comment">kumaşı kalın tok kumaşa.ama aşırı dar kalıp.ve göründüğüne göre daha mini.</div>
 
 </div>
-<div class="tr-card">
+<div class="tr-card" data-has-photo="false" data-star="2">
 <div class="tr-card-top">
-<div class="tr-user-info">
-<span class="tr-username">A** G**</span>
-<span class="tr-date">19 Aralık 2025</span>
-</div>
-<div class="tr-card-stars">★★☆☆☆</div>
+<div><div class="tr-username">A** G**</div><div class="tr-date">19 Aralık 2025</div></div>
+<div class="tr-stars-small">★★☆☆☆</div>
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 156 cm</span><span class="tr-tag">Kilo: 67 kg</span><span class="tr-tag">Beden: L</span></div>
-<div class="tr-comment-text"></div>
+<div class="tr-comment">dikişler eğri dikilmiş. elbise yamuk duruyor. arka fermuar, sağa yatık. oysaki elbisenin duruşu kalıbı güzel, kırtarıcı bir elbise ama fiyatının ederi değil</div>
 
 </div>
 </div>
-<button class="tr-nav-btn tr-next" id="next_tr_carousel_78302">&#10095;</button>
+<button class="tr-nav-btn tr-next" id="next_tr_widget_23021">&#10095;</button>
 </div>
 
-<div id="lightbox_tr_carousel_78302" class="tr-lightbox-overlay">
-<span class="tr-close-btn" id="close_tr_carousel_78302">&times;</span>
-<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_78302">&#10094;</div>
-<img class="tr-lightbox-img" id="img_tr_carousel_78302" src=">
-<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_78302">&#10095;</div>
+<div id="lb_tr_widget_23021" class="tr-lightbox">
+<span class="tr-lb-close" id="lb_close_tr_widget_23021">&times;</span>
+<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_widget_23021">&#10094;</div>
+<img class="tr-lb-img" id="lb_img_tr_widget_23021" src=">
+<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_widget_23021">&#10095;</div>
 </div>
 
 <script>
 (function() {
-// CAROUSEL
-const track = document.getElementById('track_tr_carousel_78302');
-const prevBtn = document.getElementById('prev_tr_carousel_78302');
-const nextBtn = document.getElementById('next_tr_carousel_78302');
+const root = document.getElementById('tr_widget_23021');
+const track = document.getElementById('track_tr_widget_23021');
+const prevBtn = document.getElementById('prev_tr_widget_23021');
+const nextBtn = document.getElementById('next_tr_widget_23021');
+
+// --- FILTRELEME MANTIĞI ---
+let activeFilter = 'all';
+let activeStar = null; // null means 'all stars'
+
+function applyFilters() {
+const cards = track.querySelectorAll('.tr-card');
+let visibleCount = 0;
+
+cards.forEach(card => {
+const hasPhoto = card.getAttribute('data-has-photo') === 'true';
+const star = parseInt(card.getAttribute('data-star'));
+
+let show = true;
+
+// Konu Filtresi
+if (activeFilter === 'photo' && !hasPhoto) show = false;
+
+// Puan Filtresi
+if (activeStar !== null && star !== activeStar) show = false;
+
+if (show) {
+card.classList.remove('hidden');
+visibleCount++;
+} else {
+card.classList.add('hidden');
+}
+});
+
+// Carousel'i başa sar ve güncelle
+currentIndex = 0;
+updateCarousel();
+}
+
+// Buton Eventleri
+const filterBtns = root.querySelectorAll('.tr-filter-btn');
+filterBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+// Active class yönetimi
+if(btn.hasAttribute('data-filter')) {
+// Konu butonu
+root.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+activeFilter = btn.getAttribute('data-filter');
+} else if(btn.hasAttribute('data-star')) {
+// Yıldız butonu - Toggle mantığı (aynısına basınca kapat)
+const starVal = parseInt(btn.getAttribute('data-star'));
+if (activeStar === starVal) {
+activeStar = null; // Filtreyi kaldır
+btn.classList.remove('active');
+} else {
+root.querySelectorAll('[data-star]').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+activeStar = starVal;
+}
+}
+applyFilters();
+});
+});
+
+// --- CAROUSEL MANTIĞI ---
 let currentIndex = 0;
 function updateCarousel() {
-if(!track) return; const card = track.querySelector('.tr-card'); if(!card) return;
-const cardWidth = card.offsetWidth; const gap = 20; 
+const visibleCards = Array.from(track.querySelectorAll('.tr-card:not(.hidden)'));
+
+if(visibleCards.length === 0) {
+track.style.transform = 'translateX(0)';
+prevBtn.style.display = 'none';
+nextBtn.style.display = 'none';
+return;
+} else {
+prevBtn.style.display = 'flex';
+nextBtn.style.display = 'flex';
+}
+
+const cardWidth = visibleCards[0].offsetWidth;
+const gap = 20; 
 const moveAmount = (cardWidth + gap) * currentIndex;
 track.style.transform = `translateX(-${moveAmount}px)`;
+
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+
 prevBtn.disabled = currentIndex === 0;
-const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-const totalCards = track.children.length;
-nextBtn.disabled = currentIndex >= totalCards - cardsToShow;
-}
-if(nextBtn) nextBtn.addEventListener('click', () => {
-const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
-if (currentIndex < track.children.length - cardsToShow) { currentIndex++; updateCarousel(); }
-});
-if(prevBtn) prevBtn.addEventListener('click', () => {
-if (currentIndex > 0) { currentIndex--; updateCarousel(); }
-});
-window.addEventListener('resize', updateCarousel);
-window.addEventListener('load', updateCarousel);
-setTimeout(updateCarousel, 500);
-
-// --- LIGHTBOX JS ---
-const lightbox = document.getElementById('lightbox_tr_carousel_78302');
-const lightboxImg = document.getElementById('img_tr_carousel_78302');
-const closeBtn = document.getElementById('close_tr_carousel_78302');
-const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_78302');
-const lbNextBtn = document.getElementById('lb_next_tr_carousel_78302');
-
-// Resim listesi ve indeks
-const triggers = document.querySelectorAll('#tr_carousel_78302 .tr-lightbox-trigger');
-let lightboxImages = [];
-triggers.forEach(img => lightboxImages.push(img.src));
-let currentLightboxIndex = 0;
-
-function updateLightboxImage() {
-lightboxImg.style.opacity = '0.5';
-setTimeout(() => {
-lightboxImg.src = lightboxImages[currentLightboxIndex];
-lightboxImg.style.opacity = '1';
-}, 150);
-
-// Tek resim varsa okları gizle
-if(lightboxImages.length <= 1) {
-lbPrevBtn.style.display = 'none'; lbNextBtn.style.display = 'none';
-} else {
-lbPrevBtn.style.display = 'flex'; lbNextBtn.style.display = 'flex';
-}
+nextBtn.disabled = currentIndex >= visibleCards.length - cardsToShow;
 }
 
-triggers.forEach((img, index) => {
-img.addEventListener('click', () => {
-lightbox.style.display = 'flex';
-currentLightboxIndex = index;
-updateLightboxImage();
-});
-});
-
-if(lbNextBtn) {
-lbNextBtn.addEventListener('click', (e) => {
-e.stopPropagation();
-currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
-updateLightboxImage();
-});
-}
-
-if(lbPrevBtn) {
-lbPrevBtn.addEventListener('click', (e) => {
-e.stopPropagation();
-currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
-updateLightboxImage();
-});
-}
-
-function closeLightbox() { lightbox.style.display = 'none'; }
-if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
-if(lightbox) light
+nextBtn.addEventListener('click', () => {
+const visibleCar
