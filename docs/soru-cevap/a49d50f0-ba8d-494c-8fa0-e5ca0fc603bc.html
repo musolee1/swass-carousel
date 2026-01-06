@@ -1,0 +1,132 @@
+<div id="qa_widget_99600" class="qa-wrapper">
+<style>
+#qa_widget_99600 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #333; box-sizing: border-box; background-color: #fff; padding: 10px; width: 100%; position: relative; overflow: hidden; }
+#qa_widget_99600 * { box-sizing: border-box; }
+/* HEADER */
+#qa_widget_99600 .qa-header { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; padding-left: 5px; border-left: 4px solid #F27A1A; line-height: 1; color: #111; }
+/* CAROUSEL CONTAINER */
+#qa_widget_99600 .qa-carousel-container { position: relative; overflow: hidden; padding: 5px 0; }
+#qa_widget_99600 .qa-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); gap: 15px; }
+/* CARD DESIGN */
+#qa_widget_99600 .qa-card { flex: 0 0 calc(33.333% - 10px); /* Desktop: 3 Kart */
+background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; padding: 0; display: flex; flex-direction: column; min-height: 280px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+@media (max-width: 768px) { #qa_widget_99600 .qa-card { flex: 0 0 100%; } /* Mobil: 1 Kart */
+}
+/* QUESTION SECTION */
+#qa_widget_99600 .qa-q-box { background-color: #f9f9f9; padding: 15px; border-bottom: 1px solid #eee; border-radius: 12px 12px 0 0; flex-grow: 1; }
+#qa_widget_99600 .qa-q-text { font-weight: 600; font-size: 0.95rem; color: #333; margin-bottom: 8px; line-height: 1.4; }
+#qa_widget_99600 .qa-q-meta { font-size: 0.75rem; color: #999; display: flex; justify-content: space-between; }
+/* ANSWER SECTION */
+#qa_widget_99600 .qa-a-box { padding: 15px; background: #fff; border-radius: 0 0 12px 12px; }
+#qa_widget_99600 .qa-seller-header { display: flex; align-items: center; margin-bottom: 8px; }
+#qa_widget_99600 .qa-seller-badge { background: #F27A1A; color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; margin-right: 6px; font-weight: 700; }
+#qa_widget_99600 .qa-seller-name { font-size: 0.85rem; font-weight: 700; color: #F27A1A; }
+#qa_widget_99600 .qa-a-text { font-size: 0.9rem; color: #555; line-height: 1.5; }
+#qa_widget_99600 .qa-date-diff { font-size: 0.7rem; color: #ccc; margin-top: 8px; display: block; }
+/* NAV BUTTONS */
+#qa_widget_99600 .qa-nav-btn { position: absolute; top: 50%; transform: translateY(-50%);
+width: 36px; height: 36px; border-radius: 50%; background: #fff; border: 1px solid #ddd; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+font-size: 18px; color: #333; cursor: pointer; z-index: 10;
+display: flex; align-items: center; justify-content: center;
+transition: all 0.2s;
+}
+#qa_widget_99600 .qa-nav-btn:hover { background: #333; color: #fff; border-color: #333; }
+#qa_widget_99600 .qa-nav-btn:disabled { opacity: 0; pointer-events: none; }
+#qa_widget_99600 .qa-prev { left: 0; }
+#qa_widget_99600 .qa-next { right: 0; }
+</style>
+<div class="qa-header">Soru & Cevap (2)</div>
+<div class="qa-carousel-container">
+<button class="qa-nav-btn qa-prev" id="prev_qa_widget_99600">&#10094;</button>
+<div class="qa-track" id="track_qa_widget_99600">
+<div class="qa-card">
+<div class="qa-q-box">
+<div class="qa-q-text">hangi kargo ile gönderiyorsunuz</div>
+<div class="qa-q-meta">
+<span>**** ****</span>
+<span>13 Eylül 2025</span>
+</div>
+</div>
+<div class="qa-a-box">
+<div class="qa-seller-header">
+<span class="qa-seller-badge">Satıcı</span>
+<span class="qa-seller-name">SWASS ONLİNE</span>
+</div>
+<div class="qa-a-text">Merhabalar, konumunuza göre Trendyol express ya da MNG ile gönderim sağlamaktayız. Ürünler genellikle 1-2 iş günü içerisinde gönderilmekte.</div>
+<span class="qa-date-diff">20 saat içinde cevaplandı.</span>
+</div>
+</div>
+<div class="qa-card">
+<div class="qa-q-box">
+<div class="qa-q-text">mrblar 3xl basen olcusu nedir acaba</div>
+<div class="qa-q-meta">
+<span>**** ****</span>
+<span>18 Ağustos 2025</span>
+</div>
+</div>
+<div class="qa-a-box">
+<div class="qa-seller-header">
+<span class="qa-seller-badge">Satıcı</span>
+<span class="qa-seller-name">SWASS ONLİNE</span>
+</div>
+<div class="qa-a-text">Merhabalar, 117 cm'dir</div>
+<span class="qa-date-diff">54 dakika içinde cevaplandı.</span>
+</div>
+</div>
+</div>
+<button class="qa-nav-btn qa-next" id="next_qa_widget_99600">&#10095;</button>
+</div>
+<script>
+(function() {
+const root = document.getElementById('qa_widget_99600');
+const track = document.getElementById('track_qa_widget_99600');
+const prevBtn = document.getElementById('prev_qa_widget_99600');
+const nextBtn = document.getElementById('next_qa_widget_99600');
+let currentIndex = 0;
+// Auto-Height (iFrame iletişimi)
+function sendHeight() {
+const height = root.scrollHeight;
+if (window.parent) {
+window.parent.postMessage({ type: 'qa-height', height: height }, '*');
+}
+}
+window.addEventListener('load', () => setTimeout(sendHeight, 200));
+window.addEventListener('resize', sendHeight);
+// Carousel Logic
+function updateCarousel() {
+const cards = track.children;
+if(cards.length === 0) return;
+const cardWidth = cards[0].offsetWidth;
+const gap = 15; const moveAmount = (cardWidth + gap) * currentIndex;
+track.style.transform = `translateX(-${moveAmount}px)`;
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+prevBtn.disabled = currentIndex === 0;
+nextBtn.disabled = currentIndex >= cards.length - cardsToShow;
+// Eğer toplam kart sayısı ekranda görünenden azsa butonları gizle
+if (cards.length <= cardsToShow) {
+prevBtn.style.display = 'none';
+nextBtn.style.display = 'none';
+} else {
+prevBtn.style.display = 'flex';
+nextBtn.style.display = 'flex';
+}
+}
+nextBtn.addEventListener('click', () => {
+const cardsToShow = window.innerWidth <= 768 ? 1 : 3;
+if (currentIndex < track.children.length - cardsToShow) {
+currentIndex++;
+updateCarousel();
+}
+});
+prevBtn.addEventListener('click', () => {
+if (currentIndex > 0) {
+currentIndex--;
+updateCarousel();
+}
+});
+window.addEventListener('resize', updateCarousel);
+setTimeout(updateCarousel, 500);
+})();
+</script>
+</div>
