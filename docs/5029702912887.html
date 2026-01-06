@@ -1,81 +1,92 @@
-<div id="tr_carousel_36355" class="tr-wrapper">
+<div id="tr_carousel_37620" class="tr-wrapper">
 <style>
 /* CONTAINER */
-#tr_carousel_36355 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
+#tr_carousel_37620 { font-family: 'Inter', sans-serif; color: #1f1f1f; max-width: 100%; box-sizing: border-box; background-color: #fcfcfc; padding: 20px; position: relative; }
 
-/* HEADER & AI CARD STYLES (Aynı kaldı) */
-#tr_carousel_36355 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
-#tr_carousel_36355 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
-#tr_carousel_36355 .tr-rating-details { display: flex; flex-direction: column; }
-#tr_carousel_36355 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
-#tr_carousel_36355 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
-#tr_carousel_36355 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
-#tr_carousel_36355 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
-#tr_carousel_36355 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
+/* HEADER */
+#tr_carousel_37620 .tr-header-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 30px; display: flex; align-items: center; margin-bottom: 25px; }
+#tr_carousel_37620 .tr-rating-big { font-size: 2.5rem; font-weight: 800; margin-right: 20px; color: #000; line-height: 1; }
+#tr_carousel_37620 .tr-rating-details { display: flex; flex-direction: column; }
+#tr_carousel_37620 .tr-stars-gold { color: #F27A1A; font-size: 1.25rem; letter-spacing: 2px; margin-bottom: 2px; line-height: 1; }
+#tr_carousel_37620 .tr-rating-label { font-size: 0.85rem; color: #666; text-transform: uppercase; font-weight: 600; }
+#tr_carousel_37620 .tr-count-text { font-size: 0.75rem; color: #999; font-weight: 500; margin-top: 2px; }
 
-/* CAROUSEL & CARD STYLES (Aynı kaldı) */
-#tr_carousel_36355 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
-#tr_carousel_36355 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
-#tr_carousel_36355 .tr-card { 
+/* AI CARD */
+#tr_carousel_37620 .tr-ai-card { background: #f4f4f4; border-left: 5px solid #000; border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+#tr_carousel_37620 .tr-ai-title { display: flex; align-items: center; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px; color: #000; }
+
+/* CAROUSEL */
+#tr_carousel_37620 .tr-carousel-container { position: relative; overflow: hidden; padding: 10px 0; }
+#tr_carousel_37620 .tr-track { display: flex; transition: transform 0.5s ease-in-out; gap: 20px; }
+
+#tr_carousel_37620 .tr-card { 
 flex: 0 0 calc(33.333% - 14px); background: #fff; border: 1px solid #eaeaea; border-radius: 16px; 
 padding: 24px; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.04); box-sizing: border-box; height: auto; min-height: 350px; 
 }
-@media (max-width: 768px) { #tr_carousel_36355 .tr-card { flex: 0 0 100%; } }
-#tr_carousel_36355 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
-#tr_carousel_36355 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
-#tr_carousel_36355 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
-#tr_carousel_36355 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
-#tr_carousel_36355 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
-#tr_carousel_36355 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
-#tr_carousel_36355 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
+@media (max-width: 768px) { #tr_carousel_37620 .tr-card { flex: 0 0 100%; } }
 
-#tr_carousel_36355 .tr-nav-btn { 
+#tr_carousel_37620 .tr-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+#tr_carousel_37620 .tr-username { font-weight: 700; font-size: 0.95rem; color: #000; }
+#tr_carousel_37620 .tr-date { font-size: 0.75rem; color: #888; display:block; margin-top:2px; }
+#tr_carousel_37620 .tr-card-stars { color: #F27A1A; font-size: 0.9rem; }
+#tr_carousel_37620 .tr-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 15px; }
+#tr_carousel_37620 .tr-tag { background: #f7f7f7; color: #444; font-size: 0.7rem; padding: 4px 8px; border-radius: 20px; border: 1px solid #eee; font-weight: 600; }
+#tr_carousel_37620 .tr-comment-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 20px; flex-grow: 1; overflow: hidden; }
+
+/* Carousel Buttons */
+#tr_carousel_37620 .tr-nav-btn { 
 position: absolute; top: 50%; transform: translateY(-50%); background: #000; color: #fff; border: none; 
 width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; display: flex; 
 align-items: center; justify-content: center; font-size: 1.2rem; opacity: 0.8; transition: opacity 0.3s;
 }
-#tr_carousel_36355 .tr-nav-btn:hover { opacity: 1; }
-#tr_carousel_36355 .tr-prev { left: 0; }
-#tr_carousel_36355 .tr-next { right: 0; }
-#tr_carousel_36355 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+#tr_carousel_37620 .tr-nav-btn:hover { opacity: 1; }
+#tr_carousel_37620 .tr-prev { left: 0; }
+#tr_carousel_37620 .tr-next { right: 0; }
+#tr_carousel_37620 .tr-nav-btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
 
-/* GALERİ THUMBNAILS */
-#tr_carousel_36355 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
-#tr_carousel_36355 .tr-thumb { 
+/* Thumbnails */
+#tr_carousel_37620 .tr-gallery { display: flex; gap: 8px; overflow-x: auto; margin-top: auto; padding-top: 10px; }
+#tr_carousel_37620 .tr-thumb { 
 width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; 
 cursor: zoom-in; transition: transform 0.2s;
 }
-#tr_carousel_36355 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
+#tr_carousel_37620 .tr-thumb:hover { transform: scale(1.05); border-color: #000; }
 
-/* --- YENİ: GELİŞMİŞ LIGHTBOX STİLLERİ --- */
-#tr_carousel_36355 .tr-lightbox-overlay {
+/* --- LIGHTBOX (NAVİGASYON DÜZELTİLDİ) --- */
+#tr_carousel_37620 .tr-lightbox-overlay {
 display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; 
-background-color: rgba(0,0,0,0.9); /* Biraz daha koyu arka plan */
+background-color: rgba(0,0,0,0.9);
 justify-content: center; align-items: center; flex-direction: column;
 user-select: none;
 }
-#tr_carousel_36355 .tr-lightbox-img {
+#tr_carousel_37620 .tr-lightbox-img {
 max-width: 90%; max-height: 85vh; border-radius: 4px; box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-transition: opacity 0.3s ease;
+transition: opacity 0.3s ease; position: relative; z-index: 100000;
 }
-#tr_carousel_36355 .tr-close-btn {
+#tr_carousel_37620 .tr-close-btn {
 position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: 300;
 cursor: pointer; z-index: 100002; transition: color 0.2s;
 }
-#tr_carousel_36355 .tr-close-btn:hover { color: #F27A1A; }
+#tr_carousel_37620 .tr-close-btn:hover { color: #F27A1A; }
 
-/* Lightbox İçi Navigasyon Okları */
-#tr_carousel_36355 .tr-lb-nav {
+/* Lightbox Okları (Daha belirgin hale getirildi) */
+#tr_carousel_37620 .tr-lb-nav {
 position: absolute; top: 50%; transform: translateY(-50%);
-color: #fff; font-size: 50px; cursor: pointer; z-index: 100001;
-padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
+color: #fff; font-size: 30px; cursor: pointer; z-index: 100002; /* En üstte */
+width: 50px; height: 50px; background: rgba(255,255,255,0.15); /* Hafif arka plan */
+border-radius: 50%; display: flex; align-items: center; justify-content: center;
+transition: all 0.2s;
 }
-#tr_carousel_36355 .tr-lb-nav:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
-#tr_carousel_36355 .tr-lb-prev { left: 20px; }
-#tr_carousel_36355 .tr-lb-next { right: 20px; }
+#tr_carousel_37620 .tr-lb-nav:hover { background: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); }
 
-/* Mobilde okları biraz küçült */
-@media (max-width: 768px) { #tr_carousel_36355 .tr-lb-nav { font-size: 35px; padding: 5px; } }
+#tr_carousel_37620 .tr-lb-prev { left: 30px; }
+#tr_carousel_37620 .tr-lb-next { right: 30px; }
+
+@media (max-width: 768px) { 
+#tr_carousel_37620 .tr-lb-nav { width: 40px; height: 40px; font-size: 24px; }
+#tr_carousel_37620 .tr-lb-prev { left: 10px; }
+#tr_carousel_37620 .tr-lb-next { right: 10px; }
+}
 </style>
 
 <div class="tr-header-card">
@@ -83,13 +94,13 @@ padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
 <div class="tr-rating-details">
 <div class="tr-stars-gold">★★★★☆</div>
 <div class="tr-rating-label">Genel Ortalama</div>
-<div class="tr-count-text"></div>
+<div class="tr-count-text">5 Değerlendirme 4 Yorum</div>
 </div>
 </div>
 
 <div class="tr-carousel-container">
-<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_36355">&#10094;</button>
-<div class="tr-track" id="track_tr_carousel_36355">
+<button class="tr-nav-btn tr-prev" id="prev_tr_carousel_37620">&#10094;</button>
+<div class="tr-track" id="track_tr_carousel_37620">
 
 <div class="tr-card">
 <div class="tr-card-top">
@@ -113,7 +124,7 @@ padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
 </div>
 <div class="tr-tags"><span class="tr-tag">Boy: 160 cm</span><span class="tr-tag">Kilo: 57 kg</span><span class="tr-tag">Beden: M</span></div>
 <div class="tr-comment-text">Gerçekten çok güzel ve çok hoş oldu tam bedeninizi alın kalıbı da çok güzel 👍🏻</div>
-<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756808468433/img/2017928/2024907/2042853/743104301/27160711-1721898252269.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756825987906/img/2017928/2024907/2042853/743104301/27160711-1721898253312.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756808468433/img/2017928/2024907/2042853/743104301/27160711-1721898252799.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
+<div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756808468433/img/2017928/2024907/2042853/743104301/27160711-1721898252269.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756808468433/img/2017928/2024907/2042853/743104301/27160711-1721898252799.jpeg" class="tr-thumb tr-lightbox-trigger"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756825987906/img/2017928/2024907/2042853/743104301/27160711-1721898253312.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
 </div>
 <div class="tr-card">
 <div class="tr-card-top">
@@ -140,22 +151,22 @@ padding: 10px; opacity: 0.6; transition: opacity 0.2s, transform 0.2s;
 <div class="tr-gallery"><img src="https://cdn.dsmcdn.com/mnresize/300/300/prod-migrated-product-review-media_1756746367025/img/2017928/2026901/2023910/743104301/21493358-1725627639456.jpeg" class="tr-thumb tr-lightbox-trigger"></div>
 </div>
 </div>
-<button class="tr-nav-btn tr-next" id="next_tr_carousel_36355">&#10095;</button>
+<button class="tr-nav-btn tr-next" id="next_tr_carousel_37620">&#10095;</button>
 </div>
 
-<div id="lightbox_tr_carousel_36355" class="tr-lightbox-overlay">
-<span class="tr-close-btn" id="close_tr_carousel_36355">&times;</span>
-<span class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_36355">&#10094;</span>
-<img class="tr-lightbox-img" id="img_tr_carousel_36355" src=">
-<span class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_36355">&#10095;</span>
+<div id="lightbox_tr_carousel_37620" class="tr-lightbox-overlay">
+<span class="tr-close-btn" id="close_tr_carousel_37620">&times;</span>
+<div class="tr-lb-nav tr-lb-prev" id="lb_prev_tr_carousel_37620">&#10094;</div>
+<img class="tr-lightbox-img" id="img_tr_carousel_37620" src=">
+<div class="tr-lb-nav tr-lb-next" id="lb_next_tr_carousel_37620">&#10095;</div>
 </div>
 
 <script>
 (function() {
-// --- CAROUSEL LOGIC (Eski kodun aynısı) ---
-const track = document.getElementById('track_tr_carousel_36355');
-const prevBtn = document.getElementById('prev_tr_carousel_36355');
-const nextBtn = document.getElementById('next_tr_carousel_36355');
+// CAROUSEL
+const track = document.getElementById('track_tr_carousel_37620');
+const prevBtn = document.getElementById('prev_tr_carousel_37620');
+const nextBtn = document.getElementById('next_tr_carousel_37620');
 let currentIndex = 0;
 function updateCarousel() {
 if(!track) return; const card = track.querySelector('.tr-card'); if(!card) return;
@@ -178,75 +189,64 @@ window.addEventListener('resize', updateCarousel);
 window.addEventListener('load', updateCarousel);
 setTimeout(updateCarousel, 500);
 
-// --- YENİ: GELİŞMİŞ LIGHTBOX GALERİ LOGIC ---
-const lightbox = document.getElementById('lightbox_tr_carousel_36355');
-const lightboxImg = document.getElementById('img_tr_carousel_36355');
-const closeBtn = document.getElementById('close_tr_carousel_36355');
-const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_36355');
-const lbNextBtn = document.getElementById('lb_next_tr_carousel_36355');
+// --- LIGHTBOX JS ---
+const lightbox = document.getElementById('lightbox_tr_carousel_37620');
+const lightboxImg = document.getElementById('img_tr_carousel_37620');
+const closeBtn = document.getElementById('close_tr_carousel_37620');
+const lbPrevBtn = document.getElementById('lb_prev_tr_carousel_37620');
+const lbNextBtn = document.getElementById('lb_next_tr_carousel_37620');
 
-// Tüm küçük resimleri (thumbnail) seç
-const triggers = document.querySelectorAll('#tr_carousel_36355 .tr-lightbox-trigger');
-
-// Tüm resimlerin kaynaklarını (src) bir listeye at
+// Resim listesi ve indeks
+const triggers = document.querySelectorAll('#tr_carousel_37620 .tr-lightbox-trigger');
 let lightboxImages = [];
 triggers.forEach(img => lightboxImages.push(img.src));
-
 let currentLightboxIndex = 0;
 
-// Resmi güncelleme fonksiyonu
 function updateLightboxImage() {
-// Fade efekti için önce opaklığı düşür
 lightboxImg.style.opacity = '0.5';
 setTimeout(() => {
 lightboxImg.src = lightboxImages[currentLightboxIndex];
 lightboxImg.style.opacity = '1';
 }, 150);
 
-// Eğer sadece 1 resim varsa okları gizle
+// Tek resim varsa okları gizle
 if(lightboxImages.length <= 1) {
 lbPrevBtn.style.display = 'none'; lbNextBtn.style.display = 'none';
 } else {
-lbPrevBtn.style.display = 'block'; lbNextBtn.style.display = 'block';
+lbPrevBtn.style.display = 'flex'; lbNextBtn.style.display = 'flex';
 }
 }
 
-// Thumbnaillere tıklama olayını ekle (İndeks takibi ile)
 triggers.forEach((img, index) => {
 img.addEventListener('click', () => {
 lightbox.style.display = 'flex';
-currentLightboxIndex = index; // Tıklanan resmin sırasını al
+currentLightboxIndex = index;
 updateLightboxImage();
 });
 });
 
-// Sağ Ok (İleri)
 if(lbNextBtn) {
 lbNextBtn.addEventListener('click', (e) => {
-e.stopPropagation(); // Overlay'in kapanmasını engelle
-currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length; // Döngüsel artış
+e.stopPropagation();
+currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
 updateLightboxImage();
 });
 }
 
-// Sol Ok (Geri)
 if(lbPrevBtn) {
 lbPrevBtn.addEventListener('click', (e) => {
 e.stopPropagation();
-// Döngüsel azalış (Negatif değerden kaçınmak için + length eklenir)
 currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
 updateLightboxImage();
 });
 }
 
-// Kapatma Fonksiyonları
 function closeLightbox() { lightbox.style.display = 'none'; }
 if(closeBtn) closeBtn.addEventListener('click', closeLightbox);
 if(lightbox) lightbox.addEventListener('click', (e) => {
-if(e.target === lightbox) closeLightbox(); // Sadece siyah alana tıklanınca kapat
+if(e.target === lightbox) closeLightbox();
 });
 
-// Klavye Kontrolü (Opsiyonel: Sağ/Sol tuşları ile gezinme)
 document.addEventListener('keydown', (e) => {
 if(lightbox.style.display === 'flex') {
 if(e.key === 'ArrowRight') lbNextBtn.click();
